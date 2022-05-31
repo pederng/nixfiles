@@ -35,4 +35,71 @@
   home.file.".config/nvim/lua/bindings.lua".source = ./bindings.lua;
   home.file.".config/nvim/lua/autocmds.lua".source = ./autocmds.lua;
   home.file.".config/nvim/lua/commands.lua".source = ./commands.lua;
+
+  programs.git = {
+    enable = true;
+    userName = "Peder Notto Galteland";
+    userEmail = "peder.galteland@softwarelab.no";
+    aliases = {
+      a = "add";
+      b = "branch";
+      co = "checkout";
+      c = "commit";
+      ss = "status -sb";
+      s = "status";
+      graph = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+      oneline = "log --pretty=oneline";
+      mergelog = "log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --merges";
+      amend = "commit --amend -C HEAD";
+      listfiles = "diff-tree --no-commit-id --name-only -r";
+      stash-all = "stash save --include-untracked";
+      files = "!git diff --name-only $(git merge-base HEAD master)";
+      stat = "!git diff --stat $(git merge-base HEAD master)";
+      compare = "diff master...HEAD";
+    };
+    delta = {
+      enable = true;
+      options = { 
+        theme = "Monokai Extended";
+      };
+    };
+    ignores = [
+      "tags"
+      "tags.lock"
+      "*.swp"
+      "*.bak"
+      "*.swo"
+      ".ropeproject"
+      "*peder*"
+      "pytest.ini"
+      "profile"
+      "callgraph.dot"
+      "__pycache__"
+      ".bash_history"
+      "pylint-error.xml"
+      ".mypy_cache"
+      ".jira.d"
+      ".pytest_cache"
+      ".hypothesis"
+      ".sqlfluff"
+    ];
+    extraConfig = {
+      user.signingKey = "4980821A221FE5B1";
+      interactive.colorMoved = "default";
+      push.default = "current";
+      commit.gpgsign = true;
+      status.showUntrackedFiles = "all";
+      "remote \"origin\"".prune = true;
+      "mergetool \"nvim\"".cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
+      merge = {
+        tool = "nvim";
+        conflictstyle = "zdiff3";
+      };
+      mergetool.keepBackup = false;
+      web.browser = "qb";
+      "browser \"qb\"".cmd = "qutebrowser";
+      pull.rebase = false;
+      diff.algorithm = "histogram";
+    };
+  };
 }
