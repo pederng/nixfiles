@@ -15,6 +15,10 @@
   home.packages = [
     pkgs.tmux
     pkgs.neovim-nightly
+    pkgs.stylua
+    pkgs.alejandra
+    pkgs.rnix-lsp
+    pkgs.sumneko-lua-language-server
   ];
 
   # This value determines the Home Manager release that your
