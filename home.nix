@@ -27,4 +27,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.file.".config/nvim/init.lua".source = ./init.lua;
+  home.file.".config/nvim/lua/plugins.lua".source = ./plugins.lua;
+  home.file.".config/nvim/lua/colors.lua".source = ./colors.lua;
+  home.file.".config/nvim/lua/options.lua".source = ./options.lua;
+  home.file.".config/nvim/lua/bindings.lua".source = ./bindings.lua;
+  home.file.".config/nvim/lua/autocmds.lua".source = ./autocmds.lua;
+  home.file.".config/nvim/lua/commands.lua".source = ./commands.lua;
 }
