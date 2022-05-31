@@ -250,6 +250,8 @@ local sources = {
     extra_args = { "--dialect", "postgres" }
   }),
   null_ls.builtins.formatting.black,
+  null_ls.builtins.formatting.stylua,
+  null_ls.builtins.formatting.alejandra,
   null_ls.builtins.code_actions.gitsigns,
 }
 
