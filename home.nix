@@ -11,9 +11,6 @@
   ];
   home.username = "peder";
   home.homeDirectory = "/home/peder";
-  home.packages = [
-    pkgs.tmux
-  ];
 
   home.stateVersion = "21.11";
 
@@ -39,6 +36,14 @@
       alejandra
       rnix-lsp
       sumneko-lua-language-server
+    ];
+  };
+
+  programs.tmux = {
+    enable = true;
+    package = pkgs.tmux;
+    extraConfig = builtins.concatStringsSep "\n" [
+      (lib.strings.fileContents ./tmux.conf)
     ];
   };
 
