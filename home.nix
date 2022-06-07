@@ -11,10 +11,14 @@
   ];
   home.username = "peder";
   home.homeDirectory = "/home/peder";
-
+  home.packages = [
+    pkgs.dunst
+  ];
   home.stateVersion = "21.11";
 
   programs.home-manager.enable = true;
+
+  home.file.".config/dunstrc".source = ./dunstrc;
 
   programs.neovim = {
     enable = true;
