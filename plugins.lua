@@ -1,109 +1,5 @@
 local keymap = vim.keymap.set
-local cmd = vim.cmd
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-end
-
-require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-
-	-- General Utils
-	use({ "tpope/vim-commentary" })
-	use({ "tpope/vim-repeat" })
-	use({ "tpope/vim-unimpaired" })
-	use({ "tpope/vim-speeddating" })
-	use({ "tpope/vim-surround" })
-	use({ "tpope/vim-rsi" })
-	use({ "ntpeters/vim-better-whitespace" })
-	use({ "vim-scripts/ReplaceWithRegister" })
-	use({ "christoomey/vim-system-copy" })
-	use({ "christoomey/vim-tmux-navigator" })
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "nvim-lua/plenary.nvim" })
-	use({ "karb94/neoscroll.nvim" })
-
-	-- Text objects
-	use({ "kana/vim-textobj-user" })
-	use({ "kana/vim-textobj-indent" })
-	use({ "kana/vim-textobj-line" })
-	use({ "kana/vim-textobj-entire" })
-	use({ "michaeljsmith/vim-indent-object" })
-	use({ "bps/vim-textobj-python" })
-
-	-- Searching
-	use({ "nvim-telescope/telescope.nvim" })
-
-	-- LSP
-	use({ "neovim/nvim-lspconfig" })
-	use({ "folke/lsp-colors.nvim", branch = "main" })
-	use({ "hrsh7th/cmp-nvim-lsp", branch = "main" })
-	use({ "hrsh7th/cmp-buffer", branch = "main" })
-	use({ "hrsh7th/cmp-path", branch = "main" })
-	use({ "hrsh7th/cmp-cmdline", branch = "main" })
-	use({ "hrsh7th/nvim-cmp", branch = "main" })
-	use({ "jose-elias-alvarez/null-ls.nvim", branch = "main" })
-	use({ "onsails/lspkind.nvim" })
-	use({ "ray-x/lsp_signature.nvim" })
-
-	-- DB
-	use({ "tpope/vim-dadbod" })
-
-	-- File system
-	use({ "tpope/vim-vinegar" })
-
-	-- Git
-	use({ "tpope/vim-fugitive" })
-	use({ "tpope/vim-rhubarb" })
-	use({ "pwntester/octo.nvim" })
-	use({ "lewis6991/gitsigns.nvim", branch = "main" })
-
-	-- Other langs
-	use({ "sheerun/vim-polyglot" })
-	use({ "nathangrigg/vim-beancount" })
-	use({ "jjo/vim-cue" })
-	use({ "ellisonleao/glow.nvim", branch = "main" })
-
-	-- Visuals
-	use({ "folke/trouble.nvim", branch = "main" })
-	use({
-		"folke/todo-comments.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
-	})
-	use({ "romgrk/nvim-treesitter-context" })
-	use({ "nvim-lualine/lualine.nvim" })
-	use({ "akinsho/bufferline.nvim", tag = "*" })
-	use({ "RRethy/nvim-base16" })
-	use({ "folke/tokyonight.nvim" })
-	use({
-		"lewis6991/hover.nvim",
-		config = function()
-			require("hover").setup({
-				init = function()
-					require("hover.providers.lsp")
-				end,
-				preview_opts = { border = nil },
-				title = true,
-			})
-		end,
-	})
-
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
 
 local actions = require("telescope.actions")
 require("telescope").setup({
@@ -121,6 +17,14 @@ require("neoscroll").setup()
 require("lualine").setup({})
 require("trouble").setup({ mode = "document_diagnostics" })
 require("bufferline").setup({ options = { diagnostics = "nvim_lsp" } })
+require("todo-comments").setup({})
+require("hover").setup({
+	init = function()
+		require("hover.providers.lsp")
+	end,
+	preview_opts = { border = nil },
+	title = true,
+})
 
 local silent = { silent = true }
 local on_attach = function(_, bufnr)
@@ -258,6 +162,7 @@ local sources = {
 	null_ls.builtins.diagnostics.hadolint,
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
+	null_ls.builtins.diagnostics.statix,
 	null_ls.builtins.diagnostics.sqlfluff.with({
 		extra_args = { "--dialect", "postgres" },
 	}),
