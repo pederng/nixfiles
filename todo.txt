@@ -3,7 +3,6 @@ X11/xinitrc
 X11/xresources_template
 base16-hooks/update-xresources
 ctags/excludes.ctags
-dunstrc
 emacs/init.el
 fontconfig/fonts.conf
 isync/mbsyncrc
