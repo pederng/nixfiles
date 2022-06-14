@@ -1,7 +1,5 @@
 mimeapps.list xdg.mimeapps
-user-dirs.dirs xdg.userDirs
 qutebrowser/config.py programs.qutebrowser
-starship.toml programs.starship
 zsh/.zprofile programs.zsh
 zsh/.zshrc programs.zsh
 zsh/aliases programs.zsh

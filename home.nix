@@ -265,6 +265,19 @@ in {
     publicShare = "$HOME/docs";
   };
 
+  programs.starship = {
+    enable = true;
+    package = pkgs.starship;
+    settings = {
+      python = {symbol = " ";};
+      rust = {symbol = " ";};
+      directory = {fish_style_pwd_dir_length = 1;};
+      kubernetes = {disabled = true;};
+
+      aws = {disabled = true;};
+    };
+  };
+
   home.file.".config/dunstrc".source = ./dunstrc;
   home.file.".config/npm/npmrc".source = ./npmrc;
   home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
