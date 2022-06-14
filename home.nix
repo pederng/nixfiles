@@ -23,6 +23,7 @@ in {
   home.packages = [
     pkgs.dunst
     pkgs.newsboat
+    pkgs.zathura
   ];
   home.stateVersion = "21.11";
 
