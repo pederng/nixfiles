@@ -265,6 +265,19 @@ in {
     publicShare = "$HOME/docs";
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {"binary/octet-stream" = "gvim/desktop";};
+    defaultApplications = {
+      "application/pdf" = "org.pwmt.zathura.desktop";
+      "application/x-extension-html" = "org.qutebrowser.qutebrowser.desktop";
+      "image/png" = "sxiv.desktop";
+      "text/html" = "org.qutebrowser.qutebrowser.desktop";
+      "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+      "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+    };
+  };
+
   programs.starship = {
     enable = true;
     package = pkgs.starship;

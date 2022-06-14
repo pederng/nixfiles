@@ -1,4 +1,3 @@
-mimeapps.list xdg.mimeapps
 qutebrowser/config.py programs.qutebrowser
 zsh/.zprofile programs.zsh
 zsh/.zshrc programs.zsh
