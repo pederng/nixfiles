@@ -1,4 +1,3 @@
-qutebrowser/config.py programs.qutebrowser
 zsh/.zprofile programs.zsh
 zsh/.zshrc programs.zsh
 zsh/aliases programs.zsh

@@ -291,6 +291,67 @@ in {
     };
   };
 
+  programs.qutebrowser = {
+    enable = true;
+    package = pkgs.qutebrowser;
+    keyMappings = {
+      "<Ctrl-[>" = "<Escape>";
+      "<Ctrl-6>" = "<Ctrl-^>";
+      "<Ctrl-M>" = "<Return>";
+      "<Shift-Return>" = "<Return>";
+      "<Enter>" = "<Return>";
+      "<Shift-Enter>" = "<Return>";
+      "<Ctrl-Enter>" = "<Ctrl-Return>";
+    };
+    settings = {
+      completion.cmd_history_max_items = 100;
+      content.webgl = false;
+      fonts.completion.category = "bold 10pt monospace";
+      fonts.completion.entry = "10pt monospace";
+      fonts.debug_console = "10pt monospace";
+      fonts.downloads = "10pt monospace";
+      fonts.hints = "bold 10pt monospace";
+      fonts.keyhint = "10pt monospace";
+      fonts.messages.error = "10pt monospace";
+      fonts.messages.info = "10pt monospace";
+      fonts.messages.warning = "10pt monospace";
+      fonts.default_family = [
+        "DejaVu Sans Mono"
+        "Hack Nerd Font Mono"
+        "xos4 Terminus"
+        "Terminus"
+        "Monospace"
+        "Monaco"
+        "Bitstream Vera Sans Mono"
+        "Andale Mono"
+        "Courier New"
+        "Courier"
+        "Liberation Mono"
+        "monospace"
+        "Fixed"
+        "Consolas"
+        "Terminal"
+      ];
+      fonts.prompts = "10pt sans-serif";
+      fonts.statusbar = "10pt monospace";
+      # fonts.tabs = "10pt monospace";
+      tabs.position = "left";
+      tabs.width = "10%";
+    };
+    extraConfig = "
+try:
+    import custom_config
+    c.zoom.default = custom_config.ZOOM
+except (ImportError, AttributeError):
+    c.zoom.default = '100%'
+config.bind(' <Ctrl-K> ', ' completion-item-focus prev ', mode=' command ')
+config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
+";
+    searchEngines = {
+      "DEFAULT" = "https://duck.com/?q={}";
+    };
+  };
+
   home.file.".config/dunstrc".source = ./dunstrc;
   home.file.".config/npm/npmrc".source = ./npmrc;
   home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
