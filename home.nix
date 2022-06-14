@@ -27,6 +27,9 @@ in {
     pkgs.zsh
   ];
   home.stateVersion = "21.11";
+  home.sessionVariables = {
+    LD_LIBRARY_PATH = "";
+  };
 
   programs.home-manager.enable = true;
 

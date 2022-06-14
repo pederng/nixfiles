@@ -51,7 +51,6 @@ bindkey '^e' end-of-line
 
 # Nix
 test -f ~/.nix-profile/etc/profile.d/nix.sh &&  . ~/.nix-profile/etc/profile.d/nix.sh
-export LD_LIBRARY_PATH=
 
 #Prompt
 eval "$(starship init zsh)"
