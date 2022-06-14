@@ -49,12 +49,6 @@ bindkey '^[f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# Nix
-test -f ~/.nix-profile/etc/profile.d/nix.sh &&  . ~/.nix-profile/etc/profile.d/nix.sh
-
-#Prompt
-eval "$(starship init zsh)"
-
 # Visual mode fixes
 export KEYTIMEOUT=1
 
@@ -161,19 +155,12 @@ export ZETTEL_DIR=$NOTES_DIR/zettelkasten
 # pipenv completion
 command -v pipenv >/dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
-# Stack completion
-command -v stack >/dev/null && eval "$(stack --bash-completion-script stack)"
-
-eval "$(journal completion)"
-eval "$(zettel completion)"
-
 function preexec() {
     _tmux_update_env
     _update_agents
 }
 
 DO_NOT_TRACK=1
-
 
 #----Machine-specific----
 source $ZDOTDIR/machine_specific

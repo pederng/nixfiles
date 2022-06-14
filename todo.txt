@@ -1,2 +1,4 @@
 better zsh config
 zsh/plugins/z.sh programs.zsh
+
+.local/bin stuff
