@@ -24,10 +24,25 @@ in {
     pkgs.dunst
     pkgs.newsboat
     pkgs.zathura
+    pkgs.zsh
   ];
   home.stateVersion = "21.11";
 
   programs.home-manager.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    envExtra = lib.strings.fileContents ./zshenv;
+    profileExtra = lib.strings.fileContents ./zprofile;
+    initExtra = builtins.concatStringsSep "\n" [
+      ''
+        ${lib.strings.fileContents ./zshrc}
+        ${lib.strings.fileContents ./aliases}
+        ${lib.strings.fileContents ./functions}
+      ''
+    ];
+  };
 
   programs.neovim = {
     enable = true;
