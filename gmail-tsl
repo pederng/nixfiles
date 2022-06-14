@@ -1,0 +1,27 @@
+# vim: ft=muttrc
+
+set from = "peder.galteland@softwarelab.no"
+
+set folder = "~/.local/share/mail/gmail-tsl"
+unmailboxes *
+mailboxes +inbox \
+          +drafts \
+          +sent \
+          +github/capture-backend \
+          +github/scripture \
+          +github/coffer-app \
+          +github/support-web \
+          +github/cumulus \
+          +github/automation \
+          +jira \
+          +archive
+          # +github/search \
+          # +Bedriftsidrettslaget \
+          # +Workplace
+
+set spoolfile        = "+inbox"
+set record           = "+sent"
+set postponed        = "+drafts"
+
+color status color6 color18
+macro index,pager \cs "<shell-escape>mbsync -V -c ~/.config/isync/mbsyncrc gmail-tsl<enter>"

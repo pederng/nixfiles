@@ -1,20 +1,7 @@
 mimeapps.list xdg.mimeapps
-isync/mbsyncrc
-msmtp/config
-mutt/bindings
-mutt/colors
-mutt/gmail-personal
-mutt/gmail-tsl
-mutt/gpg.rc
-mutt/mailcap
-mutt/muttrc
-mutt/purelymail
-mutt/sidebar
-systemd/user/mbsync.service
-systemd/user/mbsync.timer
+user-dirs.dirs xdg.userDirs
 qutebrowser/config.py programs.qutebrowser
 starship.toml programs.starship
-user-dirs.dirs xdg.userDirs
 zsh/.zprofile programs.zsh
 zsh/.zshrc programs.zsh
 zsh/aliases programs.zsh

@@ -181,16 +181,6 @@ in {
     };
   };
 
-  home.file.".config/dunstrc".source = ./dunstrc;
-  home.file.".config/npm/npmrc".source = ./npmrc;
-  home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
-  home.file.".config/python/startup.py".source = ./python.vim;
-  home.file.".config/X11/xcolors".source = ./xcolors;
-  home.file.".config/X11/xinitrc".source = ./xinitrc;
-  home.file.".config/X11/xresources_template".source = ./xresources_template;
-  home.file.".config/base16-hooks/update-xresources".source = ./update-xresources;
-  home.file.".config/fontconfig/fonts.conf".source = ./fonts.conf;
-
   programs.newsboat = {
     enable = true;
     extraConfig = builtins.concatStringsSep "\n" [
@@ -262,4 +252,27 @@ in {
       "S" = "cycle sub";
     };
   };
+
+  home.file.".config/dunstrc".source = ./dunstrc;
+  home.file.".config/npm/npmrc".source = ./npmrc;
+  home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
+  home.file.".config/python/startup.py".source = ./python.vim;
+  home.file.".config/X11/xcolors".source = ./xcolors;
+  home.file.".config/X11/xinitrc".source = ./xinitrc;
+  home.file.".config/X11/xresources_template".source = ./xresources_template;
+  home.file.".config/base16-hooks/update-xresources".source = ./update-xresources;
+  home.file.".config/fontconfig/fonts.conf".source = ./fonts.conf;
+  home.file.".config/isync/mbsyncrc".source = ./mbsyncrc;
+  home.file.".config/msmtp/config".source = ./msmtp_config;
+  home.file.".config/mutt/bindings".source = ./bindings;
+  home.file.".config/mutt/colors".source = ./colors;
+  home.file.".config/mutt/gmail-personal".source = ./gmail-personal;
+  home.file.".config/mutt/gmail-tsl".source = ./gmail-tsl;
+  home.file.".config/mutt/gpg.rc".source = ./gpg.rc;
+  home.file.".config/mutt/mailcap".source = ./mailcap;
+  home.file.".config/mutt/muttrc".source = ./muttrc;
+  home.file.".config/mutt/purelymail".source = ./purelymail;
+  home.file.".config/mutt/sidebar".source = ./sidebar;
+  home.file.".config/systemd/user/mbsync.service".source = ./mbsync.service;
+  home.file.".config/systemd/user/mbsync.timer".source = ./mbsync.timer;
 }
