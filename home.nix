@@ -253,6 +253,18 @@ in {
     };
   };
 
+  xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME";
+    documents = "$HOME/docs";
+    download = "$HOME/docs/dl";
+    music = "$HOME/docs";
+    pictures = "$HOME/docs";
+    videos = "$HOME/docs";
+    templates = "$HOME/docs";
+    publicShare = "$HOME/docs";
+  };
+
   home.file.".config/dunstrc".source = ./dunstrc;
   home.file.".config/npm/npmrc".source = ./npmrc;
   home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
