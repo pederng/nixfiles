@@ -36,7 +36,6 @@ in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    envExtra = lib.strings.fileContents ./zshenv;
     profileExtra = lib.strings.fileContents ./zprofile;
     initExtra = builtins.concatStringsSep "\n" [
       ''
