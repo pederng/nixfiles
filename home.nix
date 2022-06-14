@@ -182,7 +182,14 @@ in {
   };
 
   home.file.".config/dunstrc".source = ./dunstrc;
+  home.file.".config/npm/npmrc".source = ./npmrc;
   home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
+  home.file.".config/python/startup.py".source = ./python.vim;
+  home.file.".config/X11/xcolors".source = ./xcolors;
+  home.file.".config/X11/xinitrc".source = ./xinitrc;
+  home.file.".config/X11/xresources_template".source = ./xresources_template;
+  home.file.".config/base16-hooks/update-xresources".source = ./update-xresources;
+  home.file.".config/fontconfig/fonts.conf".source = ./fonts.conf;
 
   programs.newsboat = {
     enable = true;

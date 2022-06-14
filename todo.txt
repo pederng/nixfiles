@@ -1,10 +1,5 @@
-X11/xcolors
-X11/xinitrc
-X11/xresources_template
-base16-hooks/update-xresources
-fontconfig/fonts.conf
+mimeapps.list xdg.mimeapps
 isync/mbsyncrc
-mimeapps.list
 msmtp/config
 mutt/bindings
 mutt/colors
@@ -15,15 +10,11 @@ mutt/mailcap
 mutt/muttrc
 mutt/purelymail
 mutt/sidebar
-npm/npmrc
-python/startup.py
-qutebrowser/config.py programs.qutebrowser
-spotifyd/spotifyd.conf
-starship.toml programs.starship
 systemd/user/mbsync.service
 systemd/user/mbsync.timer
-systemd/user/spotifyd.service
-user-dirs.dirs
+qutebrowser/config.py programs.qutebrowser
+starship.toml programs.starship
+user-dirs.dirs xdg.userDirs
 zsh/.zprofile programs.zsh
 zsh/.zshrc programs.zsh
 zsh/aliases programs.zsh

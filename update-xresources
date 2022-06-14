@@ -1,0 +1,8 @@
+#!/bin/sh
+
+template_path="$XDG_CONFIG_HOME"/base16-xresources/xresources
+xresources="$template_path"/base16-"$BASE16_THEME"-256.Xresources
+
+test -f "$xresources" || echo Xresources file for "$BASE16_THEME" not found
+cp "$xresources" "$XDG_CONFIG_HOME"/X11/xcolors
+xrdb -merge "$XDG_CONFIG_HOME"/X11/xcolors
