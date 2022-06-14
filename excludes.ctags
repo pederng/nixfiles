@@ -1,0 +1,17 @@
+--python-kinds=-i
+--exclude=*build*
+--exclude=*debian*
+--exclude=*peder*
+--exclude=*.json
+--exclude=*amd64*
+--exclude=.git
+--exclude=.tox
+--exclude=.toxenv
+--exclude=htmlcov
+--exclude=.mypy_cache
+--exclude=*htdocs*
+--exclude=*var/cache
+--exclude=*etc
+--exclude=*py3venv*
+--exclude=*venv_coffer*
+--exclude=*venv_capbak*
