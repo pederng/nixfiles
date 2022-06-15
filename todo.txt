@@ -1,4 +1,5 @@
 better zsh config
 zsh/plugins/z.sh programs.zsh
 
+add programs normally installed with yay
 .local/bin stuff
