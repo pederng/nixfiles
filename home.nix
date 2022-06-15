@@ -26,7 +26,7 @@ in {
     pkgs.zathura
     pkgs.zsh
   ];
-  home.stateVersion = "21.11";
+  home.stateVersion = "22.05";
   home.sessionVariables = {
     LD_LIBRARY_PATH = "";
   };
