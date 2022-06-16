@@ -378,6 +378,7 @@ config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
     ".config/fontconfig/fonts.conf".source = ./fonts.conf;
     ".config/isync/mbsyncrc".source = ./mbsyncrc;
     ".config/msmtp/config".source = ./msmtp_config;
+
     ".config/zsh/plugins" = {
       source = ./zsh/plugins;
       recursive = true;
@@ -388,12 +389,15 @@ config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
       recursive = true;
     };
 
-    ".config/X11/xcolors".source = ./xcolors;
-    ".config/X11/xinitrc".source = ./xinitrc;
-    ".config/X11/xresources_template".source = ./xresources_template;
+    ".config/X11" = {
+      source = ./X11;
+      recursive = true;
+    };
 
-    ".config/systemd/user/mbsync.service".source = ./mbsync.service;
-    ".config/systemd/user/mbsync.timer".source = ./mbsync.timer;
+    ".config/systemd/user/" = {
+      source = ./systemd;
+      recursive = true;
+    };
 
     ".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
     ".local/share/gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
