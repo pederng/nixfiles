@@ -392,6 +392,7 @@ config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
     ".config/systemd/user/mbsync.timer".source = ./mbsync.timer;
 
     ".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
+    ".local/share/gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
     ".local/bin" = {
       source = ./bin;
       recursive = true;
