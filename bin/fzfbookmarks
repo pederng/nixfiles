@@ -1,0 +1,3 @@
+#!/bin/bash -e
+page=$(column -t -s $'\t' -o $'\t' < ~/.local/share/notes/bookmarks | fzfmenu | awk -F '\t' '{print $1}')
+xdg-open "$page"

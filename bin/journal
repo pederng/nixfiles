@@ -1,0 +1,268 @@
+#!/usr/bin/env python
+from __future__ import annotations
+
+import os
+import re
+import subprocess
+import sys
+from collections import defaultdict
+from dataclasses import dataclass, field
+from datetime import date, datetime, timedelta
+from enum import Enum, auto
+from functools import partial
+from operator import attrgetter
+from pathlib import Path
+from typing import Dict, List, Iterator, Iterable, Optional, Tuple
+
+FMT = "%A %B %d %Y"
+BRK = "\n"
+HEADER = "# "
+JOURNAL = Path(f"{os.environ.get('NOTES_DIR')}/journal.md")
+COMMANDS = ["sync", "completion", "week", "dates", "grep"]
+COMPLETION = f"""
+__journal_completions()
+{{
+    COMPREPLY=( $(compgen -W "{' '.join(COMMANDS)}" "${{COMP_KEY}}") )
+}}
+complete -F __journal_completions journal
+"""
+
+_RESET = "\033[0m"
+_MAGENTA = "\033[35m"
+_RED = "\033[91m"
+_GREEN = "\033[92m"
+_YELLOW = "\033[93m"
+_BLUE = "\033[94m"
+
+
+class Color(Enum):
+    RESET = auto()
+    MAGENTA = auto()
+    RED = auto()
+    GREEN = auto()
+    YELLOW = auto()
+    BLUE = auto()
+
+    @property
+    def ansi(self) -> str:
+        return _COLOR_ANSI_MAP[self]
+
+
+_COLOR_ANSI_MAP = {
+    Color.RESET: _RESET,
+    Color.MAGENTA: _MAGENTA,
+    Color.RED: _RED,
+    Color.GREEN: _GREEN,
+    Color.YELLOW: _YELLOW,
+    Color.BLUE: _BLUE,
+}
+
+
+def colored(color: Color, line: str) -> str:
+    return f"{color.ansi}{line}{Color.RESET.ansi}"
+
+
+def repl(color: Color, matchobj) -> str:
+    return colored(color, matchobj.string[matchobj.start() : matchobj.end()])
+
+
+def highlight(pattern: str, color: Color, line: str) -> str:
+    return re.sub(pattern, partial(repl, color), line)
+
+
+def highlight_lines(pattern: str, color: Color, lines: Iterable[str]) -> Iterable[str]:
+    return map(partial(highlight, pattern, color), lines)
+
+
+@dataclass
+class Line:
+    raw: str
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Line):
+            return self.raw == other.raw
+        return self.raw == other
+
+
+@dataclass
+class Header(Line):
+    date: date = field(init=False)
+
+    def __post_init__(self) -> None:
+        _, _, date_str = self.raw.partition(HEADER)
+        self.date = datetime.strptime(date_str, FMT).date()
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Header):
+            return self.raw == other.raw
+        return self.raw == other
+
+
+def header(content: str) -> str:
+    return f"# {content}"
+
+
+def skip_consecutive_empty_lines(lines: Iterator[str]) -> Iterator[str]:
+    prev = None
+    for line in lines:
+        if prev and (prev, line) == (BRK, BRK):
+            continue
+        yield line
+        prev = line
+
+
+def raw_line_iter(lines: Iterable[Line]) -> Iterator[str]:
+    for line in lines:
+        yield line.raw + BRK
+
+
+class Journal:
+    def __init__(self) -> None:
+        self._content: List[Line] = []
+        self._headers: List[Header] = []
+        self._dates: Dict[date, List[Line]] = defaultdict(list)
+
+    def _add(self, line: Line, date: Optional[date] = None) -> None:
+        if isinstance(line, Header):
+            self._headers.append(line)
+        elif date and line.raw:
+            self._dates[date].append(line)
+        return self._content.append(line)
+
+    def _read(self, lines: Iterator[str]) -> None:
+        current_date = None
+        for line in lines:
+            line_: Line
+            if line.startswith(HEADER):
+                line_ = Header(line)
+                current_date = line_.date
+            else:
+                line_ = Line(line)
+            self._add(line_, current_date)
+
+    def _add_date_header(self) -> None:
+        date_header = "".join(header(date.today().strftime(FMT)))
+        if date_header in self._headers:
+            return
+        self._add(Line(""))
+        self._add(Header(date_header))
+        self._add(Line(""))
+
+    @classmethod
+    def read(cls) -> Journal:
+        journal = cls()
+        with open(JOURNAL, "r") as file:
+            journal._read(map(lambda l: l.strip("\n"), file))
+        journal._add_date_header()
+        return journal
+
+    @property
+    def _raw_lines(self) -> Iterator[str]:
+        yield from raw_line_iter(self._content)
+
+    @property
+    def raw_lines(self) -> Iterator[str]:
+        yield from skip_consecutive_empty_lines(self._raw_lines)
+
+    @property
+    def dates(self) -> Iterator[Tuple[date, List[str]]]:
+        for date_, lines in self._dates.items():
+            yield date_, list(map(attrgetter("raw"), lines))
+
+
+def edit() -> None:
+    subprocess.run([f"vim", "+$", "-c", "cd %:p:h", f"{JOURNAL}"])
+
+
+def write(journal: Journal) -> None:
+    with JOURNAL.open("w") as f:
+        for line in journal.raw_lines:
+            f.write(line)
+
+
+QUERY_FMT = "%Y-%m-%d"
+
+
+@dataclass
+class DateQuery:
+    start: Optional[date] = None
+    end: Optional[date] = None
+
+    @classmethod
+    def from_args(cls, args: List[str]) -> DateQuery:
+        if not args:
+            return cls()
+        start = datetime.strptime(args[0], QUERY_FMT).date()
+        if len(args) == 1:
+            return cls(start)
+        end = datetime.strptime(args[1], QUERY_FMT).date()
+        return cls(start, end)
+
+    @classmethod
+    def current_week(cls) -> DateQuery:
+        today = date.today()
+        monday = today - timedelta(days=today.weekday())
+        sunday = today + timedelta(days=6 - today.weekday())
+        return cls(monday, sunday)
+
+
+def blue(line: str) -> str:
+    return colored(Color.BLUE, line)
+
+
+def green(line: str) -> str:
+    return colored(Color.GREEN, line)
+
+
+def print_date(date_: date, lines: Iterable[str]) -> None:
+    print(blue(date_.strftime(FMT)))
+    print("")
+    for line in lines:
+        print(line)
+    print("")
+    print(green("-" * 100))
+    print("")
+
+
+def list_dates(query: DateQuery) -> None:
+    print("")
+    for date_, lines in Journal.read().dates:
+        if query.start and date_ < query.start:
+            continue
+        if query.end and date_ > query.end:
+            continue
+        print_date(date_, lines)
+
+
+def grep(query: str) -> None:
+    for date_, lines in Journal.read().dates:
+        if not any(query in l for l in lines):
+            continue
+        print_date(date_, highlight_lines(query, Color.RED, lines))
+
+
+def default() -> None:
+    journal = Journal.read()
+    write(journal)
+    edit()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        default()
+        sys.exit(0)
+    cmd = sys.argv[1]
+    if cmd not in COMMANDS:
+        raise RuntimeError(f"Unknown command {cmd}")
+    elif cmd == "sync":
+        subprocess.run(["downsync_notes"])
+        subprocess.run(["upsync_notes"])
+    elif cmd == "week":
+        list_dates(DateQuery.current_week())
+    elif cmd == "dates":
+        list_dates(DateQuery.from_args(sys.argv[2:]))
+    elif cmd == "grep":
+        assert len(sys.argv) > 2, "Missing grep query"
+        grep(sys.argv[2])
+    elif cmd == "completion":
+        print(COMPLETION)

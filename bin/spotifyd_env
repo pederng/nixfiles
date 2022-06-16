@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PASSWORD_STORE_DIR=/home/peder/.local/share/pass
+export GNUPGHOME=/home/peder/.local/share/gnupg
+
+/usr/bin/spotifyd --no-daemon

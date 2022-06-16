@@ -1,0 +1,13 @@
+#!/bin/sh
+
+input=$(mktemp -u --suffix .jqr.input)
+
+if [ -z "$1" ]; then
+  cat > "$input"
+else
+  cat "$1" > "$input"
+fi
+
+echo '' \
+  | fzf --ansi --print-query \
+    --preview "echo Query: {q}; cat $input | jq -eC {q} || { echo Invalid query; jq -C . $input}"

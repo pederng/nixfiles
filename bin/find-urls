@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sed 's/.*|//g' \
+  | tr '\n' ' ' \
+  | grep -aEo '(((http|https)://|www\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?$#=_-]*)|((magnet:\?xt=urn:btih:)[a-zA-Z0-9]*)' \
+  | uniq \
+  | sed 's/^www./http:\/\/www\./g'
+

@@ -1,0 +1,2 @@
+#!/bin/bash -e
+dmenu_path | fzfmenu --prompt \"run\> \" +m | ${SHELL:-"/bin/sh"} &

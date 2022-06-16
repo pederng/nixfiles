@@ -1,0 +1,3 @@
+#!/bin/sh
+input="$1"
+echo "$1" | xclip -i -selection clipboard

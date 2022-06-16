@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+git --git-dir="$NOTES_DIR"/.git --work-tree="$NOTES_DIR" pull

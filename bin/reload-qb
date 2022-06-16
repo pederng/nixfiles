@@ -1,0 +1,4 @@
+#!/bin/bash
+current=$(xdotool getwindowfocus)
+xdotool search --onlyvisible --class qutebrowser windowfocus key --window %@ 'r'
+xdotool windowfocus "$current"

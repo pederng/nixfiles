@@ -1,0 +1,189 @@
+#!/bin/bash -e
+
+zettel_dir=${ZETTEL_DIR-$XDG_DATA_HOME/notes/zettelkasten}
+notes_dir=${NOTES_DIR-$XDG_DATA_HOME/notes}
+CMD=$1
+
+test -z "$1" && $0 edit
+test -z "$1" && exit 0
+shift
+
+COMMANDS=(
+  new edit grep grep-filter show ls filter sync link links unlinked tags index inbox completion
+)
+
+nc="\033[0m"
+green="\033[0;32m"
+
+mkzettel() {
+  title="$*"
+  title_in_filename="$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')"
+  id=$(date +'%Y%m%d%H%M')
+  if grep -qR "$id" "$zettel_dir"; then
+    id=$((id + 1))
+  fi
+  grep -qR "$id" "$zettel_dir" && return 1
+  date=$(date +'%A %B %d %Y %H:%M')
+  file="$zettel_dir/$id-$title_in_filename.md"
+  (
+    cat <<CONTENT
+# $title
+<!-- id: $id -->
+<!-- date: $date -->
+
+
+
+##### Tags
+
+##### References
+
+##### Links
+CONTENT
+  ) >"$file"
+  echo "$file"
+}
+
+get_zettel() {
+  zettel="$1"
+  test -z "$zettel" && zettel=$($0 filter "$2")
+  echo "$zettel"
+}
+
+get_desc() {
+  head -n1 "$zettel_dir/$1" | sed 's/^# //'
+}
+
+mklink() {
+  echo "* [$(get_desc "$1")]($1)"
+}
+
+filter() {
+  grep -v "^$1$" | fzf --preview="bat --style=numbers --color=always $zettel_dir/{}"
+}
+
+strip_path() {
+  xargs -n1 basename
+}
+
+add_path() {
+  sed "s:^:$zettel_dir/:"
+}
+
+_grep() {
+  grep -Rl "$1" "$zettel_dir" | sort -n
+}
+
+sort_line() {
+  while read -r first second; do
+    [[ "$first" < "$second" ]] && echo "$first" "$second" || echo "$second" "$first"
+  done
+}
+
+_vim() {
+  vim -c 'cd %:p:h' "$@"
+}
+
+case $CMD in
+new)
+  title="$*"
+  if [ -z "$title" ]; then
+    echo "Enter title"
+    read -r title
+  fi
+  fname="$(mkzettel "$title" || exit 1)"
+  _vim -c +5 "$fname"
+  ;;
+edit)
+  zettel="$(get_zettel "$1")"
+  _vim "$zettel_dir/$zettel"
+  ;;
+grep)
+  test -z "$1" && (
+    echo "No search term provided"
+    exit 1
+  )
+  _grep "$@" | xargs bat
+  ;;
+grep-filter)
+  test -z "$1" && (
+    echo "No search term provided"
+    exit 1
+  )
+  _grep "$@" | strip_path | filter | add_path | xargs bat
+  ;;
+show)
+  zettel="$(get_zettel "$1")"
+  bat "$zettel_dir/$zettel"
+  ;;
+ls)
+  fd . "$zettel_dir" | strip_path | sort -n
+  ;;
+filter)
+  $0 ls | filter "$@"
+  ;;
+sync)
+  downsync_notes
+  upsync_notes
+  ;;
+link)
+  first="$(get_zettel "$1")"
+  second="$(get_zettel "$2" "$first")"
+  test "$first" = "$second" && (
+    echo "Cannot link to itself"
+    exit 1
+  )
+  grep -q "$first" "$zettel_dir/$second" && (
+    echo "Already linked"
+    exit 1
+  )
+  mklink "$first" >>"$zettel_dir/$second"
+  mklink "$second" >>"$zettel_dir/$first"
+  ;;
+unlinked)
+  grep -REL '[0-9]{12}-[a-z\-]*' "$zettel_dir"
+  ;;
+links)
+  grep -oRE '[0-9]{12}-[a-z\-]*' "$zettel_dir" |
+    sed 's:^.*/::;s:\.md::' |
+    awk -F ':' '{print $1 " " $2}' |
+    sort_line |
+    sort |
+    uniq
+  ;;
+tags)
+  grep -hoRE '\:[a-z]*\:' "$zettel_dir" | sort | uniq | sed 's/://g'
+  ;;
+index)
+  [ "$1" = '-nc' ] && green=''
+  [ "$1" = '-nc' ] && nc=''
+  grep -oRE '\:[a-z]*\:' "$zettel_dir" |
+    awk -v green="$green" -v nc="$nc" -F : '{print green$3nc " " $1}' |
+    sed "s:$zettel_dir/::" | sort | column -t
+  ;;
+inbox)
+  _vim "$notes_dir/inbox.md"
+  ;;
+completion)
+  cat <<EOF
+__zettel_completions()
+{
+  if (( COMP_CWORD > 1 )); then
+    local first="\${COMP_WORDS[1]}"
+    case "\${first}" in
+      edit|show|link)
+        COMPREPLY=( \$(compgen -G "$($0 ls)" "\${COMP_KEY}") )
+        ;;
+    esac
+  else
+    COMPREPLY=( \$(compgen -W "${COMMANDS[*]}" "\${COMP_KEY}") )
+  fi
+}
+complete -F __zettel_completions zettel
+EOF
+  ;;
+esac
+
+#TODO
+# Use ripgrep (batgrep?) to color grep matches
+# Add color highlights to zettelid, for easier visual scanning.
+#   Something like year in red, month in green, day in blue and time in yellow.

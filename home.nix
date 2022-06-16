@@ -36,12 +36,12 @@ in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    profileExtra = lib.strings.fileContents ./zprofile;
+    profileExtra = lib.strings.fileContents ./zsh/zprofile;
     initExtra = builtins.concatStringsSep "\n" [
       ''
-        ${lib.strings.fileContents ./zshrc}
-        ${lib.strings.fileContents ./aliases}
-        ${lib.strings.fileContents ./functions}
+        ${lib.strings.fileContents ./zsh/zshrc}
+        ${lib.strings.fileContents ./zsh/aliases}
+        ${lib.strings.fileContents ./zsh/functions}
       ''
     ];
   };
@@ -52,12 +52,12 @@ in {
     extraConfig = builtins.concatStringsSep "\n" [
       ''
         lua << EOF
-        ${lib.strings.fileContents ./plugins.lua}
-        ${lib.strings.fileContents ./colors.lua}
-        ${lib.strings.fileContents ./options.lua}
-        ${lib.strings.fileContents ./bindings.lua}
-        ${lib.strings.fileContents ./autocmds.lua}
-        ${lib.strings.fileContents ./commands.lua}
+        ${lib.strings.fileContents ./nvim/plugins.lua}
+        ${lib.strings.fileContents ./nvim/colors.lua}
+        ${lib.strings.fileContents ./nvim/options.lua}
+        ${lib.strings.fileContents ./nvim/bindings.lua}
+        ${lib.strings.fileContents ./nvim/autocmds.lua}
+        ${lib.strings.fileContents ./nvim/commands.lua}
         EOF
       ''
     ];
@@ -369,26 +369,32 @@ config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
     };
   };
 
-  home.file.".config/dunstrc".source = ./dunstrc;
-  home.file.".config/npm/npmrc".source = ./npmrc;
-  home.file.".config/ctags/excludes.ctags".source = ./excludes.ctags;
-  home.file.".config/python/startup.py".source = ./startup.py;
-  home.file.".config/X11/xcolors".source = ./xcolors;
-  home.file.".config/X11/xinitrc".source = ./xinitrc;
-  home.file.".config/X11/xresources_template".source = ./xresources_template;
-  home.file.".config/base16-hooks/update-xresources".source = ./update-xresources;
-  home.file.".config/fontconfig/fonts.conf".source = ./fonts.conf;
-  home.file.".config/isync/mbsyncrc".source = ./mbsyncrc;
-  home.file.".config/msmtp/config".source = ./msmtp_config;
-  home.file.".config/mutt/bindings".source = ./bindings;
-  home.file.".config/mutt/colors".source = ./colors;
-  home.file.".config/mutt/gmail-personal".source = ./gmail-personal;
-  home.file.".config/mutt/gmail-tsl".source = ./gmail-tsl;
-  home.file.".config/mutt/gpg.rc".source = ./gpg.rc;
-  home.file.".config/mutt/mailcap".source = ./mailcap;
-  home.file.".config/mutt/muttrc".source = ./muttrc;
-  home.file.".config/mutt/purelymail".source = ./purelymail;
-  home.file.".config/mutt/sidebar".source = ./sidebar;
-  home.file.".config/systemd/user/mbsync.service".source = ./mbsync.service;
-  home.file.".config/systemd/user/mbsync.timer".source = ./mbsync.timer;
+  home.file = {
+    ".config/dunstrc".source = ./dunstrc;
+    ".config/npm/npmrc".source = ./npmrc;
+    ".config/ctags/excludes.ctags".source = ./excludes.ctags;
+    ".config/python/startup.py".source = ./startup.py;
+    ".config/base16-hooks/update-xresources".source = ./update-xresources;
+    ".config/fontconfig/fonts.conf".source = ./fonts.conf;
+    ".config/isync/mbsyncrc".source = ./mbsyncrc;
+    ".config/msmtp/config".source = ./msmtp_config;
+
+    ".config/mutt" = {
+      source = ./mutt;
+      recursive = true;
+    };
+
+    ".config/X11/xcolors".source = ./xcolors;
+    ".config/X11/xinitrc".source = ./xinitrc;
+    ".config/X11/xresources_template".source = ./xresources_template;
+
+    ".config/systemd/user/mbsync.service".source = ./mbsync.service;
+    ".config/systemd/user/mbsync.timer".source = ./mbsync.timer;
+
+    ".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
+    ".local/bin" = {
+      source = ./bin;
+      recursive = true;
+    };
+  };
 }

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+text=Playing
+[ "$PLAYER_EVENT" = "stop" ] && text=Paused
+[ "$PLAYER_EVENT" = "change" ] && text=Changed
+
+dunstify -u low $text
