@@ -2,4 +2,4 @@ better zsh config
 zsh/plugins/z.sh programs.zsh
 
 add programs normally installed with yay
-.local/bin stuff
+do machine-specific stuff (lapping/heisenberg/ising)
