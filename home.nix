@@ -36,6 +36,7 @@ in {
     xh
     zoxide
     ctags
+    dmenu
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
