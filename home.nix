@@ -29,7 +29,6 @@ in {
     fd
     exa
     entr
-    docker
     docker-compose
     firefox
     python39
@@ -38,6 +37,7 @@ in {
     ctags
     dmenu
     gh
+    handlr
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
