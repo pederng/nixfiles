@@ -35,10 +35,14 @@ in {
     python39
     xh
     zoxide
+    ctags
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
     LD_LIBRARY_PATH = "";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_CACHE_HOME = "$HOME/.cache";
   };
 
   programs.home-manager.enable = true;
@@ -365,15 +369,15 @@ in {
       tabs.position = "left";
       tabs.width = "10%";
     };
-    extraConfig = "
-try:
-    import custom_config
-    c.zoom.default = custom_config.ZOOM
-except (ImportError, AttributeError):
-    c.zoom.default = '100%'
-config.bind(' <Ctrl-K> ', ' completion-item-focus prev ', mode=' command ')
-config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
-";
+    # extraConfig = "
+    # try:
+    # import custom_config
+    # c.zoom.default = custom_config.ZOOM
+    # except (ImportError, AttributeError):
+    # c.zoom.default = '100%'
+    # config.bind(' <Ctrl-K> ', ' completion-item-focus prev ', mode=' command ')
+    # config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
+    # ";
     searchEngines = {
       "DEFAULT" = "https://duck.com/?q={}";
     };
