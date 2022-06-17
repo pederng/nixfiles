@@ -20,11 +20,19 @@ in {
   ];
   home.username = "peder";
   home.homeDirectory = "/home/peder";
-  home.packages = [
-    pkgs.dunst
-    pkgs.newsboat
-    pkgs.zathura
-    pkgs.zsh
+  home.packages = with pkgs; [
+    dunst
+    newsboat
+    zathura
+    zsh
+    ripgrep
+    fd
+    exa
+    entr
+    docker
+    docker-compose
+    firefox
+    python39
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
