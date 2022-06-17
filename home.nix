@@ -33,6 +33,8 @@ in {
     docker-compose
     firefox
     python39
+    xh
+    zoxide
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
@@ -386,11 +388,6 @@ config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
     ".config/fontconfig/fonts.conf".source = ./fonts.conf;
     ".config/isync/mbsyncrc".source = ./mbsyncrc;
     ".config/msmtp/config".source = ./msmtp_config;
-
-    ".config/zsh/plugins" = {
-      source = ./zsh/plugins;
-      recursive = true;
-    };
 
     ".config/mutt" = {
       source = ./mutt;
