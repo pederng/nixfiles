@@ -38,6 +38,8 @@ in {
     dmenu
     gh
     handlr
+    qutebrowser
+    units
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
