@@ -71,6 +71,9 @@ in {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     extraConfig = builtins.concatStringsSep "\n" [
       ''
         lua << EOF
