@@ -34,6 +34,8 @@ in {
     handlr
     newsboat
     python39
+    pavucontrol
+    pipewire
     qutebrowser
     ripgrep
     units
