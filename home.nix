@@ -21,25 +21,26 @@ in {
   home.username = "peder";
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
-    dunst
-    newsboat
-    zathura
-    zsh
-    ripgrep
-    fd
-    exa
-    entr
-    docker-compose
-    firefox
-    python39
-    xh
-    zoxide
+    bat
     ctags
     dmenu
+    docker-compose
+    dunst
+    entr
+    exa
+    fd
+    firefox
     gh
     handlr
+    newsboat
+    python39
     qutebrowser
+    ripgrep
     units
+    xh
+    zathura
+    zoxide
+    zsh
   ];
   home.stateVersion = "22.05";
   home.sessionVariables = {
