@@ -22,6 +22,7 @@ in {
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
     bat
+    sxiv
     ctags
     dmenu
     docker-compose
