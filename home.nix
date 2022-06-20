@@ -289,31 +289,6 @@ in {
     };
   };
 
-  xdg.userDirs = {
-    enable = true;
-    desktop = "$HOME";
-    documents = "$HOME/docs";
-    download = "$HOME/docs/dl";
-    music = "$HOME/docs";
-    pictures = "$HOME/docs";
-    videos = "$HOME/docs";
-    templates = "$HOME/docs";
-    publicShare = "$HOME/docs";
-  };
-
-  xdg.mimeApps = {
-    enable = true;
-    associations.added = {"binary/octet-stream" = "gvim/desktop";};
-    defaultApplications = {
-      "application/pdf" = "org.pwmt.zathura.desktop";
-      "application/x-extension-html" = "org.qutebrowser.qutebrowser.desktop";
-      "image/png" = "sxiv.desktop";
-      "text/html" = "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-    };
-  };
-
   programs.starship = {
     enable = true;
     package = pkgs.starship;
@@ -385,6 +360,58 @@ in {
     # ";
     searchEngines = {
       "DEFAULT" = "https://duck.com/?q={}";
+    };
+  };
+
+  xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME";
+    documents = "$HOME/docs";
+    download = "$HOME/docs/dl";
+    music = "$HOME/docs";
+    pictures = "$HOME/docs";
+    videos = "$HOME/docs";
+    templates = "$HOME/docs";
+    publicShare = "$HOME/docs";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {"binary/octet-stream" = "gvim/desktop";};
+    defaultApplications = {
+      "application/pdf" = "org.pwmt.zathura.desktop";
+      "application/x-extension-html" = "org.qutebrowser.qutebrowser.desktop";
+      "image/png" = "sxiv.desktop";
+      "text/html" = "org.qutebrowser.qutebrowser.desktop";
+      "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+      "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+    };
+  };
+
+  xdg.desktopEntries = {
+    qutebrowser = {
+      name = "qutebrowser";
+      exec = "qb --untrusted-args %u";
+      comment = "A keyboard-driven, vim-like browser based on PyQt5";
+      genericName = "Web Browser";
+      type = "Application";
+      categories = ["Network" "WebBrowser"];
+      icon = "qutebrowser";
+      terminal = false;
+      startupNotify = true;
+      mimeType = [
+        "text/html"
+        "text/xml"
+        "application/xhtml+xml"
+        "application/xml"
+        "application/rdf+xml"
+        "image/gif"
+        "image/jpeg"
+        "image/png"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+        "x-scheme-handler/qute"
+      ];
     };
   };
 
