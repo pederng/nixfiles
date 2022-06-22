@@ -24,6 +24,7 @@ in {
     dunst
     newsboat
     zathura
+    vale
     viddy
     zsh
     ripgrep
