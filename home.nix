@@ -28,6 +28,7 @@ in {
     shellcheck
     viddy
     hadolint
+    nodePackages.bash-language-server
     trivy
     zsh
     ripgrep
