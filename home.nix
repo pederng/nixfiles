@@ -26,6 +26,7 @@ in {
     zathura
     vale
     viddy
+    trivy
     zsh
     ripgrep
     fd
