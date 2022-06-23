@@ -27,6 +27,7 @@ in {
     vale
     shellcheck
     viddy
+    hadolint
     trivy
     zsh
     ripgrep
