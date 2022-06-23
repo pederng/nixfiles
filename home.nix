@@ -25,6 +25,7 @@ in {
     newsboat
     zathura
     vale
+    shellcheck
     viddy
     trivy
     zsh
