@@ -42,6 +42,8 @@ in {
     htop
     joypixels
     jq
+    kubectl
+    lsof
     neomutt
     nerdfonts
     newsboat
@@ -58,13 +60,16 @@ in {
     python39
     qutebrowser
     ripgrep
+    rsync
     scrot
     shellcheck
     spotify
+    strace
     sxiv
     trivy
     unclutter
     units
+    urlscan
     vale
     viddy
     wget
