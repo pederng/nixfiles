@@ -18,11 +18,13 @@ in {
       url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
   ];
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.joypixels.acceptLicense = true;
   home.username = "peder";
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
+    abook
     bat
-    sxiv
     ctags
     dmenu
     docker-compose
@@ -30,18 +32,39 @@ in {
     entr
     exa
     fd
+    feh
     firefox
     gh
+    nerdfonts
+    hadolint
     handlr
+    htop
+    joypixels
+    jq
+    neomutt
     newsboat
-    python39
+    notmuch
+    noto-fonts
+    noto-fonts-emoji
+    noto-fonts-extra
+    pass
     pavucontrol
     pipewire
+    ps_mem
+    python39
     qutebrowser
     ripgrep
+    scrot
+    slock
+    spotify
+    sxiv
+    unclutter
     units
+    wget
     xh
+    yt-dlp
     zathura
+    zk
     zoxide
     zsh
   ];
@@ -87,6 +110,7 @@ in {
       ''
     ];
     extraPackages = with pkgs; [
+      tree-sitter
       rnix-lsp
       statix
       stylua
@@ -455,4 +479,5 @@ in {
       recursive = true;
     };
   };
+  fonts.fontconfig.enable = true;
 }
