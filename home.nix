@@ -47,6 +47,7 @@ in {
     noto-fonts
     noto-fonts-emoji
     noto-fonts-extra
+    pinentry-qt
     pass
     pavucontrol
     pipewire
@@ -472,7 +473,12 @@ in {
       recursive = true;
     };
 
-    ".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
+    ".local/share/gnupg/gpg-agent.conf".text = ''
+      default-cache-ttl 86400
+      max-cache-ttl 86400
+      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry-qt
+      enable-ssh-support
+    '';
     ".local/share/gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
     ".local/bin" = {
       source = ./bin;
