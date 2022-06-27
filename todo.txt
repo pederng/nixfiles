@@ -3,3 +3,4 @@ zsh/plugins/z.sh programs.zsh
 
 add programs normally installed with yay
 do machine-specific stuff (lapping/heisenberg/ising)
+Figure out how to gpg right under home-manager (Might not be possible due to pacmans reliance on it)
