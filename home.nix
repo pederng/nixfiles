@@ -44,6 +44,7 @@ in {
     jq
     kubectl
     lsof
+    lynx
     neomutt
     nerdfonts
     newsboat
