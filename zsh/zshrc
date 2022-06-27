@@ -118,7 +118,7 @@ source $ZDOTDIR/forgit/forgit.plugin.zsh
 
 # Jumping
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
-
+command -v bw >/dev/null && eval "$(bw completion --shell zsh); compdef _bw bw;"
 
 # Fuzzy completion
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh

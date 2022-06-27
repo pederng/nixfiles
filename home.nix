@@ -35,32 +35,38 @@ in {
     feh
     firefox
     gh
-    nerdfonts
+    hadolint
     hadolint
     handlr
     htop
     joypixels
     jq
     neomutt
+    nerdfonts
     newsboat
+    nodePackages.bash-language-server
     notmuch
     noto-fonts
     noto-fonts-emoji
     noto-fonts-extra
-    pinentry-qt
     pass
     pavucontrol
+    pinentry-qt
     pipewire
     ps_mem
     python39
     qutebrowser
     ripgrep
     scrot
+    shellcheck
     slock
     spotify
     sxiv
+    trivy
     unclutter
     units
+    vale
+    viddy
     wget
     xh
     yt-dlp

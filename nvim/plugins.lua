@@ -163,6 +163,7 @@ local sources = {
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
+	null_ls.builtins.diagnostics.vale,
 	null_ls.builtins.diagnostics.sqlfluff.with({
 		extra_args = { "--dialect", "postgres" },
 	}),
