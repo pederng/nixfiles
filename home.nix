@@ -25,6 +25,7 @@ in {
   home.packages = with pkgs; [
     abook
     bat
+    bitwarden-cli
     ctags
     dmenu
     docker-compose
@@ -59,7 +60,6 @@ in {
     ripgrep
     scrot
     shellcheck
-    slock
     spotify
     sxiv
     trivy
@@ -68,6 +68,7 @@ in {
     vale
     viddy
     wget
+    xdg-utils
     xh
     yt-dlp
     zathura
@@ -443,9 +444,6 @@ in {
           "application/xhtml+xml"
           "application/xml"
           "application/rdf+xml"
-          "image/gif"
-          "image/jpeg"
-          "image/png"
           "x-scheme-handler/http"
           "x-scheme-handler/https"
           "x-scheme-handler/qute"

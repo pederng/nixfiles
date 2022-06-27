@@ -1,7 +1,6 @@
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 # Export default programs
 export EDITOR="nvim"
-export BROWSER="qutebrowser"
 
 # Path
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
