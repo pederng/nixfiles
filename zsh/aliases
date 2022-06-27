@@ -44,9 +44,6 @@ alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/notes/addressbook"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 
-# dotfile storage config
-alias dotfiles='/usr/bin/git --git-dir=$XDG_DATA_HOME/dotfiles/ --work-tree=$HOME'
-
 alias org="emacs -nw $XDG_DATA_HOME/notes/notes.org"
 alias zk="zk -W $XDG_DATA_HOME/notes/zettelkasten"
 
