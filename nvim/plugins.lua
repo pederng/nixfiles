@@ -39,13 +39,27 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { "pyright", "ansiblels", "bashls", "dockerls", "zk", "sqls", "rnix" }
+local servers = { "ansiblels", "bashls", "dockerls", "zk", "sqls", "rnix" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end
+require("lspconfig").pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+				autoImportCompletions = false,
+			},
+		},
+	},
+})
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -113,7 +127,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp", priority = 1000 },
 	}, {
 		{ name = "buffer" },
 	}),

@@ -66,6 +66,7 @@ in {
     shellcheck
     spotify
     strace
+    stylua
     sxiv
     trivy
     unclutter
@@ -127,7 +128,6 @@ in {
       tree-sitter
       rnix-lsp
       statix
-      stylua
       alejandra
       sumneko-lua-language-server
     ];
