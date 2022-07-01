@@ -27,6 +27,7 @@ in {
     bat
     bitwarden-cli
     ctags
+    cue
     dmenu
     docker-compose
     dunst

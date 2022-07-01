@@ -178,10 +178,12 @@ local sources = {
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
 	null_ls.builtins.diagnostics.vale,
+	null_ls.builtins.diagnostics.cue_fmt,
 	null_ls.builtins.diagnostics.sqlfluff.with({
 		extra_args = { "--dialect", "postgres" },
 	}),
 	null_ls.builtins.formatting.black,
+	null_ls.builtins.formatting.cue_fmt,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.alejandra,
 	null_ls.builtins.code_actions.gitsigns,
