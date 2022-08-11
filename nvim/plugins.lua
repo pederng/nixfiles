@@ -183,6 +183,7 @@ local sources = {
 		extra_args = { "--dialect", "postgres" },
 	}),
 	null_ls.builtins.formatting.black,
+	null_ls.builtins.formatting.isort,
 	null_ls.builtins.formatting.cue_fmt,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.alejandra,
