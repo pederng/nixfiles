@@ -61,6 +61,7 @@ in {
     ps_mem
     python39
     qutebrowser
+    readline
     ripgrep
     rsync
     scrot
