@@ -37,6 +37,7 @@ in {
     feh
     firefox
     gh
+    go
     hadolint
     hadolint
     handlr
