@@ -44,6 +44,6 @@ sh ~/.local/bin/fehbg
 xset s 600
 xss-lock slock &
 dunst &
-unclutter &
+xbanish &
 yubikey-touch-detector --libnotify &
 exec dwm

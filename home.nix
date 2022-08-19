@@ -72,12 +72,12 @@ in {
     stylua
     sxiv
     trivy
-    unclutter
     units
     urlscan
     vale
     viddy
     wget
+    xbanish
     xdg-utils
     xh
     yt-dlp
