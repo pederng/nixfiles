@@ -45,4 +45,5 @@ xset s 600
 xss-lock slock &
 dunst &
 unclutter &
+yubikey-touch-detector --libnotify &
 exec dwm

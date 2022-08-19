@@ -81,6 +81,7 @@ in {
     xdg-utils
     xh
     yt-dlp
+    yubikey-touch-detector
     zathura
     zk
     zoxide
