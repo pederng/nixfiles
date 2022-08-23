@@ -38,8 +38,6 @@ alias startx="startx $XINITRC"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias gcalcli="gcalcli --config-folder=$XDG_CONFIG_HOME/gcalcli --cal 'Week Numbers'#magenta --cal 'Holidays in Norway'#magenta --cal 'peder.galteland@telenordigital.com'#cyan"
 
-alias calcurse="calcurse -C $XDG_CONFIG_HOME/calcurse -D $XDG_DATA_HOME/calcurse"
-alias gpg="gpg --homedir $XDG_DATA_HOME/gnupg"
 alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/notes/addressbook"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
