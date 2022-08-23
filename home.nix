@@ -78,6 +78,7 @@ in {
     viddy
     wget
     xbanish
+    xclip
     xdg-utils
     xh
     yt-dlp
