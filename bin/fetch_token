@@ -10,7 +10,9 @@ import sys
 
 import requests
 
-CACHE = Path(os.getenv("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))) / "gmail_tokens"
+CACHE = (
+    Path(os.getenv("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))) / "gmail_tokens"
+)
 SCOPE = "https://mail.google.com"
 CREDENTIALS = json.loads((CACHE / "client_credentials").read_text())["installed"]
 
@@ -18,7 +20,7 @@ CREDENTIALS = json.loads((CACHE / "client_credentials").read_text())["installed"
 def auth_uri() -> str:
     params = dict(
         client_id=CREDENTIALS["client_id"],
-        redirect_uri=CREDENTIALS["redirect_uris"][0],
+        redirect_uri=CREDENTIALS["redirect_uris"][1],
         scope=SCOPE,
         access_type="offline",
         include_granted_scopes="true",
@@ -35,7 +37,7 @@ def redeem_token(code: str) -> Tuple[str, int, str]:
             client_id=CREDENTIALS["client_id"],
             client_secret=CREDENTIALS["client_secret"],
             grant_type="authorization_code",
-            redirect_uri=CREDENTIALS["redirect_uris"][0],
+            redirect_uri=CREDENTIALS["redirect_uris"][1],
         ),
     )
     r.raise_for_status()
@@ -58,10 +60,14 @@ def refresh_token(refresh_token: str) -> Tuple[str, int]:
     return data["access_token"], data["expires_in"]
 
 
-def write_token(account: str, access_token: str, expires_in: int, refresh_token: str) -> None:
+def write_token(
+    account: str, access_token: str, expires_in: int, refresh_token: str
+) -> None:
     path = CACHE / account
     expires_at = int(time.time()) + expires_in - 5
-    content = dict(access_token=access_token, expires_at=expires_at, refresh_token=refresh_token)
+    content = dict(
+        access_token=access_token, expires_at=expires_at, refresh_token=refresh_token
+    )
     path.write_text(json.dumps(content))
 
 
