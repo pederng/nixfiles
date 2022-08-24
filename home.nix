@@ -56,7 +56,6 @@ in {
     noto-fonts-emoji
     noto-fonts-extra
     pass
-    pavucontrol
     pinentry-qt
     pipewire
     ps_mem
