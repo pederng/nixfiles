@@ -134,56 +134,56 @@ in {
       alejandra
       sumneko-lua-language-server
     ];
-    plugins = with pkgs.vimPlugins; [
-      bufferline-nvim
-      cmp-buffer
-      cmp-cmdline
-      cmp-nvim-lsp
-      cmp-path
-      gitsigns-nvim
-      glow-nvim
-      lsp-colors-nvim
-      lsp_signature-nvim
-      lspkind-nvim
-      lualine-nvim
-      neoscroll-nvim
-      null-ls-nvim
-      nvim-base16
-      nvim-cmp
-      nvim-lspconfig
-      nvim-treesitter
-      nvim-treesitter-context
-      nvim-web-devicons
-      octo-nvim
-      plenary-nvim
-      telescope-nvim
-      todo-comments-nvim
-      trouble-nvim
-      vim-beancount
-      vim-better-whitespace
-      vim-commentary
-      vim-cue
-      vim-dadbod
-      vim-fugitive
-      vim-indent-object
-      vim-polyglot
-      vim-repeat
-      vim-rhubarb
-      vim-rsi
-      vim-speeddating
-      vim-surround
-      vim-textobj-entire
-      vim-textobj-user
-      vim-tmux-navigator
-      vim-unimpaired
-      vim-vinegar
+    # plugins = with pkgs.vimPlugins; [
+    #   bufferline-nvim
+    #   cmp-buffer
+    #   cmp-cmdline
+    #   cmp-nvim-lsp
+    #   cmp-path
+    #   gitsigns-nvim
+    #   glow-nvim
+    #   lsp-colors-nvim
+    #   lsp_signature-nvim
+    #   lspkind-nvim
+    #   lualine-nvim
+    #   neoscroll-nvim
+    #   null-ls-nvim
+    #   nvim-base16
+    #   nvim-cmp
+    #   nvim-lspconfig
+    #   nvim-treesitter
+    #   nvim-treesitter-context
+    #   nvim-web-devicons
+    #   octo-nvim
+    #   plenary-nvim
+    #   telescope-nvim
+    #   todo-comments-nvim
+    #   trouble-nvim
+    #   vim-beancount
+    #   vim-better-whitespace
+    #   vim-commentary
+    #   vim-cue
+    #   vim-dadbod
+    #   vim-fugitive
+    #   vim-indent-object
+    #   vim-polyglot
+    #   vim-repeat
+    #   vim-rhubarb
+    #   vim-rsi
+    #   vim-speeddating
+    #   vim-surround
+    #   vim-textobj-entire
+    #   vim-textobj-user
+    #   vim-tmux-navigator
+    #   vim-unimpaired
+    #   vim-vinegar
 
-      (pluginGit "lewis6991/hover.nvim")
-      (pluginGit "christoomey/vim-system-copy")
-      (pluginGit "kana/vim-textobj-indent")
-      (pluginGit "kana/vim-textobj-line")
-      (pluginGit "pedernot/vim-textobj-python")
-    ];
+    #   (pluginGit "lewis6991/hover.nvim")
+    #   (pluginGit "christoomey/vim-system-copy")
+    #   (pluginGit "kana/vim-textobj-indent")
+    #   (pluginGit "kana/vim-textobj-line")
+    #   (pluginGit "pedernot/vim-textobj-python")
+    # ];
   };
   home.file.".config/nvim/after/syntax/python.vim".source = ./python.vim;
   home.file.".config/nvim/after/syntax/markdown.vim".source = ./markdown.vim;
