@@ -471,6 +471,7 @@ in {
     ".config/fontconfig/fonts.conf".source = ./fonts.conf;
     ".config/isync/mbsyncrc".source = ./mbsyncrc;
     ".config/msmtp/config".source = ./msmtp_config;
+    ".config/vim/vimrc_background".source = ./vimrc_background;
 
     ".config/mutt" = {
       source = ./mutt;
