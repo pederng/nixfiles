@@ -60,7 +60,7 @@ in {
     pipewire
     ps_mem
     python39
-    python39Packages.virtualenvwrapper
+    python39Packages.pip
     qutebrowser
     readline
     ripgrep
