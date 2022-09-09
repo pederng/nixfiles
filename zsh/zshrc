@@ -100,7 +100,13 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 command -v bw >/dev/null && eval "$(bw completion --shell zsh); compdef _bw bw;"
 
 # Fuzzy completion
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+if [ ! -f "${XDG_CONFIG_HOME}"/fzf/fzf.zsh ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git "${XDG_CONFIG_HOME}"/fzf
+  "${XDG_CONFIG_HOME}"/fzf/install
+  mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
+  rm -f $HOME/.fzf.bash
+fi
+source "${XDG_CONFIG_HOME}"/fzf/fzf.zsh
 export FZF_DEFAULT_OPTS="--multi"
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
