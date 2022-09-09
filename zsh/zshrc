@@ -143,4 +143,4 @@ function preexec() {
 DO_NOT_TRACK=1
 
 #----Machine-specific----
-source $ZDOTDIR/machine_specific
+test -f $ZDOTDIR/machine_specific && source $ZDOTDIR/machine_specific
