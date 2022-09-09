@@ -1,0 +1,2 @@
+#!/bin/bash
+df -h | grep cryptroot | sed -e 's/  / /g' | cut -d ' ' -f 4
