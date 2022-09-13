@@ -8,7 +8,6 @@ mailboxes +inbox \
           +drafts \
           +sent \
           +github/capture-backend \
-          +github/scripture \
           +github/coffer-app \
           +github/support-web \
           +github/cumulus \
