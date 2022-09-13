@@ -82,6 +82,7 @@ in {
     xdg-utils
     xh
     yt-dlp
+    yq
     zathura
     zk
     zoxide
