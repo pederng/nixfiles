@@ -144,6 +144,9 @@ function preexec() {
     _update_agents
 }
 
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
 DO_NOT_TRACK=1
 
 #----Machine-specific----
