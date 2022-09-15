@@ -60,8 +60,6 @@ in {
     pinentry-qt
     pipewire
     ps_mem
-    python39
-    python39Packages.pip
     qutebrowser
     readline
     ripgrep
