@@ -71,6 +71,7 @@ in {
     strace
     stylua
     sxiv
+    tree
     trivy
     units
     urlscan
