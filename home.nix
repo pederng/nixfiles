@@ -24,6 +24,7 @@ in {
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
     abook
+    acpi
     bat
     bitwarden-cli
     ctags
