@@ -45,7 +45,9 @@ in {
     htop
     joypixels
     jq
+    k9s
     kubectl
+    kubie
     lsof
     lynx
     neomutt
@@ -59,6 +61,7 @@ in {
     pass
     pinentry-qt
     pipewire
+    popeye
     ps_mem
     qutebrowser
     readline
@@ -81,8 +84,8 @@ in {
     xclip
     xdg-utils
     xh
-    yt-dlp
     yq
+    yt-dlp
     zathura
     zk
     zoxide
