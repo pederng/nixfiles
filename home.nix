@@ -45,6 +45,8 @@ in {
     htop
     joypixels
     jq
+    k9s
+    kind
     kubectl
     lsof
     lynx
@@ -78,11 +80,12 @@ in {
     viddy
     wget
     xbanish
+    xbindkeys
     xclip
     xdg-utils
     xh
-    yt-dlp
     yq
+    yt-dlp
     zathura
     zk
     zoxide
