@@ -40,14 +40,15 @@ in {
     gh
     go
     hadolint
-    hadolint
     handlr
+    helmfile
     htop
     joypixels
     jq
     k9s
     kind
     kubectl
+    kubernetes-helm
     lsof
     lynx
     neomutt
@@ -68,6 +69,7 @@ in {
     rsync
     scrot
     shellcheck
+    sops
     spotify
     strace
     stylua
