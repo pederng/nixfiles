@@ -47,7 +47,6 @@ in {
     jq
     k9s
     kind
-    klog
     kubectl
     kubernetes-helm
     libnotify
@@ -79,6 +78,7 @@ in {
     tree
     trivy
     units
+    unzip
     urlscan
     vale
     viddy
