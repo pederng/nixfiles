@@ -75,6 +75,8 @@ in {
     strace
     stylua
     sxiv
+    terraform
+    terraform-ls
     tree
     trivy
     units
@@ -102,6 +104,13 @@ in {
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_CACHE_HOME = "$HOME/.cache";
+  };
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = "nix-command flakes";
+    };
   };
 
   programs.home-manager.enable = true;
