@@ -47,8 +47,10 @@ in {
     jq
     k9s
     kind
+    klog
     kubectl
     kubernetes-helm
+    libnotify
     lsof
     lynx
     neomutt
@@ -61,7 +63,7 @@ in {
     noto-fonts-extra
     pass
     pinentry-qt
-    pipewire
+    # pipewire
     ps_mem
     qutebrowser
     readline
@@ -86,6 +88,7 @@ in {
     xclip
     xdg-utils
     xh
+    xss-lock
     yq
     yt-dlp
     zathura
