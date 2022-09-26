@@ -40,14 +40,16 @@ in {
     gh
     go
     hadolint
-    hadolint
     handlr
+    helmfile
     htop
     joypixels
     jq
     k9s
+    kind
     kubectl
-    kubie
+    kubernetes-helm
+    libnotify
     lsof
     lynx
     neomutt
@@ -69,21 +71,27 @@ in {
     rsync
     scrot
     shellcheck
+    sops
     spotify
     strace
     stylua
     sxiv
+    terraform
+    terraform-ls
     tree
     trivy
     units
+    unzip
     urlscan
     vale
     viddy
     wget
     xbanish
+    xbindkeys
     xclip
     xdg-utils
     xh
+    xss-lock
     yq
     yt-dlp
     zathura
@@ -97,6 +105,13 @@ in {
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_CACHE_HOME = "$HOME/.cache";
+  };
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = "nix-command flakes";
+    };
   };
 
   programs.home-manager.enable = true;
