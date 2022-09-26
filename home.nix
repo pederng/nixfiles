@@ -24,6 +24,7 @@ in {
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
     abook
+    azure-cli
     acpi
     bat
     bitwarden-cli
@@ -48,6 +49,7 @@ in {
     k9s
     kind
     kubectl
+    kubelogin
     kubernetes-helm
     libnotify
     lsof
