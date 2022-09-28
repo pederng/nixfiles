@@ -85,7 +85,6 @@ in {
     units
     unzip
     urlscan
-    vale
     viddy
     wget
     xbanish
