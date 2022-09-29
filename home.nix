@@ -52,6 +52,7 @@ in {
     kubelogin
     kubernetes-helm
     libnotify
+    mkcert
     lsof
     lynx
     neomutt
