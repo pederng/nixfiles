@@ -52,6 +52,7 @@ in {
     kubelogin
     kubernetes-helm
     libnotify
+    mkcert
     lsof
     lynx
     neomutt
@@ -85,7 +86,6 @@ in {
     units
     unzip
     urlscan
-    vale
     viddy
     wget
     xbanish
