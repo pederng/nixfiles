@@ -268,6 +268,7 @@ in {
       ".pytest_cache"
       ".hypothesis"
       ".sqlfluff"
+      "_null-ls"
     ];
     extraConfig = {
       user.signingKey = "4980821A221FE5B1";

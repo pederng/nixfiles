@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -eou pipefail
 yay
 nix-channel --update
 home-manager switch
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
