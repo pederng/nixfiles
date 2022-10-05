@@ -58,7 +58,9 @@ in {
     neomutt
     nerdfonts
     newsboat
+    nodejs
     nodePackages.bash-language-server
+    nodePackages.npm
     notmuch
     noto-fonts
     noto-fonts-emoji
@@ -67,6 +69,7 @@ in {
     pinentry-qt
     pipewire
     popeye
+    powertop
     ps_mem
     qutebrowser
     readline
