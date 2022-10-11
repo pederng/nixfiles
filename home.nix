@@ -71,7 +71,6 @@ in {
     popeye
     powertop
     ps_mem
-    qutebrowser
     readline
     ripgrep
     rsync
