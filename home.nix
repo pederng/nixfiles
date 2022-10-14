@@ -35,6 +35,7 @@ in {
     dunst
     entr
     exa
+    fastmod
     fd
     feh
     firefox
@@ -268,6 +269,7 @@ in {
       ".hypothesis"
       ".sqlfluff"
       "_null-ls"
+      ".null-ls"
     ];
     extraConfig = {
       user.signingKey = "4980821A221FE5B1";
