@@ -515,67 +515,6 @@ in {
     };
   };
 
-  programs.qutebrowser = {
-    enable = true;
-    package = pkgs.qutebrowser;
-    keyMappings = {
-      "<Ctrl-[>" = "<Escape>";
-      "<Ctrl-6>" = "<Ctrl-^>";
-      "<Ctrl-M>" = "<Return>";
-      "<Shift-Return>" = "<Return>";
-      "<Enter>" = "<Return>";
-      "<Shift-Enter>" = "<Return>";
-      "<Ctrl-Enter>" = "<Ctrl-Return>";
-    };
-    settings = {
-      completion.cmd_history_max_items = 100;
-      content.webgl = false;
-      fonts.completion.category = "bold 10pt monospace";
-      fonts.completion.entry = "10pt monospace";
-      fonts.debug_console = "10pt monospace";
-      fonts.downloads = "10pt monospace";
-      fonts.hints = "bold 10pt monospace";
-      fonts.keyhint = "10pt monospace";
-      fonts.messages.error = "10pt monospace";
-      fonts.messages.info = "10pt monospace";
-      fonts.messages.warning = "10pt monospace";
-      fonts.default_family = [
-        "DejaVu Sans Mono"
-        "Hack Nerd Font Mono"
-        "xos4 Terminus"
-        "Terminus"
-        "Monospace"
-        "Monaco"
-        "Bitstream Vera Sans Mono"
-        "Andale Mono"
-        "Courier New"
-        "Courier"
-        "Liberation Mono"
-        "monospace"
-        "Fixed"
-        "Consolas"
-        "Terminal"
-      ];
-      fonts.prompts = "10pt sans-serif";
-      fonts.statusbar = "10pt monospace";
-      # fonts.tabs = "10pt monospace";
-      tabs.position = "left";
-      tabs.width = "10%";
-    };
-    # extraConfig = "
-    # try:
-    # import custom_config
-    # c.zoom.default = custom_config.ZOOM
-    # except (ImportError, AttributeError):
-    # c.zoom.default = '100%'
-    # config.bind(' <Ctrl-K> ', ' completion-item-focus prev ', mode=' command ')
-    # config.bind(' <Ctrl-J> ', ' completion-item-focus next ', mode=' command ')
-    # ";
-    searchEngines = {
-      "DEFAULT" = "https://duck.com/?q={}";
-    };
-  };
-
   xdg = {
     userDirs = {
       enable = true;
@@ -594,35 +533,11 @@ in {
       associations.added = {"binary/octet-stream" = "gvim/desktop";};
       defaultApplications = {
         "application/pdf" = "zathura.desktop";
-        "application/x-extension-html" = "qutebrowser.desktop";
+        "application/x-extension-html" = "org.qutebrowser.qutebrowser.desktop";
         "image/png" = "sxiv.desktop";
-        "text/html" = "qutebrowser.desktop";
-        "x-scheme-handler/http" = "qutebrowser.desktop";
-        "x-scheme-handler/https" = "qutebrowser.desktop";
-      };
-    };
-
-    desktopEntries = {
-      qutebrowser = {
-        name = "qutebrowser";
-        exec = "qb --untrusted-args %u";
-        comment = "A keyboard-driven, vim-like browser based on PyQt5";
-        genericName = "Web Browser";
-        type = "Application";
-        categories = ["Network" "WebBrowser"];
-        icon = "qutebrowser";
-        terminal = false;
-        startupNotify = true;
-        mimeType = [
-          "text/html"
-          "text/xml"
-          "application/xhtml+xml"
-          "application/xml"
-          "application/rdf+xml"
-          "x-scheme-handler/http"
-          "x-scheme-handler/https"
-          "x-scheme-handler/qute"
-        ];
+        "text/html" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
       };
     };
   };
@@ -637,6 +552,7 @@ in {
     ".config/isync/mbsyncrc".source = ./mbsyncrc;
     ".config/msmtp/config".source = ./msmtp_config;
     ".config/vim/vimrc_background".source = ./vimrc_background;
+    ".config/qutebrowser/config.py".source = ./qutebrowser_config.py;
 
     ".config/mutt" = {
       source = ./mutt;
