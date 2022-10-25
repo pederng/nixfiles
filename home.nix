@@ -107,6 +107,7 @@ in {
     zoxide
     zsh
   ];
+  manual.manpages.enable = false;
   home.stateVersion = "22.05";
   home.sessionVariables = {
     LD_LIBRARY_PATH = "";
