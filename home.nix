@@ -24,8 +24,8 @@ in {
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
     abook
-    azure-cli
     acpi
+    azure-cli
     bat
     bitwarden-cli
     ctags
@@ -53,15 +53,16 @@ in {
     kubelogin
     kubernetes-helm
     libnotify
-    mkcert
+    linkerd
     lsof
     lynx
+    mkcert
     neomutt
     nerdfonts
     newsboat
-    nodejs
     nodePackages.bash-language-server
     nodePackages.npm
+    nodejs
     notmuch
     noto-fonts
     noto-fonts-emoji
@@ -77,8 +78,10 @@ in {
     rsync
     scrot
     shellcheck
+    skaffold
     sops
     spotify
+    step-cli
     strace
     stylua
     sxiv
@@ -370,7 +373,7 @@ in {
       python = {symbol = " ";};
       rust = {symbol = " ";};
       directory = {fish_style_pwd_dir_length = 1;};
-      kubernetes = {disabled = true;};
+      kubernetes = {disabled = false;};
 
       aws = {disabled = true;};
     };
