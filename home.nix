@@ -38,7 +38,6 @@ in {
     fastmod
     fd
     feh
-    firefox
     gh
     go
     hadolint
