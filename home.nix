@@ -373,7 +373,13 @@ in {
       python = {symbol = " ";};
       rust = {symbol = " ";};
       directory = {fish_style_pwd_dir_length = 1;};
-      kubernetes = {disabled = false;};
+      kubernetes = {
+        disabled = false;
+        format = "[⛵ $context](blue) ";
+        context_aliases = {
+          kind-coffer-dev = "dev";
+        };
+      };
 
       aws = {disabled = true;};
     };
