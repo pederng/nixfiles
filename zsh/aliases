@@ -1,7 +1,5 @@
 #Utilites
 alias grep='grep --color=auto'
-alias dmesg='dmesg -HL'
-alias x='exit'
 alias cp='cp -iv'
 alias rm='rm -iv --one-file-system'
 alias mv='mv -iv'
@@ -31,27 +29,15 @@ alias dcdeploy="dc -f docker-compose.yml -f docker-compose.deploy.yml"
 
 alias https='http --default-scheme=https'
 
-alias emacs="emacs -nw"
 alias mutt='neomutt'
 
 alias startx="startx $XINITRC"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-alias gcalcli="gcalcli --config-folder=$XDG_CONFIG_HOME/gcalcli --cal 'Week Numbers'#magenta --cal 'Holidays in Norway'#magenta --cal 'peder.galteland@telenordigital.com'#cyan"
 
 alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/notes/addressbook"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 
-alias org="emacs -nw $XDG_DATA_HOME/notes/notes.org"
 alias zk="zk -W $XDG_DATA_HOME/notes/zettelkasten"
-
-alias nix="LD_LIBRARY_PATH= nix"
-alias nix-env="LD_LIBRARY_PATH= nix-env"
-alias nix-channel="LD_LIBRARY_PATH= nix-channel"
-alias nix-instantiate="LD_LIBRARY_PATH= nix-instantiate"
-alias nix-shell="LD_LIBRARY_PATH= nix-shell"
-alias cachix="LD_LIBRARY_PATH= cachix"
-alias neuron="LD_LIBRARY_PATH= neuron -d $XDG_DATA_HOME/notes/zettelkasten"
-alias home-manager="LD_LIBRARY_PATH= home-manager"
 
 alias j=zi
