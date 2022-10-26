@@ -1,3 +1,4 @@
 #!/bin/bash
-st -c fzfmenu -n fzfmenu -g 100x50 -e zsh -c \
-  'eval "$(~/.config/base16-shell/profile_helper.sh)"; nvim -u ~/.config/nvim/init.vim ~/.local/share/notes/tasks.md' & disown
+config="$HOME/.config/nvim/init.vim"
+test -f "$config" || config="$HOME/.config/nvim/init.lua"
+st -c fzfmenu -n fzfmenu -g 100x50 -e zsh -c "nvim -u $config ~/.local/share/notes/tasks.md" & disown
