@@ -289,6 +289,7 @@ local sources = {
 	null_ls.builtins.formatting.cue_fmt,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.alejandra,
+	null_ls.builtins.formatting.terraform_fmt,
 	null_ls.builtins.code_actions.gitsigns,
 }
 
