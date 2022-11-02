@@ -31,7 +31,6 @@ in {
     ctags
     cue
     dmenu
-    docker-compose
     dunst
     entr
     exa
