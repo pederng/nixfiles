@@ -23,10 +23,6 @@ alias lm='la | more'
 
 alias gpgreset="gpg-connect-agent updatestartuptty /bye"
 
-alias dc="docker-compose"
-alias dcdev="dc -f docker-compose.yml -f docker-compose.dev.yml"
-alias dcdeploy="dc -f docker-compose.yml -f docker-compose.deploy.yml"
-
 alias https='http --default-scheme=https'
 
 alias mutt='neomutt'
