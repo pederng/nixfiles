@@ -67,7 +67,6 @@ in {
     noto-fonts-extra
     pass
     pinentry-qt
-    pipewire
     popeye
     powertop
     ps_mem
