@@ -48,6 +48,7 @@ in {
     k9s
     kind
     kubectl
+    kubectx
     kubelogin
     kubernetes-helm
     libnotify
@@ -129,8 +130,8 @@ in {
     initExtra = builtins.concatStringsSep "\n" [
       ''
         ${lib.strings.fileContents ./zsh/zshrc}
-        ${lib.strings.fileContents ./zsh/aliases}
-        ${lib.strings.fileContents ./zsh/functions}
+        ${lib.strings.fileContents ./zsh/aliases.zsh}
+        ${lib.strings.fileContents ./zsh/functions.zsh}
       ''
     ];
   };
@@ -373,9 +374,11 @@ in {
       directory = {fish_style_pwd_dir_length = 1;};
       kubernetes = {
         disabled = false;
-        format = "[⛵ $context](blue) ";
+        format = "[$context](blue)[\(:$namespace\)](dimmed green) ";
         context_aliases = {
           kind-coffer-dev = "dev";
+          coffer-test-aks = "test";
+          coffer-prod-dora = "dora";
         };
       };
 
