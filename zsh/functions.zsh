@@ -76,3 +76,7 @@ EOF
   echo "Connecting"
   ssh "$@"
 }
+
+function venv_activate() {
+  . .venv/bin/activate
+}
