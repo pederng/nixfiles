@@ -430,6 +430,8 @@ in {
       recursive = true;
     };
 
+    ".config/notmuch/notmuchrc".source = ./notmuchrc; 
+
     ".config/X11" = {
       source = ./X11;
       recursive = true;
