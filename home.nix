@@ -23,6 +23,7 @@ in {
   home.username = "peder";
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
+    direnv
     abook
     acpi
     azure-cli
@@ -272,6 +273,7 @@ in {
       ".sqlfluff"
       "*_null-ls*"
       "*.null-ls*"
+      ".envrc"
     ];
     extraConfig = {
       user.signingKey = "4980821A221FE5B1";
@@ -430,7 +432,7 @@ in {
       recursive = true;
     };
 
-    ".config/notmuch/notmuchrc".source = ./notmuchrc; 
+    ".config/notmuch/notmuchrc".source = ./notmuchrc;
 
     ".config/X11" = {
       source = ./X11;
