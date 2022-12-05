@@ -1,5 +1,5 @@
 #!/bin/bash
-taskfile=$NOTES_DIR/tasks.md
+taskfile=$NOTES_DIR/todo.txt
 task="$*"
 
 if [ -z "$task" ]; then
