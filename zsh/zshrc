@@ -139,6 +139,9 @@ export ZETTEL_DIR=$NOTES_DIR/zettelkasten
 export PIPENV_VENV_IN_PROJECT=1
 command -v pipenv >/dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
+# klog completion
+command -v klog >/dev/null && source <(klog completion -c zsh)
+
 function preexec() {
     _tmux_update_env
     _update_agents
