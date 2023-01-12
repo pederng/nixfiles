@@ -23,7 +23,6 @@ in {
   home.username = "peder";
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
-    direnv
     abook
     acpi
     azure-cli
@@ -31,6 +30,7 @@ in {
     bitwarden-cli
     ctags
     cue
+    direnv
     dmenu
     dunst
     entr
@@ -81,6 +81,7 @@ in {
     sops
     spotify
     step-cli
+    stern
     strace
     stylua
     sxiv
