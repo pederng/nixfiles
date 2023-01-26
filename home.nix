@@ -42,7 +42,7 @@ in {
     go
     hadolint
     handlr
-    helmfile
+    # helmfile
     htop
     joypixels
     jq
