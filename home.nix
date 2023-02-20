@@ -42,7 +42,7 @@ in {
     go
     hadolint
     handlr
-    # helmfile
+    helmfile
     htop
     joypixels
     jq
@@ -108,7 +108,7 @@ in {
     zsh
   ];
   manual.manpages.enable = false;
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
   home.sessionVariables = {
     LD_LIBRARY_PATH = "";
     XDG_CONFIG_HOME = "$HOME/.config";
