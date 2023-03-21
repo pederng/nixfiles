@@ -43,7 +43,7 @@ in {
     hadolint
     handlr
     helmfile
-    htop
+    btop
     joypixels
     jq
     k9s
