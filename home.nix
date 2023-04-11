@@ -80,7 +80,6 @@ in {
     skaffold
     sops
     spotify
-    sqls
     step-cli
     stern
     strace

@@ -142,7 +142,7 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { "ansiblels", "bashls", "dockerls", "zk", "sqls", "rnix", "terraformls" }
+local servers = { "ansiblels", "bashls", "dockerls", "zk", "rnix", "terraformls" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
