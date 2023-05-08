@@ -71,50 +71,14 @@ source ~/.local/bin/virtualenvwrapper.sh
 # Base16 Shell
 . "$HOME/.local/bin/base16-theme.sh"
 
-
-#Syntax highlighting
-if [ ! -f $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZDOTDIR/zsh-syntax-highlighting
-fi
-source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# zsh-histdb
-if [ ! -f $ZDOTDIR/zsh-histdb/sqlite-history.zsh ]; then
-  git clone https://github.com/larkery/zsh-histdb $ZDOTDIR/zsh-histdb
-fi
-source $ZDOTDIR/zsh-histdb/sqlite-history.zsh
-autoload -Uz add-zsh-hook
-
 # forgit
 if [ ! -f $ZDOTDIR/forgit/forgit.plugin.zsh ]; then
   git clone https://github.com/wfxr/forgit $ZDOTDIR/forgit/
 fi
 source $ZDOTDIR/forgit/forgit.plugin.zsh
 
-# Jumping
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
-
 # Bitwarden
 command -v bw >/dev/null && eval "$(bw completion --shell zsh); compdef _bw bw;"
-
-# Fuzzy completion
-if [ ! -f "${XDG_CONFIG_HOME}"/fzf/fzf.zsh ]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git "${XDG_CONFIG_HOME}"/fzf
-  "${XDG_CONFIG_HOME}"/fzf/install
-  mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
-  rm -f $HOME/.fzf.bash
-fi
-source "${XDG_CONFIG_HOME}"/fzf/fzf.zsh
-export FZF_DEFAULT_OPTS="--multi"
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-bindkey '^I' $fzf_default_completion
-
-if [ ! -f $ZDOTDIR/zsh-histdb-fzf/fzf-histdb.zsh ]; then
-  git clone https://github.com/m42e/zsh-histdb-fzf $ZDOTDIR/zsh-histdb-fzf
-fi
-export HISTDB_FZF_DEFAULT_MODE=3
-source $ZDOTDIR/zsh-histdb-fzf/fzf-histdb.zsh
 
 # Vim mode improvements
 export KEYTIMEOUT=10
@@ -146,9 +110,6 @@ function preexec() {
     _tmux_update_env
     _update_agents
 }
-
-
-eval "$(direnv hook zsh)"
 
 export DO_NOT_TRACK=1
 

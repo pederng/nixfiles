@@ -30,7 +30,6 @@ in {
     bitwarden-cli
     ctags
     cue
-    direnv
     dmenu
     dunst
     entr
@@ -104,7 +103,6 @@ in {
     yt-dlp
     zathura
     zk
-    zoxide
     zsh
   ];
   manual.manpages.enable = false;
@@ -129,6 +127,7 @@ in {
     enable = true;
     dotDir = ".config/zsh";
     profileExtra = lib.strings.fileContents ./zsh/zprofile;
+    enableSyntaxHighlighting = true;
     initExtra = builtins.concatStringsSep "\n" [
       ''
         ${lib.strings.fileContents ./zsh/zshrc}
@@ -223,6 +222,30 @@ in {
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ./tmux.conf)
     ];
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      auto_sync = false;
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type d";
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.git = {
