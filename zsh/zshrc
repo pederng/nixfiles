@@ -35,11 +35,6 @@ conf() {
   cd - 1>/dev/null
 }
 
-# Python virtualenv
-export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-source ~/.local/bin/virtualenvwrapper.sh
-
 # Base16 Shell
 . "$HOME/.local/bin/base16-theme.sh"
 
