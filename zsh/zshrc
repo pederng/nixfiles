@@ -1,45 +1,17 @@
-HISTFILE=$XDG_DATA_HOME/zsh/histfile
-HISTSIZE=100000
-SAVEHIST=10000
-
 setopt incappendhistory autocd extendedglob
 unsetopt beep nomatch notify
-bindkey -v
-
 setopt prompt_subst
-
-zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename "$ZDOTDIR/.zshrc"
-
-
-fpath=($ZDOTDIR/completions $fpath)
-fpath=($ZDOTDIR/zfunc $fpath)
-autoload -Uz compinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-
-autoload -U bashcompinit
-bashcompinit
-
 setopt NO_HUP
 
 # Disable c-s hanging of terminal
 stty -ixon
 
-# Tab completion for cd ..
-
-zstyle ':completion:*' special-dirs true
-
 # Bindings
-
 bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey '^?' backward-delete-char
 bindkey '^d' delete-char
 bindkey '^[d' delete-word
-# bindkey '^h' backward-delete-char
-# bindkey '^k' kill-line
-# bindkey '^j' accept-line
-# bindkey '^l' clear-screen
 bindkey '^y' yank
 bindkey '^w' backward-kill-word
 bindkey '^b' backward-char
@@ -84,16 +56,7 @@ command -v bw >/dev/null && eval "$(bw completion --shell zsh); compdef _bw bw;"
 export KEYTIMEOUT=10
 bindkey -M viins 'jk' vi-cmd-mode
 
-
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
+command -v pip > /dev/null && eval "$(pip completion --zsh)"
 
 # Notes
 export NOTES_DIR=$XDG_DATA_HOME/notes

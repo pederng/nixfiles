@@ -135,6 +135,10 @@ in {
         ${lib.strings.fileContents ./zsh/functions.zsh}
       ''
     ];
+    history = {
+      path = "$ZDOTDIR/zsh/histfile";
+    };
+    defaultKeymap = "viins";
   };
 
   programs.neovim = {
