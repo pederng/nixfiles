@@ -106,7 +106,7 @@ in {
     zsh
   ];
   manual.manpages.enable = false;
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
   home.sessionVariables = {
     LD_LIBRARY_PATH = "";
     XDG_CONFIG_HOME = "$HOME/.config";
