@@ -103,7 +103,6 @@ in {
     yt-dlp
     zathura
     zk
-    zsh
   ];
   manual.manpages.enable = false;
   home.stateVersion = "23.05";

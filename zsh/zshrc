@@ -1,3 +1,5 @@
+autoload -U bashcompinit
+bashcompinit
 setopt incappendhistory autocd extendedglob
 unsetopt beep nomatch notify
 setopt prompt_subst
@@ -44,25 +46,17 @@ if [ ! -f $ZDOTDIR/forgit/forgit.plugin.zsh ]; then
 fi
 source $ZDOTDIR/forgit/forgit.plugin.zsh
 
-# Bitwarden
-command -v bw >/dev/null && eval "$(bw completion --shell zsh); compdef _bw bw;"
-
 # Vim mode improvements
 export KEYTIMEOUT=10
 bindkey -M viins 'jk' vi-cmd-mode
 
-command -v pip > /dev/null && eval "$(pip completion --zsh)"
 
 # Notes
 export NOTES_DIR=$XDG_DATA_HOME/notes
 export ZETTEL_DIR=$NOTES_DIR/zettelkasten
 
-# pipenv completion
+# pipenv
 export PIPENV_VENV_IN_PROJECT=1
-command -v pipenv >/dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
-
-# klog completion
-command -v klog >/dev/null && source <(klog completion -c zsh)
 
 function preexec() {
     _tmux_update_env
@@ -70,6 +64,37 @@ function preexec() {
 }
 
 export DO_NOT_TRACK=1
+
+# Lazy-loading completion
+if [ $commands[bw] ]; then
+  bw() {
+    unfunction "$0"
+    eval "$(bw completion --shell zsh); compdef _bw bw;"
+    $0 "$@"
+  }
+fi
+if [ $commands[klog] ]; then
+  klog() {
+    unfunction "$0"
+    source <(klog completion -c zsh)
+    $0 "$@"
+  }
+fi
+if [ $commands[pipenv] ]; then
+  pipenv() {
+    unfunction "$0"
+    eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+    $0 "$@"
+  }
+fi
+if [ $commands[pip] ]; then
+  pip() {
+    unfunction "$0"
+    eval "$(pip completion --zsh)"
+    $0 "$@"
+  }
+fi
+
 
 #----Machine-specific----
 test -f $ZDOTDIR/machine_specific && source $ZDOTDIR/machine_specific
