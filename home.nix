@@ -37,7 +37,6 @@ in {
     fastmod
     fd
     feh
-    gh
     go
     hadolint
     handlr
@@ -320,6 +319,13 @@ in {
       pull.rebase = false;
       diff.algorithm = "histogram";
     };
+  };
+
+  programs.gh = {
+    enable = true;
+    extensions = [
+      pkgs.gh-dash
+    ];
   };
 
   programs.newsboat = {
