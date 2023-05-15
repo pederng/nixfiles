@@ -274,8 +274,7 @@ end
 
 local null_ls = require("null-ls")
 local sources = {
-	-- null_ls.builtins.diagnostics.mypy,
-	-- null_ls.builtins.diagnostics.pylint,
+	null_ls.builtins.diagnostics.mypy,
 	null_ls.builtins.diagnostics.hadolint,
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
