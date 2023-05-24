@@ -4,3 +4,4 @@ yay
 nix-channel --update
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 home-manager switch
+setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
