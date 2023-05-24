@@ -28,6 +28,7 @@ in {
     azure-cli
     bat
     bitwarden-cli
+    btop
     ctags
     cue
     dmenu
@@ -41,7 +42,6 @@ in {
     hadolint
     handlr
     helmfile
-    btop
     joypixels
     jq
     k9s
@@ -85,6 +85,7 @@ in {
     sxiv
     terraform
     terraform-ls
+    tokei
     tree
     trivy
     units
