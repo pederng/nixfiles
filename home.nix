@@ -225,6 +225,24 @@ in {
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ./tmux.conf)
     ];
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.tmux-thumbs;
+        extraConfig = ''
+          set -g @thumbs-alphabet qwerty-homerow
+          set -g @thumbs-bg-color blue
+          set -g @thumbs-fg-color green
+          set -g @thumbs-hint-bg-color black
+          set -g @thumbs-hint-fg-color yellow
+        '';
+      }
+      {
+        plugin = tmuxPlugins.tmux-fzf;
+        extraConfig = ''
+          bind w choose-tree -Z
+        '';
+      }
+    ];
   };
 
   programs.atuin = {
