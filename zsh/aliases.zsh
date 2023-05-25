@@ -37,3 +37,5 @@ alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias zk="zk -W $XDG_DATA_HOME/notes/zettelkasten"
 
 alias j=zi
+
+alias k=kubectl
