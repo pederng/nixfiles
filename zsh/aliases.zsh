@@ -39,3 +39,5 @@ alias zk="zk -W $XDG_DATA_HOME/notes/zettelkasten"
 alias j=zi
 
 alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
