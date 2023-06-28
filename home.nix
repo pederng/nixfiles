@@ -126,7 +126,7 @@ in {
     enable = true;
     dotDir = ".config/zsh";
     profileExtra = lib.strings.fileContents ./zsh/zprofile;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     initExtra = builtins.concatStringsSep "\n" [
       ''
         ${lib.strings.fileContents ./zsh/zshrc}
