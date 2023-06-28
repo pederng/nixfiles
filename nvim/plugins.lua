@@ -73,6 +73,7 @@ require("packer").startup(function(use)
 	use({ "sheerun/vim-polyglot" })
 	use({ "nathangrigg/vim-beancount" })
 	use({ "jjo/vim-cue" })
+	use({ "luizribeiro/vim-cooklang" })
 	use({ "ellisonleao/glow.nvim", branch = "main" })
 
 	-- Visuals
