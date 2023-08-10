@@ -2,110 +2,82 @@ local keymap = vim.keymap.set
 local fn = vim.fn
 local cmd = vim.cmd
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-local ensure_packer = function()
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+vim.g.mapleader = " "
 
+require("lazy").setup({
 	-- General Utils
-	use({ "tpope/vim-commentary" })
-	use({ "tpope/vim-repeat" })
-	use({ "tpope/vim-unimpaired" })
-	use({ "tpope/vim-speeddating" })
-	use({ "tpope/vim-surround" })
-	use({ "tpope/vim-rsi" })
-	use({ "ntpeters/vim-better-whitespace" })
-	use({ "vim-scripts/ReplaceWithRegister" })
-	use({ "christoomey/vim-system-copy" })
-	use({ "christoomey/vim-tmux-navigator" })
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "nvim-lua/plenary.nvim" })
-	use({ "karb94/neoscroll.nvim" })
-	use({ "freitass/todo.txt-vim" })
+	{ "echasnovski/mini.nvim", version = false },
+	"tpope/vim-repeat",
+	"tpope/vim-unimpaired",
+	"tpope/vim-speeddating",
+	"tpope/vim-rsi",
+	"ntpeters/vim-better-whitespace",
+	"vim-scripts/ReplaceWithRegister",
+	"christoomey/vim-system-copy",
+	"christoomey/vim-tmux-navigator",
+	"kyazdani42/nvim-web-devicons",
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	"nvim-lua/plenary.nvim",
+	"karb94/neoscroll.nvim",
+	"freitass/todo.txt-vim",
 
-	-- Text objects
-	use({ "kana/vim-textobj-user" })
-	use({ "kana/vim-textobj-indent" })
-	use({ "kana/vim-textobj-line" })
-	use({ "kana/vim-textobj-entire" })
-	use({ "michaeljsmith/vim-indent-object" })
-	use({ "bps/vim-textobj-python" })
+	-- -- Searching
+	"nvim-telescope/telescope.nvim",
 
-	-- Searching
-	use({ "nvim-telescope/telescope.nvim" })
+	-- -- LSP
+	"neovim/nvim-lspconfig",
+	{ "folke/lsp-colors.nvim", branch = "main" },
+	{ "hrsh7th/cmp-nvim-lsp", branch = "main" },
+	{ "hrsh7th/cmp-buffer", branch = "main" },
+	{ "hrsh7th/cmp-path", branch = "main" },
+	{ "hrsh7th/cmp-cmdline", branch = "main" },
+	{ "hrsh7th/nvim-cmp", branch = "main" },
+	{ "jose-elias-alvarez/null-ls.nvim", branch = "main" },
+	"onsails/lspkind.nvim",
+	"ray-x/lsp_signature.nvim",
 
-	-- LSP
-	use({ "neovim/nvim-lspconfig" })
-	use({ "folke/lsp-colors.nvim", branch = "main" })
-	use({ "hrsh7th/cmp-nvim-lsp", branch = "main" })
-	use({ "hrsh7th/cmp-buffer", branch = "main" })
-	use({ "hrsh7th/cmp-path", branch = "main" })
-	use({ "hrsh7th/cmp-cmdline", branch = "main" })
-	use({ "hrsh7th/nvim-cmp", branch = "main" })
-	use({ "jose-elias-alvarez/null-ls.nvim", branch = "main" })
-	use({ "onsails/lspkind.nvim" })
-	use({ "ray-x/lsp_signature.nvim" })
+	-- -- DB
+	"tpope/vim-dadbod",
 
-	-- DB
-	use({ "tpope/vim-dadbod" })
+	-- -- File system
+	"tpope/vim-vinegar",
 
-	-- File system
-	use({ "tpope/vim-vinegar" })
+	-- -- Git
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
+	"pwntester/octo.nvim",
+	{ "lewis6991/gitsigns.nvim", branch = "main" },
 
-	-- Git
-	use({ "tpope/vim-fugitive" })
-	use({ "tpope/vim-rhubarb" })
-	use({ "pwntester/octo.nvim" })
-	use({ "lewis6991/gitsigns.nvim", branch = "main" })
+	-- -- Other langs
+	"sheerun/vim-polyglot",
+	"nathangrigg/vim-beancount",
+	"jjo/vim-cue",
+	"luizribeiro/vim-cooklang",
+	{ "ellisonleao/glow.nvim", branch = "main" },
 
-	-- Other langs
-	use({ "sheerun/vim-polyglot" })
-	use({ "nathangrigg/vim-beancount" })
-	use({ "jjo/vim-cue" })
-	use({ "luizribeiro/vim-cooklang" })
-	use({ "ellisonleao/glow.nvim", branch = "main" })
-
-	-- Visuals
-	use({ "folke/trouble.nvim", branch = "main" })
-	use({
-		"folke/todo-comments.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
-	})
-	use({ "romgrk/nvim-treesitter-context" })
-	use({ "nvim-lualine/lualine.nvim" })
-	use({ "akinsho/bufferline.nvim", tag = "*" })
-	use({ "RRethy/nvim-base16" })
-	use({ "folke/tokyonight.nvim" })
-	use({
-		"lewis6991/hover.nvim",
-		config = function()
-			require("hover").setup({
-				init = function()
-					require("hover.providers.lsp")
-				end,
-				preview_opts = { border = nil },
-				title = true,
-			})
-		end,
-	})
-
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	-- -- Visuals
+	{ "folke/trouble.nvim", branch = "main" },
+	"folke/todo-comments.nvim",
+	"romgrk/nvim-treesitter-context",
+	"nvim-lualine/lualine.nvim",
+	{ "akinsho/bufferline.nvim", version = "*" },
+	"RRethy/nvim-base16",
+	"folke/tokyonight.nvim",
+	"lewis6991/hover.nvim",
+})
 
 local actions = require("telescope.actions")
 require("telescope").setup({
@@ -119,6 +91,10 @@ require("telescope").setup({
 		},
 	},
 })
+require("mini.ai").setup()
+require("mini.indentscope").setup()
+require("mini.comment").setup()
+require("mini.surround").setup()
 require("neoscroll").setup()
 require("lualine").setup({})
 require("trouble").setup({ mode = "document_diagnostics" })
