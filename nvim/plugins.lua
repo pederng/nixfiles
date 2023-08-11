@@ -73,6 +73,7 @@ require("lazy").setup({
 	"RRethy/nvim-base16",
 	"folke/tokyonight.nvim",
 	"lewis6991/hover.nvim",
+  { 'stevearc/dressing.nvim', opts = {} },
 })
 
 local actions = require("telescope.actions")
