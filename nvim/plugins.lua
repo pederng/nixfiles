@@ -21,7 +21,7 @@ require("lazy").setup({
 	-- General Utils
 	{ "echasnovski/mini.nvim", version = false },
 	"tpope/vim-repeat",
-	"tpope/vim-surround",
+	"tpope/vim-repeat",
 	"tpope/vim-unimpaired",
 	"tpope/vim-speeddating",
 	"tpope/vim-rsi",
@@ -29,7 +29,7 @@ require("lazy").setup({
 	"vim-scripts/ReplaceWithRegister",
 	"christoomey/vim-system-copy",
 	"christoomey/vim-tmux-navigator",
-	"kyazdani42/nvim-web-devicons",
+	"nvim-tree/nvim-web-devicons",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"nvim-lua/plenary.nvim",
 	"karb94/neoscroll.nvim",
@@ -37,6 +37,7 @@ require("lazy").setup({
 
 	-- -- Searching
 	"nvim-telescope/telescope.nvim",
+	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- -- LSP
 	"neovim/nvim-lspconfig",
@@ -52,6 +53,13 @@ require("lazy").setup({
 
 	-- -- File system
 	"tpope/vim-vinegar",
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+	},
 
 	-- -- Git
 	"tpope/vim-fugitive",
@@ -74,7 +82,16 @@ require("lazy").setup({
 	"RRethy/nvim-base16",
 	"folke/tokyonight.nvim",
 	"lewis6991/hover.nvim",
-  { 'stevearc/dressing.nvim', opts = {} },
+	{ "stevearc/dressing.nvim", opts = {} },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
 })
 
 local actions = require("telescope.actions")
@@ -98,6 +115,7 @@ require("lualine").setup({})
 require("trouble").setup({ mode = "document_diagnostics" })
 require("bufferline").setup({ options = { diagnostics = "nvim_lsp" } })
 require("todo-comments").setup({})
+require("spectre").setup({})
 require("hover").setup({
 	init = function()
 		require("hover.providers.lsp")
