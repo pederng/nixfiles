@@ -21,7 +21,7 @@ require("lazy").setup({
 	-- General Utils
 	{ "echasnovski/mini.nvim", version = false },
 	"tpope/vim-repeat",
-	"tpope/vim-repeat",
+	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
 	"tpope/vim-speeddating",
 	"tpope/vim-rsi",
