@@ -49,16 +49,12 @@ require("lazy").setup({
 	"onsails/lspkind.nvim",
 	"ray-x/lsp_signature.nvim",
 
-	-- -- DB
-	"tpope/vim-dadbod",
-
 	-- -- File system
 	"tpope/vim-vinegar",
 
 	-- -- Git
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	"pwntester/octo.nvim",
 	{ "lewis6991/gitsigns.nvim", branch = "main" },
 
 	-- -- Other langs
@@ -95,6 +91,7 @@ require("mini.ai").setup()
 require("mini.indentscope").setup()
 require("mini.comment").setup()
 require("mini.surround").setup()
+require("mini.bufremove").setup()
 require("neoscroll").setup()
 require("lualine").setup({})
 require("trouble").setup({ mode = "document_diagnostics" })
@@ -256,12 +253,11 @@ local sources = {
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
-	-- null_ls.builtins.diagnostics.vale,
 	null_ls.builtins.diagnostics.cue_fmt,
 	null_ls.builtins.formatting.black,
 	null_ls.builtins.formatting.isort,
 	null_ls.builtins.formatting.cue_fmt,
-	null_ls.builtins.formatting.stylua,
+	-- null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.alejandra,
 	null_ls.builtins.formatting.terraform_fmt,
 	null_ls.builtins.code_actions.gitsigns,
