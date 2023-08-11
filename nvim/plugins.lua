@@ -21,6 +21,7 @@ require("lazy").setup({
 	-- General Utils
 	{ "echasnovski/mini.nvim", version = false },
 	"tpope/vim-repeat",
+	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
 	"tpope/vim-speeddating",
 	"tpope/vim-rsi",
@@ -91,7 +92,6 @@ require("telescope").setup({
 require("mini.ai").setup()
 require("mini.indentscope").setup()
 require("mini.comment").setup()
-require("mini.surround").setup()
 require("mini.bufremove").setup()
 require("neoscroll").setup()
 require("lualine").setup({})
