@@ -83,15 +83,15 @@ require("lazy").setup({
 	{ "folke/tokyonight.nvim" },
 	{ "lewis6991/hover.nvim" },
 	{ "stevearc/dressing.nvim", opts = {} },
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- },
 })
 
 local actions = require("telescope.actions")
