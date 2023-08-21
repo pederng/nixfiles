@@ -20,27 +20,27 @@ vim.g.mapleader = " "
 require("lazy").setup({
 	-- General Utils
 	{ "echasnovski/mini.nvim", version = false },
-	"tpope/vim-repeat",
-	"tpope/vim-repeat",
-	"tpope/vim-unimpaired",
-	"tpope/vim-speeddating",
-	"tpope/vim-rsi",
-	"ntpeters/vim-better-whitespace",
-	"vim-scripts/ReplaceWithRegister",
-	"christoomey/vim-system-copy",
-	"christoomey/vim-tmux-navigator",
-	"nvim-tree/nvim-web-devicons",
+	{ "tpope/vim-repeat" },
+	{ "tpope/vim-surround" },
+	{ "tpope/vim-unimpaired" },
+	{ "tpope/vim-speeddating" },
+	{ "tpope/vim-rsi" },
+	{ "ntpeters/vim-better-whitespace" },
+	{ "vim-scripts/ReplaceWithRegister" },
+	{ "christoomey/vim-system-copy" },
+	{ "christoomey/vim-tmux-navigator" },
+	{ "nvim-tree/nvim-web-devicons" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	"nvim-lua/plenary.nvim",
-	"karb94/neoscroll.nvim",
-	"freitass/todo.txt-vim",
+	{ "nvim-lua/plenary.nvim" },
+	{ "karb94/neoscroll.nvim" },
+	{ "freitass/todo.txt-vim" },
 
 	-- -- Searching
-	"nvim-telescope/telescope.nvim",
+	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- -- LSP
-	"neovim/nvim-lspconfig",
+	{ "neovim/nvim-lspconfig" },
 	{ "folke/lsp-colors.nvim", branch = "main" },
 	{ "hrsh7th/cmp-nvim-lsp", branch = "main" },
 	{ "hrsh7th/cmp-buffer", branch = "main" },
@@ -48,11 +48,11 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-cmdline", branch = "main" },
 	{ "hrsh7th/nvim-cmp", branch = "main" },
 	{ "jose-elias-alvarez/null-ls.nvim", branch = "main" },
-	"onsails/lspkind.nvim",
-	"ray-x/lsp_signature.nvim",
+	{ "onsails/lspkind.nvim" },
+	{ "ray-x/lsp_signature.nvim" },
 
 	-- -- File system
-	"tpope/vim-vinegar",
+	{ "tpope/vim-vinegar" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -62,36 +62,36 @@ require("lazy").setup({
 	},
 
 	-- -- Git
-	"tpope/vim-fugitive",
-	"tpope/vim-rhubarb",
+	{ "tpope/vim-fugitive" },
+	{ "tpope/vim-rhubarb" },
 	{ "lewis6991/gitsigns.nvim", branch = "main" },
 
 	-- -- Other langs
-	"sheerun/vim-polyglot",
-	"nathangrigg/vim-beancount",
-	"jjo/vim-cue",
-	"luizribeiro/vim-cooklang",
+	{ "sheerun/vim-polyglot" },
+	{ "nathangrigg/vim-beancount" },
+	{ "jjo/vim-cue" },
+	{ "luizribeiro/vim-cooklang" },
 	{ "ellisonleao/glow.nvim", branch = "main" },
 
 	-- -- Visuals
 	{ "folke/trouble.nvim", branch = "main" },
-	"folke/todo-comments.nvim",
-	"romgrk/nvim-treesitter-context",
-	"nvim-lualine/lualine.nvim",
+	{ "folke/todo-comments.nvim" },
+	{ "romgrk/nvim-treesitter-context" },
+	{ "nvim-lualine/lualine.nvim" },
 	{ "akinsho/bufferline.nvim", version = "*" },
-	"RRethy/nvim-base16",
-	"folke/tokyonight.nvim",
-	"lewis6991/hover.nvim",
+	{ "RRethy/nvim-base16" },
+	{ "folke/tokyonight.nvim" },
+	{ "lewis6991/hover.nvim" },
 	{ "stevearc/dressing.nvim", opts = {} },
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- },
 })
 
 local actions = require("telescope.actions")
