@@ -34,7 +34,6 @@ in {
     dmenu
     dunst
     entr
-    exa
     fastmod
     fd
     feh
