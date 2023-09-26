@@ -3,4 +3,5 @@ set -eou pipefail
 yay
 nix-channel --update
 home-manager switch
+nvim --headless "+Lazy! sync" +qa
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
