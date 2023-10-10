@@ -22,9 +22,9 @@ autocmd("FileType", { pattern = "gitcommit", group = augroup_5, command = "setlo
 
 local augroup_6 = vim.api.nvim_create_augroup("ansible_ft", { clear = true })
 autocmd(
-	"BufRead,BufNewFile",
+	{"BufRead" , "BufNewFile" },
 	{ pattern = "*/playbooks/*.yml", group = augroup_6, command = "set filetype=yaml.ansible" }
 )
 
 local augroup_7 = vim.api.nvim_create_augroup("helm_ft", { clear = true })
-autocmd("BufRead,BufNewFile", { pattern = "*.gotmpl", group = augroup_6, command = "set filetype=helm" })
+autocmd( {"BufRead" , "BufNewFile" }, { pattern = "*.gotmpl", group = augroup_6, command = "set filetype=helm" })
