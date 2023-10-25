@@ -215,8 +215,9 @@ in {
     #   (pluginGit "pedernot/vim-textobj-python")
     # ];
   };
-  home.file.".config/nvim/after/syntax/python.vim".source = ./python.vim;
-  home.file.".config/nvim/after/syntax/markdown.vim".source = ./markdown.vim;
+  home.file.".config/nvim/after/syntax/python.vim".source = ./nvim/python.vim;
+  home.file.".config/nvim/after/syntax/markdown.vim".source = ./nvim/markdown.vim;
+  home.file.".config/nvim/queries/python/injections.scm".source = ./nvim/injections.scm;
 
   programs.tmux = {
     enable = true;
