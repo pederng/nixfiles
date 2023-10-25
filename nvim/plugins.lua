@@ -47,7 +47,7 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-path", branch = "main" },
 	{ "hrsh7th/cmp-cmdline", branch = "main" },
 	{ "hrsh7th/nvim-cmp", branch = "main" },
-	{ "jose-elias-alvarez/null-ls.nvim", branch = "main" },
+	{ "nvimtools/none-ls.nvim", branch = "main" },
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
 
