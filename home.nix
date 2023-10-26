@@ -30,7 +30,6 @@ in {
     bitwarden-cli
     btop
     ctags
-    cue
     dmenu
     dunst
     entr
