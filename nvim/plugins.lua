@@ -50,6 +50,7 @@ require("lazy").setup({
 	{ "nvimtools/none-ls.nvim", branch = "main" },
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
+	{ "lukas-reineke/lsp-format.nvim" },
 
 	-- -- File system
 	{ "tpope/vim-vinegar" },
@@ -123,16 +124,21 @@ require("hover").setup({
 	preview_opts = { border = nil },
 	title = true,
 })
+require("lsp-format").setup {}
 
-local silent = { silent = true }
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", silent)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "d<C-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
+
+	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "d<C-]>", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	require("lsp_signature").on_attach()
+	require("lsp-format").on_attach(client, bufnr)
 end
+
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = { "ansiblels", "bashls", "dockerls", "zk", "ruff_lsp", "rnix", "terraformls" }
@@ -272,12 +278,8 @@ local sources = {
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
-	null_ls.builtins.diagnostics.cue_fmt,
-	null_ls.builtins.formatting.black,
-	null_ls.builtins.formatting.ruff,
-	null_ls.builtins.formatting.cue_fmt,
-	-- null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.alejandra,
+	-- null_ls.builtins.formatting.black,
+	-- null_ls.builtins.formatting.ruff,
 	null_ls.builtins.formatting.terraform_fmt,
 	null_ls.builtins.code_actions.gitsigns,
 }
