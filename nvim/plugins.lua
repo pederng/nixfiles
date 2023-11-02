@@ -19,7 +19,7 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
 	-- General Utils
-	{ "echasnovski/mini.nvim", version = false },
+	{ "echasnovski/mini.nvim",           version = false },
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-unimpaired" },
@@ -31,23 +31,24 @@ require("lazy").setup({
 	{ "christoomey/vim-tmux-navigator" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/playground" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "karb94/neoscroll.nvim" },
 	{ "freitass/todo.txt-vim" },
 
 	-- -- Searching
 	{ "nvim-telescope/telescope.nvim" },
-	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "nvim-pack/nvim-spectre",          dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- -- LSP
 	{ "neovim/nvim-lspconfig" },
-	{ "folke/lsp-colors.nvim", branch = "main" },
-	{ "hrsh7th/cmp-nvim-lsp", branch = "main" },
-	{ "hrsh7th/cmp-buffer", branch = "main" },
-	{ "hrsh7th/cmp-path", branch = "main" },
-	{ "hrsh7th/cmp-cmdline", branch = "main" },
-	{ "hrsh7th/nvim-cmp", branch = "main" },
-	{ "nvimtools/none-ls.nvim", branch = "main" },
+	{ "folke/lsp-colors.nvim",           branch = "main" },
+	{ "hrsh7th/cmp-nvim-lsp",            branch = "main" },
+	{ "hrsh7th/cmp-buffer",              branch = "main" },
+	{ "hrsh7th/cmp-path",                branch = "main" },
+	{ "hrsh7th/cmp-cmdline",             branch = "main" },
+	{ "hrsh7th/nvim-cmp",                branch = "main" },
+	{ "nvimtools/none-ls.nvim",          branch = "main" },
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
 	{ "lukas-reineke/lsp-format.nvim" },
@@ -65,25 +66,25 @@ require("lazy").setup({
 	-- -- Git
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
-	{ "lewis6991/gitsigns.nvim", branch = "main" },
+	{ "lewis6991/gitsigns.nvim",       branch = "main" },
 
 	-- -- Other langs
 	{ "sheerun/vim-polyglot" },
 	{ "nathangrigg/vim-beancount" },
 	{ "jjo/vim-cue" },
 	{ "luizribeiro/vim-cooklang" },
-	{ "ellisonleao/glow.nvim", branch = "main" },
+	{ "ellisonleao/glow.nvim",         branch = "main" },
 
 	-- -- Visuals
-	{ "folke/trouble.nvim", branch = "main" },
+	{ "folke/trouble.nvim",            branch = "main" },
 	{ "folke/todo-comments.nvim" },
 	{ "romgrk/nvim-treesitter-context" },
 	{ "nvim-lualine/lualine.nvim" },
-	{ "akinsho/bufferline.nvim", version = "*" },
+	{ "akinsho/bufferline.nvim",       version = "*" },
 	{ "RRethy/nvim-base16" },
 	{ "folke/tokyonight.nvim" },
 	{ "lewis6991/hover.nvim" },
-	{ "stevearc/dressing.nvim", opts = {} },
+	{ "stevearc/dressing.nvim",        opts = {} },
 	-- {
 	-- 	"folke/noice.nvim",
 	-- 	event = "VeryLazy",
@@ -94,6 +95,27 @@ require("lazy").setup({
 	-- 	},
 	-- },
 })
+
+require "nvim-treesitter.configs".setup {
+	playground = {
+		enable = true,
+		disable = {},
+		updatetime = 25,       -- Debounced time for highlighting nodes in the playground from source code
+		persist_queries = false, -- Whether the query persists across vim sessions
+		keybindings = {
+			toggle_query_editor = 'o',
+			toggle_hl_groups = 'i',
+			toggle_injected_languages = 't',
+			toggle_anonymous_nodes = 'a',
+			toggle_language_display = 'I',
+			focus_language = 'f',
+			unfocus_language = 'F',
+			update = 'R',
+			goto_node = '<cr>',
+			show_help = '?',
+		},
+	}
+}
 
 local actions = require("telescope.actions")
 require("telescope").setup({
@@ -129,7 +151,7 @@ require("lsp-format").setup {}
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "d<C-]>", vim.lsp.buf.definition, bufopts)
