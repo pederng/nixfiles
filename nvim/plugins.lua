@@ -51,7 +51,6 @@ require("lazy").setup({
 	{ "nvimtools/none-ls.nvim",          branch = "main" },
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
-	{ "lukas-reineke/lsp-format.nvim" },
 
 	-- -- File system
 	{ "tpope/vim-vinegar" },
@@ -146,7 +145,6 @@ require("hover").setup({
 	preview_opts = { border = nil },
 	title = true,
 })
-require("lsp-format").setup {}
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -158,7 +156,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	require("lsp_signature").on_attach()
-	require("lsp-format").on_attach(client, bufnr)
 end
 
 
@@ -300,8 +297,8 @@ local sources = {
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
-	-- null_ls.builtins.formatting.black,
-	-- null_ls.builtins.formatting.ruff,
+	null_ls.builtins.formatting.ruff,
+	null_ls.builtins.formatting.ruff_format,
 	null_ls.builtins.formatting.terraform_fmt,
 	null_ls.builtins.code_actions.gitsigns,
 }
