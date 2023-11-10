@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eou pipefail
-yay
+paru
 nix-channel --update
 home-manager switch
 nvim --headless "+Lazy! sync" +qa
