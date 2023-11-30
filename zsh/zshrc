@@ -65,6 +65,9 @@ function preexec() {
 
 export DO_NOT_TRACK=1
 
+#pyright
+export PYRIGHT_PYTHON_IGNORE_WARNINGS=1
+
 # Lazy-loading completion
 if [ $commands[bw] ]; then
   bw() {
