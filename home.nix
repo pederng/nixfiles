@@ -25,6 +25,7 @@ in {
   home.packages = with pkgs; [
     abook
     acpi
+    awscli2
     azure-cli
     bat
     bitwarden-cli
