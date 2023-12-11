@@ -25,6 +25,7 @@ in {
   home.packages = with pkgs; [
     abook
     acpi
+    ast-grep
     awscli2
     azure-cli
     bat
