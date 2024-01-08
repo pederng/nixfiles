@@ -373,11 +373,20 @@ in {
       kubernetes = {
         disabled = false;
         format = "[$context](blue)[\(:$namespace\)](dimmed green) ";
-        context_aliases = {
-          kind-coffer-dev = "dev";
-          coffer-test-aks = "test";
-          coffer-prod-dora = "dora";
-        };
+        contexts = [
+          {
+            context_pattern = "kind-coffer-dev";
+            context_alias = "dev";
+          }
+          {
+            context_pattern = "coffer-test-aks";
+            context_alias = "test";
+          }
+          {
+            context_pattern = "coffer-prod-dora";
+            context_alias = "prod";
+          }
+        ];
       };
 
       aws = {disabled = true;};
