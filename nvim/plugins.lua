@@ -66,6 +66,7 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
 	{ "lewis6991/gitsigns.nvim",       branch = "main" },
+	{ "github/copilot.vim" },
 
 	-- -- Other langs
 	{ "sheerun/vim-polyglot" },
