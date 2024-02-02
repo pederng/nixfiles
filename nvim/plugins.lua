@@ -35,6 +35,7 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 	{ "karb94/neoscroll.nvim" },
 	{ "freitass/todo.txt-vim" },
+	{ "kana/vim-textobj-entire", dependencies = { 'kana/vim-textobj-user' }},
 
 	-- -- Searching
 	{ "nvim-telescope/telescope.nvim" },
