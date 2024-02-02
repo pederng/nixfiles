@@ -48,6 +48,7 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-path",                branch = "main" },
 	{ "hrsh7th/cmp-cmdline",             branch = "main" },
 	{ "hrsh7th/nvim-cmp",                branch = "main" },
+	{ "hrsh7th/cmp-copilot",             branch = "main" },
 	{ "nvimtools/none-ls.nvim",          branch = "main" },
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
@@ -250,6 +251,7 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", priority = 1000 },
+		{ name = "copilot" },
 	}, {
 		{ name = "buffer" },
 	}),
