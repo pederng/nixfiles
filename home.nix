@@ -44,7 +44,6 @@ in {
     helmfile
     joypixels
     jq
-    jujutsu
     k9s
     kind
     kubectl
@@ -212,6 +211,19 @@ in {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      ui = {
+        default-command = "st";
+      };
+      user = {
+        name = "Peder Notto Galteland";
+        email = "peder.galteland@softwarelab.no";
+      };
+    };
   };
 
   programs.git = {
