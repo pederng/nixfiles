@@ -67,6 +67,7 @@ require("lazy").setup({
 	-- -- Git
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
+	{ "will133/vim-dirdiff" },
 	{ "lewis6991/gitsigns.nvim",       branch = "main" },
 	{ "github/copilot.vim" },
 

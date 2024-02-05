@@ -222,7 +222,7 @@ in {
         diff = {
           tool =  ["difft"  "--color=always"  "$left"  "$right"];
           };
-        diff-editor = "vimdiff";
+        diff-editor = "vimdirdiff";
       };
       user = {
         name = "Peder Notto Galteland";
