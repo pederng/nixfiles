@@ -237,7 +237,7 @@ in {
       co = "checkout";
       c = "commit";
       ss = "status -sb";
-      s = "status";
+      st = "status";
       graph = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
       oneline = "log --pretty=oneline";
       mergelog = "log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --merges";
