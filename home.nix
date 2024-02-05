@@ -32,6 +32,7 @@ in {
     bitwarden-cli
     btop
     ctags
+    difftastic
     dmenu
     dunst
     entr
@@ -218,6 +219,10 @@ in {
     settings = {
       ui = {
         default-command = "st";
+        diff = {
+          tool =  ["difft"  "--color=always"  "$left"  "$right"];
+          };
+        diff-editor = "vimdiff";
       };
       user = {
         name = "Peder Notto Galteland";
@@ -248,11 +253,10 @@ in {
       stat = "!git diff --stat $(git merge-base HEAD master)";
       compare = "diff master...HEAD";
     };
-    delta = {
+    difftastic = {
       enable = true;
-      options = {
-        theme = "Monokai Extended";
-      };
+      background = "dark";
+      color = "always";
     };
     ignores = [
       "tags"
@@ -290,8 +294,7 @@ in {
         conflictstyle = "zdiff3";
       };
       mergetool.keepBackup = false;
-      web.browser = "qb";
-      "browser \"qb\"".cmd = "qutebrowser";
+      web.browser = "firefox";
       pull.rebase = false;
       diff.algorithm = "histogram";
     };
