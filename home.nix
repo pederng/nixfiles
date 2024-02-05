@@ -44,6 +44,7 @@ in {
     helmfile
     joypixels
     jq
+    jujutsu
     k9s
     kind
     kubectl
