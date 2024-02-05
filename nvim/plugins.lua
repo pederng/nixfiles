@@ -301,6 +301,7 @@ local sources = {
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.statix,
+	null_ls.builtins.diagnostics.codespell,
 	null_ls.builtins.formatting.ruff,
 	null_ls.builtins.formatting.ruff_format,
 	null_ls.builtins.formatting.terraform_fmt,
