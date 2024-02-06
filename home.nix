@@ -224,6 +224,10 @@ in {
           };
         diff-editor = "vimdirdiff";
       };
+      aliases = {
+        l = ["log" "-r" "(master..@):: | (master..@)-"];
+        sl = ["log" "-l" "10"];
+      };
       user = {
         name = "Peder Notto Galteland";
         email = "peder.galteland@softwarelab.no";
