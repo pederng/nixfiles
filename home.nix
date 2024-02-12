@@ -214,27 +214,6 @@ in {
     enableZshIntegration = true;
   };
 
-  programs.jujutsu = {
-    enable = true;
-    settings = {
-      ui = {
-        default-command = "st";
-        diff = {
-          tool =  ["difft"  "--color=always"  "$left"  "$right"];
-          };
-        diff-editor = "vimdirdiff";
-      };
-      aliases = {
-        l = ["log" "-r" "(master..@):: | (master..@)-"];
-        sl = ["log" "-l" "10"];
-      };
-      user = {
-        name = "Peder Notto Galteland";
-        email = "peder.galteland@softwarelab.no";
-      };
-    };
-  };
-
   programs.git = {
     enable = true;
     package = pkgs.git;
@@ -451,13 +430,13 @@ in {
     ".config/msmtp/config".source = ./msmtp_config;
     ".config/vim/vimrc_background".source = ./vimrc_background;
     ".config/qutebrowser/config.py".source = ./qutebrowser_config.py;
+    ".config/notmuch/notmuchrc".source = ./notmuchrc;
+    ".config/jj/config.toml".source = ./jjconfig.toml;
 
     ".config/mutt" = {
       source = ./mutt;
       recursive = true;
     };
-
-    ".config/notmuch/notmuchrc".source = ./notmuchrc;
 
     ".config/X11" = {
       source = ./X11;

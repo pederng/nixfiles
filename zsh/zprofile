@@ -52,3 +52,5 @@ if [ -z "$SSH_CLIENT" ]; then
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
 fi
+
+source $XDG_DATA_HOME/cargo/env

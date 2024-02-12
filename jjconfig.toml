@@ -1,0 +1,14 @@
+[aliases]
+l = ["log", "-r", "(master..@):: | (master..@)-"]
+sl = ["log", "-l", "10"]
+
+[ui]
+default-command = "st"
+diff-editor = "vimdirdiff"
+
+[ui.diff]
+tool = ["difft", "--color=always", "$left", "$right"]
+
+[user]
+email = "peder.galteland@softwarelab.no"
+name = "Peder Notto Galteland"
