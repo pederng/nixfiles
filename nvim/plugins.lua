@@ -164,7 +164,7 @@ end
 
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { "ansiblels", "bashls", "dockerls", "zk", "ruff_lsp", "rnix", "terraformls" }
+local servers = { "ansiblels", "bashls", "dockerls", "zk", "ruff_lsp", "rnix", "terraformls", "rust_analyzer"}
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
@@ -314,6 +314,7 @@ local sources = {
 	null_ls.builtins.formatting.ruff,
 	null_ls.builtins.formatting.ruff_format,
 	null_ls.builtins.formatting.terraform_fmt,
+	null_ls.builtins.formatting.rust_fmt,
 	null_ls.builtins.code_actions.gitsigns,
 }
 
