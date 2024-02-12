@@ -173,7 +173,15 @@ for _, lsp in pairs(servers) do
 end
 require("lspconfig").pyright.setup({
 	on_attach = on_attach,
-	capabilities = capabilities,
+	capabilities = {
+		textDocument = {
+			publishDiagnostics = {
+				tagSupport = {
+					valueSet = { 2 },
+				}
+			}
+		},
+	},
 	settings = {
 		python = {
 			analysis = {
