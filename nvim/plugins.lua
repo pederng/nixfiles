@@ -314,7 +314,7 @@ local sources = {
 	null_ls.builtins.formatting.ruff,
 	null_ls.builtins.formatting.ruff_format,
 	null_ls.builtins.formatting.terraform_fmt,
-	null_ls.builtins.formatting.rust_fmt,
+	null_ls.builtins.formatting.rustfmt,
 	null_ls.builtins.code_actions.gitsigns,
 }
 
