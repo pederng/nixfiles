@@ -98,6 +98,13 @@ if [ $commands[pip] ]; then
   }
 fi
 
+if [ $commands[jj] ]; then
+  jj() {
+    unfunction "$0"
+    eval "$(jj util completion zsh)"
+    $0 "$@"
+  }
+fi
 
 #----Machine-specific----
 test -f $ZDOTDIR/machine_specific && source $ZDOTDIR/machine_specific
