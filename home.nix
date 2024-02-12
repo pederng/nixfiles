@@ -263,6 +263,7 @@ in {
       "*_null-ls*"
       "*.null-ls*"
       ".envrc"
+      ".codespellrc"
     ];
     extraConfig = {
       user.signingKey = "4980821A221FE5B1";
