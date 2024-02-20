@@ -12,3 +12,8 @@ tool = ["difft", "--color=always", "$left", "$right"]
 [user]
 email = "peder.galteland@softwarelab.no"
 name = "Peder Notto Galteland"
+
+[signing]
+sign-all = true
+backend = "gpg"
+key = "4980821A221FE5B1"

@@ -106,5 +106,14 @@ if [ $commands[jj] ]; then
   }
 fi
 
+
+if [ $commands[uv] ]; then
+  uv() {
+    unfunction "$0"
+    eval "$(uv --generate-shell-completion zsh)"
+    $0 "$@"
+  }
+fi
+
 #----Machine-specific----
 test -f $ZDOTDIR/machine_specific && source $ZDOTDIR/machine_specific
