@@ -159,6 +159,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "d<C-]>", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 	require("lsp_signature").on_attach()
 end
 
@@ -171,6 +172,7 @@ for _, lsp in pairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
 require("lspconfig").pyright.setup({
 	on_attach = on_attach,
 	capabilities = {
@@ -183,14 +185,51 @@ require("lspconfig").pyright.setup({
 		},
 	},
 	settings = {
+		pyright = {
+			disableOrganizeImports = true;  -- Use ruff
+		},
 		python = {
 			analysis = {
 				autoSearchPaths = true,
 				diagnosticMode = "workspace",
 				useLibraryCodeForTypes = true,
-				autoImportCompletions = false,
+				autoImportCompletions = true,
 			},
 		},
+	},
+})
+
+local function lsp_client(name)
+	return assert(
+		vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf(), name = name })[1],
+		('No %s client found for the current buffer'):format(name)
+	)
+end
+
+require("lspconfig").ruff_lsp.setup({
+	commands = {
+	RuffAutofix = {
+		function()
+			lsp_client('ruff_lsp').request("workspace/executeCommand", {
+				command = 'ruff.applyAutofix',
+				arguments = {
+					{ uri = vim.uri_from_bufnr(0) },
+				},
+			})
+		end,
+		description = 'Ruff: Fix all auto-fixable problems',
+	},
+	RuffOrganizeImports = {
+		function()
+			lsp_client('ruff_lsp').request("workspace/executeCommand", {
+				command = 'ruff.applyOrganizeImports',
+				arguments = {
+					{ uri = vim.uri_from_bufnr(0) },
+				},
+			})
+		end,
+		description = 'Ruff: Format imports',
+	},
 	},
 })
 
@@ -219,6 +258,7 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -309,7 +349,9 @@ local sources = {
 	null_ls.builtins.diagnostics.hadolint,
 	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.statix,
-	null_ls.builtins.diagnostics.codespell,
+	null_ls.builtins.diagnostics.codespell.with({
+			extra_args = { "-L", "nin,bu" }
+		}),
 	null_ls.builtins.formatting.terraform_fmt,
 }
 
