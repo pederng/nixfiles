@@ -311,8 +311,6 @@ local sources = {
 	null_ls.builtins.diagnostics.statix,
 	null_ls.builtins.diagnostics.codespell,
 	null_ls.builtins.formatting.terraform_fmt,
-	null_ls.builtins.formatting.rustfmt,
-	null_ls.builtins.code_actions.gitsigns,
 }
 
 local async_formatting = function(bufnr)
