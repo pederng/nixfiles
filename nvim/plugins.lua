@@ -92,8 +92,37 @@ require("lazy").setup({
 			})
 
 
+			local async_formatting = function(bufnr)
+				bufnr = bufnr or vim.api.nvim_get_current_buf()
+				vim.lsp.buf_request(
+					bufnr,
+					"textDocument/formatting",
+					vim.lsp.util.make_formatting_params(),
+					function(err, res, ctx)
+						if err then
+							local err_msg = type(err) == "string" and err or err.message
+							vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
+							return
+						end
+
+						if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
+							return
+						end
+
+						if res then
+							local client = vim.lsp.get_client_by_id(ctx.client_id)
+							vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
+							vim.api.nvim_buf_call(bufnr, function()
+								vim.cmd("silent noautocmd update")
+							end)
+						end
+					end
+				)
+			end
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "rnix", "terraformls", "rust_analyzer"}
+			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			for _, lsp in pairs(servers) do
 				require("lspconfig")[lsp].setup({
 					capabilities = capabilities,
@@ -133,6 +162,18 @@ require("lazy").setup({
 			end
 
 			require("lspconfig").ruff_lsp.setup({
+					on_attach = function(client, bufnr)
+						if client.supports_method("textDocument/formatting") then
+							vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
+							vim.api.nvim_create_autocmd("BufWritePre", {
+								group = format_augroup,
+								buffer = bufnr,
+								callback = function()
+										async_formatting(bufnr)
+								end,
+							})
+						end
+					end,
 				commands = {
 				RuffAutofix = {
 					function()
@@ -270,7 +311,7 @@ require("lazy").setup({
 			local null_ls = require('null-ls')
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.diagnostics.mypy,
+					-- null_ls.builtins.diagnostics.mypy,
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.ansiblelint,
 					null_ls.builtins.diagnostics.statix,
@@ -353,7 +394,16 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "github/copilot.vim" },
+	{
+		"github/copilot.vim",
+		init = function()
+		vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+			expr = true,
+			replace_keycodes = false,
+		})
+		vim.g.copilot_no_tab_map = true
+		end,
+	},
 
 	-- -- Other langs
 	{ "sheerun/vim-polyglot" },
@@ -421,5 +471,4 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
 
