@@ -13,13 +13,16 @@
       };
     };
 in {
-  nixpkgs.overlays = [
+  nixpkgs = {
+    overlays = [
     (import (builtins.fetchTarball {
       url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
   ];
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.joypixels.acceptLicense = true;
+    config.allowUnfree = true;
+    config.joypixels.acceptLicense = true;
+  };
+
   home.username = "peder";
   home.homeDirectory = "/home/peder";
   home.packages = with pkgs; [
