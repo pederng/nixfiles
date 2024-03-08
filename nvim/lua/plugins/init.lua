@@ -41,17 +41,6 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 	},
-	{
-		"github/copilot.vim",
-		init = function()
-			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-				expr = true,
-				replace_keycodes = false,
-			})
-			vim.g.copilot_no_tab_map = true
-		end,
-	},
-
 	-- -- Other langs
 	{ "sheerun/vim-polyglot" },
 	{ "nathangrigg/vim-beancount" },
@@ -83,19 +72,3 @@ return {
 	{ "folke/tokyonight.nvim" },
 	{ "stevearc/dressing.nvim", opts = {} },
 }
-
-
---
--- vim.diagnostic.config({
--- 	virtual_text = true,
--- 	signs = true,
--- 	underline = true,
--- 	update_in_insert = false,
--- 	severity_sort = true,
--- })
---
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
--- for type, icon in pairs(signs) do
--- 	local hl = "DiagnosticSign" .. type
--- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
