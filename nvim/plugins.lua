@@ -49,7 +49,7 @@ require("lazy").setup({
 		end,
 	},
 	{ "freitass/todo.txt-vim" },
-	{ "kana/vim-textobj-entire", dependencies = { 'kana/vim-textobj-user' }},
+	{ "kana/vim-textobj-entire", dependencies = { 'kana/vim-textobj-user' } },
 
 	-- -- Searching
 	{
@@ -121,7 +121,8 @@ require("lazy").setup({
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "rnix", "terraformls", "rust_analyzer"}
+			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "rnix", "terraformls",
+				"rust_analyzer" }
 			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			for _, lsp in pairs(servers) do
 				require("lspconfig")[lsp].setup({
@@ -141,7 +142,7 @@ require("lazy").setup({
 				},
 				settings = {
 					pyright = {
-						disableOrganizeImports = true;  -- Use ruff
+						disableOrganizeImports = true, -- Use ruff
 					},
 					python = {
 						analysis = {
@@ -162,41 +163,41 @@ require("lazy").setup({
 			end
 
 			require("lspconfig").ruff_lsp.setup({
-					on_attach = function(client, bufnr)
-						if client.supports_method("textDocument/formatting") then
-							vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-							vim.api.nvim_create_autocmd("BufWritePre", {
-								group = format_augroup,
-								buffer = bufnr,
-								callback = function()
-										async_formatting(bufnr)
-								end,
-							})
-						end
-					end,
+				on_attach = function(client, bufnr)
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = format_augroup,
+							buffer = bufnr,
+							callback = function()
+								async_formatting(bufnr)
+							end,
+						})
+					end
+				end,
 				commands = {
-				RuffAutofix = {
-					function()
-						lsp_client('ruff_lsp').request("workspace/executeCommand", {
-							command = 'ruff.applyAutofix',
-							arguments = {
-								{ uri = vim.uri_from_bufnr(0) },
-							},
-						})
-					end,
-					description = 'Ruff: Fix all auto-fixable problems',
-				},
-				RuffOrganizeImports = {
-					function()
-						lsp_client('ruff_lsp').request("workspace/executeCommand", {
-							command = 'ruff.applyOrganizeImports',
-							arguments = {
-								{ uri = vim.uri_from_bufnr(0) },
-							},
-						})
-					end,
-					description = 'Ruff: Format imports',
-				},
+					RuffAutofix = {
+						function()
+							lsp_client('ruff_lsp').request("workspace/executeCommand", {
+								command = 'ruff.applyAutofix',
+								arguments = {
+									{ uri = vim.uri_from_bufnr(0) },
+								},
+							})
+						end,
+						description = 'Ruff: Fix all auto-fixable problems',
+					},
+					RuffOrganizeImports = {
+						function()
+							lsp_client('ruff_lsp').request("workspace/executeCommand", {
+								command = 'ruff.applyOrganizeImports',
+								arguments = {
+									{ uri = vim.uri_from_bufnr(0) },
+								},
+							})
+						end,
+						description = 'Ruff: Format imports',
+					},
 				},
 			})
 
@@ -226,16 +227,16 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "folke/lsp-colors.nvim",           branch = "main" },
-	{ "hrsh7th/cmp-nvim-lsp",            branch = "main" },
-	{ "hrsh7th/cmp-buffer",              branch = "main" },
-	{ "hrsh7th/cmp-path",                branch = "main" },
-	{ "hrsh7th/cmp-cmdline",             branch = "main" },
+	{ "folke/lsp-colors.nvim", branch = "main" },
+	{ "hrsh7th/cmp-nvim-lsp",  branch = "main" },
+	{ "hrsh7th/cmp-buffer",    branch = "main" },
+	{ "hrsh7th/cmp-path",      branch = "main" },
+	{ "hrsh7th/cmp-cmdline",   branch = "main" },
 	{
 		"hrsh7th/nvim-cmp",
-		 branch = "main",
-		 config = function()
-		 	local has_words_before = function()
+		branch = "main",
+		config = function()
+			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
@@ -316,9 +317,10 @@ require("lazy").setup({
 					null_ls.builtins.diagnostics.ansiblelint,
 					null_ls.builtins.diagnostics.statix,
 					null_ls.builtins.diagnostics.codespell.with({
-							extra_args = { "-L", "nin,bu" }
-						}),
-				}})
+						extra_args = { "-L", "nin,bu" }
+					}),
+				}
+			})
 		end,
 	},
 	{ "onsails/lspkind.nvim" },
@@ -397,11 +399,11 @@ require("lazy").setup({
 	{
 		"github/copilot.vim",
 		init = function()
-		vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-			expr = true,
-			replace_keycodes = false,
-		})
-		vim.g.copilot_no_tab_map = true
+			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+				expr = true,
+				replace_keycodes = false,
+			})
+			vim.g.copilot_no_tab_map = true
 		end,
 	},
 
@@ -410,7 +412,7 @@ require("lazy").setup({
 	{ "nathangrigg/vim-beancount" },
 	{ "jjo/vim-cue" },
 	{ "luizribeiro/vim-cooklang" },
-	{ "ellisonleao/glow.nvim",         branch = "main" },
+	{ "ellisonleao/glow.nvim",    branch = "main" },
 
 	-- -- Visuals
 	{
@@ -427,11 +429,12 @@ require("lazy").setup({
 		end,
 	},
 	{ "romgrk/nvim-treesitter-context" },
-	{ "nvim-lualine/lualine.nvim",
+	{
+		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("lualine").setup({})
 		end,
-		},
+	},
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -453,7 +456,7 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "stevearc/dressing.nvim",        opts = {} },
+	{ "stevearc/dressing.nvim", opts = {} },
 })
 
 
@@ -471,4 +474,3 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
