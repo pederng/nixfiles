@@ -1,5 +1,4 @@
 local keymap = vim.keymap.set
-local remap = { remap = true }
 local silent = { silent = true }
 
 keymap("n", "<space>", "<Nop>")

@@ -148,18 +148,6 @@ in {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraConfig = builtins.concatStringsSep "\n" [
-      ''
-        lua << EOF
-        ${lib.strings.fileContents ./nvim/plugins.lua}
-        ${lib.strings.fileContents ./nvim/colors.lua}
-        ${lib.strings.fileContents ./nvim/options.lua}
-        ${lib.strings.fileContents ./nvim/bindings.lua}
-        ${lib.strings.fileContents ./nvim/autocmds.lua}
-        ${lib.strings.fileContents ./nvim/commands.lua}
-        EOF
-      ''
-    ];
     extraPackages = with pkgs; [
       tree-sitter
       rnix-lsp
@@ -168,9 +156,10 @@ in {
       sumneko-lua-language-server
     ];
   };
-  home.file.".config/nvim/after/syntax/python.vim".source = ./nvim/python.vim;
-  home.file.".config/nvim/after/syntax/markdown.vim".source = ./nvim/markdown.vim;
-  # home.file.".config/nvim/queries/python/injections.scm".source = ./nvim/injections.scm;
+  home.file.".config/nvim" = {
+    source = ./nvim;
+    recursive = true;
+  };
 
   programs.tmux = {
     enable = true;
