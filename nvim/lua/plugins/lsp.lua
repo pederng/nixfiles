@@ -50,8 +50,7 @@ return {
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "rnix", "terraformls",
-				"rust_analyzer" }
+			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "terraformls", "rust_analyzer", "nixd" }
 			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			for _, lsp in pairs(servers) do
 				require("lspconfig")[lsp].setup({
@@ -91,6 +90,15 @@ return {
 				)
 			end
 
+			local function ruff_organize_imports()
+				lsp_client('ruff_lsp').request("workspace/executeCommand", {
+					command = 'ruff.applyOrganizeImports',
+					arguments = {
+						{ uri = vim.uri_from_bufnr(0) },
+					},
+				})
+			end
+
 			require("lspconfig").ruff_lsp.setup({
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -100,6 +108,7 @@ return {
 							buffer = bufnr,
 							callback = function()
 								async_formatting(bufnr)
+								ruff_organize_imports()
 							end,
 						})
 					end
@@ -115,17 +124,6 @@ return {
 							})
 						end,
 						description = 'Ruff: Fix all auto-fixable problems',
-					},
-					RuffOrganizeImports = {
-						function()
-							lsp_client('ruff_lsp').request("workspace/executeCommand", {
-								command = 'ruff.applyOrganizeImports',
-								arguments = {
-									{ uri = vim.uri_from_bufnr(0) },
-								},
-							})
-						end,
-						description = 'Ruff: Format imports',
 					},
 				},
 			})
@@ -169,6 +167,24 @@ return {
 				end,
 				preview_opts = { border = nil },
 				title = true,
+			})
+		end,
+	},
+	{
+		"nvimtools/none-ls.nvim",
+		branch = "main",
+		config = function()
+			local null_ls = require('null-ls')
+			null_ls.setup({
+				sources = {
+					-- null_ls.builtins.diagnostics.mypy,
+					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.diagnostics.ansiblelint,
+					null_ls.builtins.diagnostics.statix,
+					null_ls.builtins.diagnostics.codespell.with({
+						extra_args = { "-L", "nin,bu" }
+					}),
+				}
 			})
 		end,
 	},

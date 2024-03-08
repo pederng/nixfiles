@@ -34,8 +34,6 @@ alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/notes/addressbook"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 
-alias zk="zk -W $XDG_DATA_HOME/notes/zettelkasten"
-
 alias j=zi
 
 alias k=kubectl

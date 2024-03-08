@@ -62,6 +62,7 @@ in {
     neomutt
     nerdfonts
     newsboat
+    nixd
     nodePackages.bash-language-server
     nodePackages.npm
     nodejs
@@ -107,7 +108,6 @@ in {
     yq
     yt-dlp
     zathura
-    zk
   ];
   manual.manpages.enable = false;
   home.stateVersion = "23.05";
@@ -153,7 +153,6 @@ in {
     vimdiffAlias = true;
     extraPackages = with pkgs; [
       tree-sitter
-      rnix-lsp
       statix
       alejandra
       sumneko-lua-language-server
