@@ -1,35 +1,15 @@
 return {
-	-- General Utils
-	{
-		"echasnovski/mini.nvim",
-		version = '*',
-		config = function()
-			require("mini.ai").setup()
-			require("mini.indentscope").setup()
-			require("mini.comment").setup()
-			require("mini.bufremove").setup()
-		end,
-	},
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-unimpaired" },
 	{ "tpope/vim-speeddating" },
 	{ "tpope/vim-rsi" },
-	{ "ntpeters/vim-better-whitespace" },
 	{ "vim-scripts/ReplaceWithRegister" },
 	{ "christoomey/vim-system-copy" },
 	{ "christoomey/vim-tmux-navigator" },
-	{ "nvim-tree/nvim-web-devicons" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	{ "nvim-treesitter/playground" },
-	{ "nvim-lua/plenary.nvim" },
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
-	},
-	{ "freitass/todo.txt-vim" },
+
+	-- Text objects
 	{ "kana/vim-textobj-entire", dependencies = { 'kana/vim-textobj-user' } },
 
 	-- -- File system
@@ -38,23 +18,21 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	},
+
 	-- -- Other langs
 	{ "sheerun/vim-polyglot" },
 	{ "nathangrigg/vim-beancount" },
 	{ "jjo/vim-cue" },
 	{ "luizribeiro/vim-cooklang" },
-	{ "ellisonleao/glow.nvim",    branch = "main" },
+	{ "ellisonleao/glow.nvim", branch = "main" },
+	{ "freitass/todo.txt-vim" },
 
-	{
-		"folke/todo-comments.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
-	},
-	{ "romgrk/nvim-treesitter-context" },
+	-- Visuals
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -68,7 +46,14 @@ return {
 			require("bufferline").setup({ options = { diagnostics = "nvim_lsp" } })
 		end,
 	},
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	},
+	{ "romgrk/nvim-treesitter-context" },
 	{ "RRethy/nvim-base16" },
-	{ "folke/tokyonight.nvim" },
 	{ "stevearc/dressing.nvim", opts = {} },
+	{ "ntpeters/vim-better-whitespace" },
 }

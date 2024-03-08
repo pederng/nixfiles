@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("telescope").setup({
 				defaults = {
@@ -17,9 +18,15 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		branch = "main",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("trouble").setup({ mode = "document_diagnostics" })
+		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup({})
 		end,
 	},
 }
