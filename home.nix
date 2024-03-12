@@ -28,6 +28,7 @@ in {
   home.packages = with pkgs; [
     abook
     acpi
+    ansible-language-server
     ast-grep
     awscli2
     azure-cli
@@ -37,6 +38,7 @@ in {
     ctags
     difftastic
     dmenu
+    docker-compose-language-service
     dunst
     entr
     fastmod
@@ -62,7 +64,7 @@ in {
     neomutt
     nerdfonts
     newsboat
-    nixd
+    # nixd
     nodePackages.bash-language-server
     nodePackages.npm
     nodejs
@@ -80,10 +82,8 @@ in {
     rsync
     scrot
     shellcheck
-    skaffold
     sops
     spotify
-    step-cli
     stern
     strace
     stylua
@@ -93,11 +93,9 @@ in {
     tokei
     toot
     tree
-    trivy
     units
     unzip
     urlscan
-    viddy
     wget
     xbanish
     xbindkeys
