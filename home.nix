@@ -406,6 +406,7 @@ in {
         python = {symbol = " ";};
         rust = {symbol = " ";};
         directory = {fish_style_pwd_dir_length = 1;};
+        command_timeout = 1000;
         kubernetes = {
           disabled = false;
           format = "[$context](blue)[\(:$namespace\)](dimmed green) ";
