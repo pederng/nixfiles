@@ -1,6 +1,6 @@
 [aliases]
 l = ["log", "-r", "(master..@):: | (master..@)-"]
-sl = ["log", "-l", "10"]
+sl = ["log", "-l", "30"]
 
 [ui]
 default-command = "st"
