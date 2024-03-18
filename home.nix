@@ -79,7 +79,7 @@ in {
       mkcert
       neomutt
       nerdfonts
-      # nixd
+      nixd
       nodePackages.bash-language-server
       nodePackages.npm
       nodejs
