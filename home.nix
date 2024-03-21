@@ -101,7 +101,6 @@ in {
       spotify
       stern
       strace
-      stylua
       sxiv
       terraform
       terraform-ls
@@ -203,8 +202,7 @@ in {
       extraPackages = with pkgs; [
         tree-sitter
         statix
-        alejandra
-        sumneko-lua-language-server
+        lua-language-server
       ];
     };
 

@@ -50,13 +50,32 @@ return {
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local servers = { "ansiblels", "bashls", "dockerls", "docker_compose_language_service", "terraformls", "rust_analyzer", "nixd" }
+			local servers = {
+				"ansiblels", "bashls", "dockerls", "docker_compose_language_service", "terraformls", "rust_analyzer", "nixd"
+			}
 			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			for _, lsp in pairs(servers) do
 				require("lspconfig")[lsp].setup({
 					capabilities = capabilities,
 				})
 			end
+			require("lspconfig").lua_ls.setup({
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				pattern = "*.lua",
+				callback = function()
+					vim.lsp.buf.format()
+				end,
+			})
 
 			require("lspconfig").pyright.setup({
 				capabilities = {
@@ -127,29 +146,24 @@ return {
 					},
 				},
 			})
+		end,
+	},
 
-			local runtime_path = vim.split(package.path, ";")
-			table.insert(runtime_path, "lua/?.lua")
-			table.insert(runtime_path, "lua/?/init.lua")
-
-			require("lspconfig").lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-							path = runtime_path,
-						},
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-						},
-						telemetry = {
-							enable = false,
-						},
-					},
+	{
+		"williamboman/mason.nvim",
+		desc = "https://mason-registry.dev/registry/list",
+		opts = {},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = {
+			"VonHeikemen/lsp-zero.nvim",
+		},
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"ruff_lsp",
+					"lua_ls",
 				},
 			})
 		end,
@@ -157,7 +171,7 @@ return {
 
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
-	{ "folke/lsp-colors.nvim", branch = "main" },
+	{ "folke/lsp-colors.nvim",   branch = "main" },
 	{
 		"lewis6991/hover.nvim",
 		config = function()
