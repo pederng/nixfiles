@@ -299,6 +299,7 @@ in {
         ".envrc"
         ".codespellrc"
         ".jj"
+        ".jjconflict*"
       ];
       extraConfig = {
         user.signingKey = "4980821A221FE5B1";
