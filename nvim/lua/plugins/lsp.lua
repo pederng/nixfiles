@@ -51,55 +51,60 @@ return {
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 			local servers = {
-				"ansiblels", "bashls", "dockerls", "docker_compose_language_service", "terraformls", "rust_analyzer", "nixd"
-			}
-			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-			for _, lsp in pairs(servers) do
-				require("lspconfig")[lsp].setup({
-					capabilities = capabilities,
-				})
-			end
-			require("lspconfig").lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
+				ansiblels = {},
+				bashls = {},
+				dockerls = {},
+				docker_compose_language_service = {},
+				terraformls = {},
+				rust_analyzer = {},
+				nixd = {},
+				pyright = {
+					capabilities = {
+						textDocument = {
+							publishDiagnostics = {
+								tagSupport = {
+									valueSet = { 2 },
+								}
+							}
+						},
+					},
+					settings = {
+						pyright = {
+							disableOrganizeImports = true, -- Use ruff
+						},
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								diagnosticMode = "workspace",
+								useLibraryCodeForTypes = true,
+								autoImportCompletions = true,
+							},
 						},
 					},
 				},
-			})
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
+				},
+			}
+			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			for lsp, config in pairs(servers) do
+				require("lspconfig")[lsp].setup({
+					capabilities = config.capabilities or capabilities,
+					settings = config.settings,
+				})
+			end
 
 			vim.api.nvim_create_autocmd("BufWritePost", {
 				pattern = "*.lua",
 				callback = function()
 					vim.lsp.buf.format()
 				end,
-			})
-
-			require("lspconfig").pyright.setup({
-				capabilities = {
-					textDocument = {
-						publishDiagnostics = {
-							tagSupport = {
-								valueSet = { 2 },
-							}
-						}
-					},
-				},
-				settings = {
-					pyright = {
-						disableOrganizeImports = true, -- Use ruff
-					},
-					python = {
-						analysis = {
-							autoSearchPaths = true,
-							diagnosticMode = "workspace",
-							useLibraryCodeForTypes = true,
-							autoImportCompletions = true,
-						},
-					},
-				},
 			})
 
 			local function lsp_client(name)
