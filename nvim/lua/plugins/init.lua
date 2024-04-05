@@ -52,7 +52,7 @@ return {
 			require("neoscroll").setup()
 		end,
 	},
-	{ "romgrk/nvim-treesitter-context" },
+	-- { "romgrk/nvim-treesitter-context" },
 	{ "RRethy/nvim-base16" },
 	{ "stevearc/dressing.nvim", opts = {} },
 	{ "ntpeters/vim-better-whitespace" },
