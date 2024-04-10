@@ -125,6 +125,7 @@ return {
 
 			require("lspconfig").ruff_lsp.setup({
 				on_attach = function(client, bufnr)
+					client.server_capabilities.hoverProvider = false
 					if client.supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {

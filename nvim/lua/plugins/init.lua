@@ -41,7 +41,6 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		version = "*",
 		config = function()
 			require("bufferline").setup({ options = { diagnostics = "nvim_lsp" } })
 		end,
