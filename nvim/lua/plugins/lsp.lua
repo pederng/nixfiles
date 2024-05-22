@@ -115,7 +115,7 @@ return {
 			end
 
 			local function ruff_organize_imports()
-				lsp_client('ruff_lsp').request("workspace/executeCommand", {
+				lsp_client('ruff').request("workspace/executeCommand", {
 					command = 'ruff.applyOrganizeImports',
 					arguments = {
 						{ uri = vim.uri_from_bufnr(0) },
@@ -123,7 +123,7 @@ return {
 				})
 			end
 
-			require("lspconfig").ruff_lsp.setup({
+			require("lspconfig").ruff.setup({
 				on_attach = function(client, bufnr)
 					client.server_capabilities.hoverProvider = false
 					if client.supports_method("textDocument/formatting") then
@@ -133,24 +133,23 @@ return {
 							buffer = bufnr,
 							callback = function()
 								async_formatting(bufnr)
-								ruff_organize_imports()
 							end,
 						})
 					end
 				end,
-				commands = {
-					RuffAutofix = {
-						function()
-							lsp_client('ruff_lsp').request("workspace/executeCommand", {
-								command = 'ruff.applyAutofix',
-								arguments = {
-									{ uri = vim.uri_from_bufnr(0) },
-								},
-							})
-						end,
-						description = 'Ruff: Fix all auto-fixable problems',
-					},
-				},
+				-- commands = {
+				-- 	RuffAutofix = {
+				-- 		function()
+				-- 			lsp_client('ruff').request("workspace/executeCommand", {
+				-- 				command = 'ruff.applyAutofix',
+				-- 				arguments = {
+				-- 					{ uri = vim.uri_from_bufnr(0) },
+				-- 				},
+				-- 			})
+				-- 		end,
+				-- 		description = 'Ruff: Fix all auto-fixable problems',
+				-- 	},
+				-- },
 			})
 		end,
 	},
@@ -168,7 +167,6 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"ruff_lsp",
 					"lua_ls",
 				},
 			})
