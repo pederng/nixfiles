@@ -1,6 +1,16 @@
 #!/bin/sh
 set -eou pipefail
+
+# without flakes
+# paru
+# nix-channel --update
+# home-manager switch
+# nvim --headless "+Lazy! sync" +qa
+
+# with flakes
 paru
-nix-channel --update
-home-manager switch
+nix flake lock --update-input nixpkgs --update-input home-manager
+nix run . -- build --flake .
+nix run . -- switch --flake .
 nvim --headless "+Lazy! sync" +qa
+# Reload shell
