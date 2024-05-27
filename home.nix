@@ -10,7 +10,6 @@
   #   }))
   # ];
     config.allowUnfree = true;
-    config.joypixels.acceptLicense = true;
   };
 
   nix = {
@@ -54,7 +53,6 @@
       hadolint
       handlr
       helmfile
-      joypixels
       jq
       k9s
       kind
