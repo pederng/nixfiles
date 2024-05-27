@@ -1,24 +1,14 @@
 {
-  config,
   pkgs,
   lib,
   ...
-}: let
-  pluginGit = repo:
-    pkgs.vimUtils.buildVimPlugin {
-      name = repo;
-      src = builtins.fetchGit {
-        url = "https://github.com/${repo}";
-        ref = "HEAD";
-      };
-    };
-in {
+}: {
   nixpkgs = {
-    overlays = [
-    (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
-  ];
+  #   overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  #   }))
+  # ];
     config.allowUnfree = true;
     config.joypixels.acceptLicense = true;
   };
@@ -34,7 +24,7 @@ in {
   home = {
     username = "peder";
     homeDirectory = "/home/peder";
-    stateVersion = "23.05";
+    stateVersion = "24.05";
     sessionVariables = {
       LD_LIBRARY_PATH = "";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -195,7 +185,7 @@ in {
 
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      # package = pkgs.neovim-nightly;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
