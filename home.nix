@@ -26,7 +26,7 @@
   home = {
     username = "peder";
     homeDirectory = "/home/peder";
-    stateVersion = "24.05";
+    stateVersion = "23.05";
     sessionVariables = {
       LD_LIBRARY_PATH = "";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -170,7 +170,7 @@
       enable = true;
       dotDir = ".config/zsh";
       profileExtra = lib.strings.fileContents ./zsh/zprofile;
-      syntaxHighlighting.enable = true;
+      # syntaxHighlighting.enable = true;
       initExtra = builtins.concatStringsSep "\n" [
         ''
           ${lib.strings.fileContents ./zsh/zshrc}
