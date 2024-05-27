@@ -9,7 +9,10 @@
   #     url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
   #   }))
   # ];
-    config.allowUnfree = true;
+    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "spotify"
+      "terraform"
+    ];
   };
 
   nix = {
