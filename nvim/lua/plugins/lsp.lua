@@ -109,7 +109,7 @@ return {
 
 			local function lsp_client(name)
 				return assert(
-					vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf(), name = name })[1],
+					vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf(), name = name })[1],
 					('No %s client found for the current buffer'):format(name)
 				)
 			end
@@ -118,7 +118,7 @@ return {
 				lsp_client('ruff').request("workspace/executeCommand", {
 					command = 'ruff.applyOrganizeImports',
 					arguments = {
-						{ uri = vim.uri_from_bufnr(0) },
+						{ uri = vim.uri_from_bufnr(0), version = 045 },
 					},
 				})
 			end
@@ -133,23 +133,11 @@ return {
 							buffer = bufnr,
 							callback = function()
 								async_formatting(bufnr)
+								ruff_organize_imports()
 							end,
 						})
 					end
 				end,
-				-- commands = {
-				-- 	RuffAutofix = {
-				-- 		function()
-				-- 			lsp_client('ruff').request("workspace/executeCommand", {
-				-- 				command = 'ruff.applyAutofix',
-				-- 				arguments = {
-				-- 					{ uri = vim.uri_from_bufnr(0) },
-				-- 				},
-				-- 			})
-				-- 		end,
-				-- 		description = 'Ruff: Fix all auto-fixable problems',
-				-- 	},
-				-- },
 			})
 		end,
 	},
