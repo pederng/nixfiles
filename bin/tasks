@@ -1,9 +1,0 @@
-#!/bin/bash
-taskfile=$NOTES_DIR/todo.txt
-task="$*"
-
-if [ -z "$task" ]; then
-  nvim "$taskfile"
-else
-  echo "* $task" >> "$taskfile"
-fi

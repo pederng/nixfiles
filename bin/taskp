@@ -1,4 +1,0 @@
-#!/bin/bash
-config="$HOME/.config/nvim/init.vim"
-test -f "$config" || config="$HOME/.config/nvim/init.lua"
-st -c fzfmenu -n fzfmenu -g 100x80 -e zsh -c "nvim -u $config ~/.local/share/notes/todo.txt" & disown
