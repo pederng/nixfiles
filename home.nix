@@ -118,7 +118,6 @@
       ".config/npm/npmrc".source = ./npmrc;
       ".config/ctags/excludes.ctags".source = ./excludes.ctags;
       ".config/python/startup.py".source = ./startup.py;
-      ".config/base16-hooks/update-xresources".source = ./update-xresources;
       ".config/fontconfig/fonts.conf".source = ./fonts.conf;
       ".config/isync/mbsyncrc".source = ./mbsyncrc;
       ".config/msmtp/config".source = ./msmtp_config;
