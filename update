@@ -9,7 +9,6 @@ set -eou pipefail
 
 # with flakes
 paru
-nix flake lock --update-input nixpkgs --update-input home-manager
 nix run . -- build --flake .
 nix run . -- switch --flake .
 nvim --headless "+Lazy! sync" +qa
