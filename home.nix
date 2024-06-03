@@ -2,6 +2,10 @@
   pkgs,
   lib,
   ...
+  # config,
+  # options,
+  # specialArgs,
+  # modulesPath,
 }: {
   nixpkgs = {
   #   overlays = [
