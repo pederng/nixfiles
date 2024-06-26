@@ -1,6 +1,8 @@
 [aliases]
 l = ["log", "-r", "(master..@):: | (master..@)-"]
 sl = ["log", "-l", "20"]
+al = ["log", "-r", "all()"]
+mylog = ["log", "-r", "author('peder.galteland@softwarelab.no')"]
 
 [ui]
 default-command = "st"
