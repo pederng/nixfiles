@@ -57,4 +57,14 @@ return {
 	{ "RRethy/nvim-base16" },
 	{ "stevearc/dressing.nvim",        opts = {} },
 	{ "ntpeters/vim-better-whitespace" },
+	{
+		"oysandvik94/curl.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("curl").setup({})
+		end
+	}
+
 }
