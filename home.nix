@@ -15,7 +15,6 @@
   # ];
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "spotify"
-      "terraform"
     ];
   };
 
@@ -97,8 +96,6 @@
       stern
       strace
       sxiv
-      terraform
-      terraform-ls
       tokei
       toot
       tree
