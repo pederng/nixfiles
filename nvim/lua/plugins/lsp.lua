@@ -58,6 +58,7 @@ return {
 				terraformls = {},
 				rust_analyzer = {},
 				nixd = {},
+				hls = {},
 				pyright = {
 					capabilities = {
 						textDocument = {

@@ -46,6 +46,7 @@
       bat
       bitwarden-cli
       btop
+      cabal-install
       ctags
       difftastic
       dmenu
@@ -55,9 +56,11 @@
       fastmod
       fd
       feh
+      ghc
       go
       hadolint
       handlr
+      haskell-language-server
       helmfile
       jq
       k9s
@@ -93,6 +96,7 @@
       shellcheck
       sops
       spotify
+      stack
       stern
       strace
       sxiv
