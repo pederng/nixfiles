@@ -29,7 +29,7 @@
   home = {
     username = "peder";
     homeDirectory = "/home/peder";
-    stateVersion = "23.05";
+    stateVersion = "24.11";
     sessionVariables = {
       LD_LIBRARY_PATH = "";
       XDG_CONFIG_HOME = "$HOME/.config";
