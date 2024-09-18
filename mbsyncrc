@@ -112,7 +112,7 @@ Inbox ~/.local/share/mail/gmail-tsl/inbox
 Channel sync-gmail-tsl-default
 Far :gmail-tsl-remote:
 Near :gmail-tsl-local:
-Patterns "INBOX" "github*" "jira"
+Patterns "INBOX" "jira"
 Create Near
 SyncState *
 
