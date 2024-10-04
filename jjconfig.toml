@@ -21,4 +21,4 @@ name = "Peder Notto Galteland"
 # key = "4980821A221FE5B1"
 #
 [git]
-push-branch-prefix = "pedernot/push-"
+push-bookmark-prefix = "pedernot/push-"
