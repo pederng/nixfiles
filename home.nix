@@ -42,7 +42,6 @@
       ansible-language-server
       ast-grep
       awscli2
-      azure-cli
       bat
       bitwarden-cli
       btop
