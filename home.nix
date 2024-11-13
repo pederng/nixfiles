@@ -61,6 +61,7 @@
       handlr
       haskell-language-server
       helmfile
+      hledger
       jq
       k3s
       k9s
