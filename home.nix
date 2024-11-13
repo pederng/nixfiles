@@ -62,9 +62,9 @@
       haskell-language-server
       helmfile
       jq
+      k3s
       k9s
-      kind
-      kubectl
+      # kubectl
       kubectx
       kubelogin
       kubernetes-helm
