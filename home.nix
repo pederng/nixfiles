@@ -94,6 +94,7 @@
       rsync
       scrot
       shellcheck
+      skaffold
       sops
       spotify
       stack
