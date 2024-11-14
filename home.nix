@@ -46,6 +46,7 @@
       bitwarden-cli
       btop
       cabal-install
+      cook-cli
       ctags
       difftastic
       dmenu
