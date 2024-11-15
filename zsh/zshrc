@@ -115,13 +115,5 @@ if [ $commands[uv] ]; then
   }
 fi
 
-if [ $commands[kubectl] ]; then
-  kubectl() {
-    unfunction "$0"
-    eval "$(kubectl completion zsh)"
-    $0 "$@"
-  }
-fi
-
 #----Machine-specific----
 test -f $ZDOTDIR/machine_specific && source $ZDOTDIR/machine_specific
