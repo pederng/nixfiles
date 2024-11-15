@@ -64,9 +64,9 @@
       helmfile
       hledger
       jq
-      k3s
+      # k3s
       k9s
-      # kubectl
+      kubectl
       kubectx
       kubelogin
       kubernetes-helm
