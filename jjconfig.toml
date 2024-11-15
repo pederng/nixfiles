@@ -22,3 +22,11 @@ name = "Peder Notto Galteland"
 #
 [git]
 push-bookmark-prefix = "pedernot/push-"
+
+[fix.tools.ruff-fix]
+command = ["ruff", "check", "--fix"]
+patterns = ["glob:'**/*.py'"]
+
+[fix.tools.ruff-format]
+command = ["ruff", "format"]
+patterns = ["glob:'**/*.py'"]
