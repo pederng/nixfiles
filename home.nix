@@ -103,7 +103,7 @@
       strace
       sxiv
       tokei
-      toot
+      # toot
       tree
       units
       unzip
