@@ -71,7 +71,6 @@
       kubelogin
       kubernetes-helm
       libnotify
-      linkerd
       lsof
       lynx
       mkcert
