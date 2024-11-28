@@ -76,7 +76,7 @@
       lynx
       mkcert
       neomutt
-      nerdfonts
+      nerd-fonts.hack
       nixd
       nodePackages.bash-language-server
       nodePackages.npm
