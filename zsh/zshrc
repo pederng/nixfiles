@@ -101,7 +101,7 @@ fi
 if [ $commands[jj] ]; then
   jj() {
     unfunction "$0"
-    eval "$(jj util completion zsh)"
+    source <(COMPLETE=zsh jj)
     $0 "$@"
   }
 fi
