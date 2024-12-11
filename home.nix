@@ -425,6 +425,13 @@
         aws = {disabled = true;};
       };
     };
+
+    zellij = {
+      enable = true;
+      settings = {
+        theme = "tokyo-night-dark";
+      };
+    };
   };
 
   xdg = {
