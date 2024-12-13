@@ -21,34 +21,6 @@ return {
 			})
 
 
-			local async_formatting = function(bufnr)
-				bufnr = bufnr or vim.api.nvim_get_current_buf()
-				vim.lsp.buf_request(
-					bufnr,
-					"textDocument/formatting",
-					vim.lsp.util.make_formatting_params(),
-					function(err, res, ctx)
-						if err then
-							local err_msg = type(err) == "string" and err or err.message
-							vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
-							return
-						end
-
-						if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
-							return
-						end
-
-						if res then
-							local client = vim.lsp.get_client_by_id(ctx.client_id)
-							vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
-							vim.api.nvim_buf_call(bufnr, function()
-								vim.cmd("silent noautocmd update")
-							end)
-						end
-					end
-				)
-			end
-
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 			local servers = {
 				ansiblels = {},
@@ -93,20 +65,13 @@ return {
 					},
 				},
 			}
-			local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			for lsp, config in pairs(servers) do
 				require("lspconfig")[lsp].setup({
 					capabilities = config.capabilities or capabilities,
 					settings = config.settings,
+					on_attach = require("lsp-format").on_attach,
 				})
 			end
-
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				pattern = "*.lua",
-				callback = function()
-					vim.lsp.buf.format()
-				end,
-			})
 
 			local function lsp_client(name)
 				return assert(
@@ -126,23 +91,19 @@ return {
 
 			require("lspconfig").ruff.setup({
 				on_attach = function(client, bufnr)
+					require("lsp-format").on_attach(client, bufnr)
 					client.server_capabilities.hoverProvider = false
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = format_augroup,
-							buffer = bufnr,
-							callback = function()
-								async_formatting(bufnr)
-								ruff_organize_imports()
-							end,
-						})
-					end
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						callback = function()
+							ruff_organize_imports()
+						end,
+					})
 				end,
 			})
 		end,
 	},
 
+	{ "lukas-reineke/lsp-format.nvim" },
 	{
 		"williamboman/mason.nvim",
 		desc = "https://mason-registry.dev/registry/list",
@@ -164,7 +125,7 @@ return {
 
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
-	{ "folke/lsp-colors.nvim",   branch = "main" },
+	{ "folke/lsp-colors.nvim",        branch = "main" },
 	{
 		"lewis6991/hover.nvim",
 		config = function()
