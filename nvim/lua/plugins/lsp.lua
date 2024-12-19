@@ -33,6 +33,11 @@ return {
 				hls = {},
 				pyright = {
 					capabilities = {
+						worksapce = {
+							didChangeWatchedFiles = {
+								dynamicRegistration = false,
+							},
+						},
 						textDocument = {
 							publishDiagnostics = {
 								tagSupport = {
@@ -48,7 +53,7 @@ return {
 						python = {
 							analysis = {
 								autoSearchPaths = true,
-								diagnosticMode = "workspace",
+								diagnosticMode = "openFilesOnly",
 								useLibraryCodeForTypes = true,
 								autoImportCompletions = true,
 							},
