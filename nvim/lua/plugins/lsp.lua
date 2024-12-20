@@ -25,7 +25,17 @@ return {
 			local servers = {
 				ansiblels = {},
 				bashls = {},
-				dockerls = {},
+				dockerls = {
+					settings = {
+						docker = {
+							languageserver = {
+								formatter = {
+									ignoreMultilineInstructions = true,
+								},
+							},
+						}
+					}
+				},
 				docker_compose_language_service = {},
 				terraformls = {},
 				rust_analyzer = {},
