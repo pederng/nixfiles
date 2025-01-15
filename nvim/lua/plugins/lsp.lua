@@ -25,6 +25,7 @@ return {
 			local servers = {
 				ansiblels = {},
 				bashls = {},
+				ruff = {},
 				dockerls = {
 					settings = {
 						docker = {
@@ -87,34 +88,6 @@ return {
 					on_attach = require("lsp-format").on_attach,
 				})
 			end
-
-			local function lsp_client(name)
-				return assert(
-					vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf(), name = name })[1],
-					('No %s client found for the current buffer'):format(name)
-				)
-			end
-
-			local function ruff_organize_imports()
-				lsp_client('ruff').request("workspace/executeCommand", {
-					command = 'ruff.applyOrganizeImports',
-					arguments = {
-						{ uri = vim.uri_from_bufnr(0), version = 045 },
-					},
-				})
-			end
-
-			require("lspconfig").ruff.setup({
-				on_attach = function(client, bufnr)
-					require("lsp-format").on_attach(client, bufnr)
-					client.server_capabilities.hoverProvider = false
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						callback = function()
-							ruff_organize_imports()
-						end,
-					})
-				end,
-			})
 		end,
 	},
 
