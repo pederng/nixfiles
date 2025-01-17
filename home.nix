@@ -330,6 +330,22 @@
       ];
       urls = [
         {
+          url = "https://www.nrk.no/urix/toppsaker.rss";
+          tags = ["news"];
+        }
+        {
+          url = "https://www.nrk.no/norge/toppsaker.rss";
+          tags = ["news"];
+        }
+        {
+          url = "https://www.nrk.no/trondelag/toppsaker.rss";
+          tags = ["news"];
+        }
+        {
+          url = "https://hnrss.org/newest?points=100";
+          tags = ["tech" "news"];
+        }
+        {
           url = "https://this-week-in-rust.org/rss.xml";
           tags = ["rust" "programming"];
         }
@@ -366,20 +382,8 @@
           tags = ["programming"];
         }
         {
-          url = "https://hnrss.org/frontpage";
-          tags = ["tech" "news"];
-        }
-        {
-          url = "https://www.nrk.no/toppsaker.rss";
-          tags = ["news"];
-        }
-        {
           url = "http://feeds.feedburner.com/nrkbeta";
           tags = ["news"];
-        }
-        {
-          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCDc1518xgM-E9BklhPYGPKA";
-          tags = ["Ihor" "yt"];
         }
       ];
     };
