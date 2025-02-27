@@ -15,7 +15,7 @@
     home-manager,
     ...
   }: {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    packages.x86_64-linux = home-manager.packages.x86_64-linux;
 
     homeConfigurations = {
       "peder" = home-manager.lib.homeManagerConfiguration {
