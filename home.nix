@@ -46,6 +46,7 @@
       bitwarden-cli
       btop
       cabal-install
+      codespell
       cook-cli
       ctags
       difftastic
