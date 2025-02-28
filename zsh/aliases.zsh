@@ -1,4 +1,4 @@
-#Utilites
+#Utilities
 alias grep='grep --color=auto'
 alias cp='cp -iv'
 alias rm='rm -iv --one-file-system'
@@ -33,6 +33,8 @@ alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/notes/addressbook"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
+
+alias bat="bat --theme='base16-256"
 
 alias j=zi
 

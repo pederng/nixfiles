@@ -45,12 +45,14 @@
       bat
       bitwarden-cli
       btop
+      brightnessctl
       cabal-install
       codespell
       cook-cli
       ctags
       difftastic
       dmenu
+      dmenu-wayland
       docker-compose-language-service
       dunst
       entr
@@ -102,13 +104,15 @@
       stern
       strace
       sxiv
+      tinty
       tokei
-      # toot
       tree
       units
       unzip
       urlscan
       wget
+      wl-clipboard
+      wmenu
       xbanish
       xbindkeys
       xclip
@@ -132,6 +136,9 @@
       ".config/qutebrowser/config.py".source = ./qutebrowser_config.py;
       ".config/notmuch/notmuchrc".source = ./notmuchrc;
       ".config/jj/config.toml".source = ./jjconfig.toml;
+      ".config/tinted-theming/tinty/config.toml".source = ./tinty.toml;
+      ".config/sway/config".source = ./sway.conf;
+      ".config/foot/foot.ini".source = ./foot.ini;
 
       ".config/nvim" = {
         source = ./nvim;
@@ -203,6 +210,10 @@
       ];
     };
 
+    foot = {
+      enable = true;
+    };
+
     tmux = {
       enable = true;
       package = pkgs.tmux;
@@ -226,6 +237,7 @@
             bind w choose-tree -Z
           '';
         }
+
       ];
     };
 

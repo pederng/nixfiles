@@ -2,6 +2,7 @@
 
 
 xrdb -merge "$HOME/.config/X11/xcolors"
+xrdb -merge "$HOME/.config/X11/xresources"
 slstatus &
 xset s 600
 xss-lock slock &

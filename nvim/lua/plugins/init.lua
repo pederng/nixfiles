@@ -20,7 +20,7 @@ return {
 	{ "nathangrigg/vim-beancount" },
 	{ "jjo/vim-cue" },
 	{ "luizribeiro/vim-cooklang" },
-	{ "ellisonleao/glow.nvim",    branch = "main" },
+	{ "ellisonleao/glow.nvim",           branch = "main" },
 	{ "freitass/todo.txt-vim" },
 
 	-- Visuals
@@ -45,7 +45,7 @@ return {
 		end,
 	},
 	-- { "romgrk/nvim-treesitter-context" },
-	{ "RRethy/nvim-base16" },
+	{ "tinted-theming/tinted-vim" },
 	{ "stevearc/dressing.nvim",        opts = {} },
 	{ "ntpeters/vim-better-whitespace" },
 	{
