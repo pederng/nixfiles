@@ -1,4 +1,4 @@
 #!/bin/sh
 set -eou pipefail
 
-nix flake lock --update-input nixpkgs --update-input home-manager
+nix flake update nixpkgs home-manager
