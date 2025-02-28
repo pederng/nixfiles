@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+xrdb -merge "$HOME/.config/X11/xcolors"
+slstatus &
+xset s 600
+xss-lock slock &
+dunst &
+xbanish &
+yubikey-touch-detector --libnotify &
+exec dwm
