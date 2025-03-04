@@ -7,7 +7,8 @@ default-scheme = "base16-harmonic16-dark"
 path = "https://githubjcom/tinted-theming/tinted-shell"
 name = "tinted-shell"
 themes-dir = "scripts"
-hook = "cat %f"
+hook = ". %f"
+supported-systems = ["base16", "base24"]
 
 [[items]]
 path = "https://github.com/tinted-theming/tinted-terminal"
@@ -21,6 +22,7 @@ name = "tinted-tmux"
 # Check if tmux is in use and if it is, reload the config file
 hook = "tmux run 2> /dev/null && tmux source-file %f"
 themes-dir = "colors"
+supported-systems = ["base16", "base24"]
 
 # [[items]]
 # path = "https://github.com/tinted-theming/tinted-xresources"
