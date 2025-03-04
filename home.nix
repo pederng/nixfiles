@@ -77,13 +77,13 @@
       lsof
       lynx
       mkcert
-      neomutt
+      # neomutt
       nerd-fonts.hack
       nixd
       nodePackages.bash-language-server
       nodePackages.npm
       nodejs
-      notmuch
+      # notmuch
       noto-fonts
       noto-fonts-emoji
       noto-fonts-extra
