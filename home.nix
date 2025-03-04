@@ -61,7 +61,6 @@
       entr
       fastmod
       fd
-      feh
       ghc
       go
       grim
@@ -96,7 +95,6 @@
       readline
       ripgrep
       rsync
-      scrot
       shellcheck
       skaffold
       slurp
@@ -106,7 +104,6 @@
       stern
       strace
       swayimg
-      sxiv
       tinty
       tokei
       tree
@@ -116,12 +113,9 @@
       wget
       wl-clipboard
       wmenu
-      xbanish
-      xbindkeys
       xclip
       xdg-utils
       xh
-      xss-lock
       yq
       yt-dlp
       zathura
