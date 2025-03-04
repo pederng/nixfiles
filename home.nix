@@ -37,6 +37,9 @@
       XDG_CACHE_HOME = "$HOME/.cache";
     };
     packages = with pkgs; [
+      # k3s
+      # neomutt
+      # notmuch
       abook
       acpi
       ansible-language-server
@@ -44,8 +47,8 @@
       awscli2
       bat
       bitwarden-cli
-      btop
       brightnessctl
+      btop
       cabal-install
       codespell
       cook-cli
@@ -61,13 +64,13 @@
       feh
       ghc
       go
+      grim
       hadolint
       handlr
       haskell-language-server
       helmfile
       hledger
       jq
-      # k3s
       k9s
       kubectl
       kubectx
@@ -77,13 +80,11 @@
       lsof
       lynx
       mkcert
-      # neomutt
       nerd-fonts.hack
       nixd
       nodePackages.bash-language-server
       nodePackages.npm
       nodejs
-      # notmuch
       noto-fonts
       noto-fonts-emoji
       noto-fonts-extra
@@ -98,11 +99,13 @@
       scrot
       shellcheck
       skaffold
+      slurp
       sops
       spotify
       stack
       stern
       strace
+      swayimg
       sxiv
       tinty
       tokei
