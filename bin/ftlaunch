@@ -1,0 +1,2 @@
+#!/bin/bash -e
+dmenu_path | ftmenu --prompt \"run\> \" +m | ${SHELL:-"/bin/sh"} &
