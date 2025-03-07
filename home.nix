@@ -42,6 +42,7 @@
       # notmuch
       abook
       acpi
+      alejandra
       ansible-language-server
       ast-grep
       awscli2
@@ -101,6 +102,7 @@
       sops
       spotify
       stack
+      statix
       stern
       strace
       swayimg
@@ -202,7 +204,6 @@
       vimdiffAlias = true;
       extraPackages = with pkgs; [
         tree-sitter
-        statix
         lua-language-server
       ];
     };

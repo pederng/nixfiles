@@ -135,6 +135,7 @@ return {
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.statix,
 					-- null_ls.builtins.code_actions.statix,
+					null_ls.builtins.formatting.alejandra,
 					null_ls.builtins.diagnostics.codespell.with({
 						extra_args = { "-L", "nin,bu" }
 					}),
