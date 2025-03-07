@@ -91,25 +91,6 @@ return {
 	},
 
 	{ "lukas-reineke/lsp-format.nvim" },
-	{
-		"williamboman/mason.nvim",
-		desc = "https://mason-registry.dev/registry/list",
-		opts = {},
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {
-			"VonHeikemen/lsp-zero.nvim",
-		},
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-				},
-			})
-		end,
-	},
-
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
 	{ "folke/lsp-colors.nvim",        branch = "main" },
