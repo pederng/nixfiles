@@ -8,14 +8,14 @@
   # specialArgs,
   # modulesPath,
 }: {
-
   nixpkgs = {
     overlays = [
       inputs.neovim-nightly-overlay.overlays.default
     ];
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "spotify"
-    ];
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "spotify"
+      ];
   };
 
   nix = {
@@ -24,7 +24,6 @@
       experimental-features = "nix-command flakes";
     };
   };
-
 
   home = {
     username = "peder";
@@ -235,7 +234,6 @@
             bind w choose-tree -Z
           '';
         }
-
       ];
     };
 
@@ -440,7 +438,6 @@
         aws = {disabled = true;};
       };
     };
-
   };
 
   xdg = {
@@ -471,5 +468,4 @@
   };
 
   fonts.fontconfig.enable = true;
-
 }

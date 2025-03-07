@@ -15,18 +15,16 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs:
-    let
-      inherit (self) outputs;
-    in
-    {
+  } @ inputs: let
+    inherit (self) outputs;
+  in {
     packages.x86_64-linux = home-manager.packages.x86_64-linux;
 
     homeConfigurations = {
       "peder" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [./home.nix];
-        extraSpecialArgs = { inherit inputs outputs; };
+        extraSpecialArgs = {inherit inputs outputs;};
       };
     };
   };
