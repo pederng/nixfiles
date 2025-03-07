@@ -1,18 +1,18 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
   # config,
   # options,
   # specialArgs,
   # modulesPath,
 }: {
+
   nixpkgs = {
-  #   overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  #   }))
-  # ];
+    overlays = [
+      inputs.neovim-nightly-overlay.overlays.default
+    ];
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "spotify"
     ];
@@ -196,7 +196,7 @@
 
     neovim = {
       enable = true;
-      # package = pkgs.neovim-nightly;
+      package = pkgs.neovim;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
