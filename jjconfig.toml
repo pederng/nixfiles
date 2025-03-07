@@ -15,11 +15,11 @@ tool = ["difft", "--color=always", "$left", "$right"]
 email = "peder.galteland@softwarelab.no"
 name = "Peder Notto Galteland"
 
-# [signing]
+[signing]
 # sign-all = true
-# backend = "gpg"
-# key = "4980821A221FE5B1"
-#
+backend = "gpg"
+key = "4980821A221FE5B1"
+
 [git]
 push-bookmark-prefix = "pedernot/push-"
 
