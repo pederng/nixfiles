@@ -123,6 +123,14 @@ if [ $commands[tinty] ]; then
   }
 fi
 
+if [ $commands[kubectl] ]; then
+  kubectl() {
+    unfunction "$0"
+    eval "$(kubectl completion zsh)"
+    $0 "$@"
+  }
+fi
+
 # Tinty isn't able to apply environment variables to your shell due to
 # the way shell sub-processes work. This is a work around by running
 # Tinty through a function and then executing the shell scripts.
