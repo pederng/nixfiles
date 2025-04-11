@@ -36,9 +36,7 @@
       XDG_CACHE_HOME = "$HOME/.cache";
     };
     packages = with pkgs; [
-      # k3s
-      # neomutt
-      # notmuch
+      # kubectl
       abook
       acpi
       alejandra
@@ -70,8 +68,8 @@
       helmfile
       hledger
       jq
+      k3s
       k9s
-      kubectl
       kubectx
       kubelogin
       kubernetes-helm
@@ -79,11 +77,13 @@
       lsof
       lynx
       mkcert
+      neomutt
       nerd-fonts.hack
       nixd
       nodePackages.bash-language-server
       nodePackages.npm
       nodejs
+      notmuch
       noto-fonts
       noto-fonts-emoji
       noto-fonts-extra
