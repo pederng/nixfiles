@@ -10,17 +10,26 @@ import sys
 
 import requests
 
+SCOPE = "https://mail.google.com"
 CACHE = (
     Path(os.getenv("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))) / "gmail_tokens"
 )
-SCOPE = "https://mail.google.com"
-CREDENTIALS = json.loads((CACHE / "client_credentials").read_text())["installed"]
+
+if not CACHE.is_dir():
+    CACHE.mkdir()
+
+
+CREDENTIALS_PATH = CACHE / "client_credentials"
+if not CREDENTIALS_PATH.is_file():
+    raise ValueError("Client credential missing")
+
+CREDENTIALS = json.loads(CREDENTIALS_PATH.read_text())["installed"]
 
 
 def auth_uri() -> str:
     params = dict(
         client_id=CREDENTIALS["client_id"],
-        redirect_uri=CREDENTIALS["redirect_uris"][1],
+        redirect_uri=CREDENTIALS["redirect_uris"][0],
         scope=SCOPE,
         access_type="offline",
         include_granted_scopes="true",
@@ -37,7 +46,7 @@ def redeem_token(code: str) -> Tuple[str, int, str]:
             client_id=CREDENTIALS["client_id"],
             client_secret=CREDENTIALS["client_secret"],
             grant_type="authorization_code",
-            redirect_uri=CREDENTIALS["redirect_uris"][1],
+            redirect_uri=CREDENTIALS["redirect_uris"][0],
         ),
     )
     r.raise_for_status()

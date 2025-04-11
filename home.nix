@@ -67,6 +67,7 @@
       haskell-language-server
       helmfile
       hledger
+      isync
       jq
       k3s
       k9s
@@ -77,6 +78,7 @@
       lsof
       lynx
       mkcert
+      msmtp
       neomutt
       nerd-fonts.hack
       nixd

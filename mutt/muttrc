@@ -1,7 +1,7 @@
 set realname = "Peder Notto Galteland"
 set use_from = yes
 set envelope_from = yes
-set sendmail = /usr/bin/msmtp
+set sendmail = msmtp
 set move = no
 set delete
 unset confirmappend

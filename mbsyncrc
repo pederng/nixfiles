@@ -49,8 +49,8 @@ Channel sync-purelymail-archive
 IMAPAccount gmail-personal
 Host imap.gmail.com
 User pederng@gmail.com
-AuthMechs XOAUTH2
-PassCmd "fetch_token personal"
+# AuthMechs XOAUTH2
+PassCmd "pass gmail-personal-app-pw"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -96,8 +96,8 @@ Channel sync-gmail-personal-archive
 IMAPAccount gmail-tsl
 Host imap.gmail.com
 User peder.galteland@softwarelab.no
-AuthMechs XOAUTH2
-PassCmd "fetch_token gmail-tsl"
+# AuthMechs XOAUTH2
+PassCmd "pass gmail-tsl-app-pw"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
