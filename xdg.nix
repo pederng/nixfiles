@@ -22,11 +22,11 @@ _: {
       associations.added = {"binary/octet-stream" = "gvim/desktop";};
       defaultApplications = {
         "application/pdf" = "zathura.desktop";
-        "application/x-extension-html" = "org.qutebrowser.qutebrowser.desktop";
-        "image/png" = "sxiv.desktop";
-        "text/html" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+        "application/x-extension-html" = "firefox.desktop";
+        "image/png" = "grim.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
       };
     };
   };
