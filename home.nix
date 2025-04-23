@@ -184,7 +184,7 @@
       dotDir = ".config/zsh";
       profileExtra = lib.strings.fileContents ./zsh/zprofile;
       syntaxHighlighting.enable = true;
-      initExtra = builtins.concatStringsSep "\n" [
+      initContent = builtins.concatStringsSep "\n" [
         ''
           ${lib.strings.fileContents ./zsh/zshrc}
           ${lib.strings.fileContents ./zsh/aliases.zsh}
