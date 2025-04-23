@@ -46,6 +46,14 @@
 
     foot = {
       enable = true;
+      settings = {
+        main = {
+          dpi-aware = "yes";
+          font = "Hack Nerd Font Mono:size=8, Noto Color Emoji:size=8";
+          include = "~/.local/share/tinted-theming/tinty/tinted-foot-colors-file.ini";
+        };
+      };
+
     };
 
     tmux = {

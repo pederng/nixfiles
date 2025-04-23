@@ -6,17 +6,14 @@ home.file = {
     ".config/dunstrc".source = ./dunstrc;
     ".config/npm/npmrc".source = ./npmrc;
     ".config/ctags/excludes.ctags".source = ./excludes.ctags;
-    # ".config/python/startup.py".source = ./startup.py;
     ".config/fontconfig/fonts.conf".source = ./fonts.conf;
     ".config/isync/mbsyncrc".source = ./mbsyncrc;
     ".config/msmtp/config".source = ./msmtp_config;
     ".config/vim/vimrc_background".source = ./vimrc_background;
-    ".config/qutebrowser/config.py".source = ./qutebrowser_config.py;
     ".config/notmuch/notmuchrc".source = ./notmuchrc;
     ".config/jj/config.toml".source = ./jjconfig.toml;
     ".config/tinted-theming/tinty/config.toml".source = ./tinty.toml;
     ".config/sway/config".source = ./sway.conf;
-    ".config/foot/foot.ini".source = ./foot.ini;
 
     ".config/nvim" = {
       source = ./nvim;
@@ -25,11 +22,6 @@ home.file = {
 
     ".config/mutt" = {
       source = ./mutt;
-      recursive = true;
-    };
-
-    ".config/X11" = {
-      source = ./X11;
       recursive = true;
     };
 
