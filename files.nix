@@ -11,7 +11,6 @@ home.file = {
     ".config/msmtp/config".source = ./msmtp_config;
     ".config/vim/vimrc_background".source = ./vimrc_background;
     ".config/notmuch/notmuchrc".source = ./notmuchrc;
-    ".config/jj/config.toml".source = ./jjconfig.toml;
     ".config/tinted-theming/tinty/config.toml".source = ./tinty.toml;
     ".config/sway/config".source = ./sway.conf;
 

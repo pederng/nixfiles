@@ -98,6 +98,42 @@
       enableZshIntegration = true;
     };
 
+    jujutsu = {
+      enable = true;
+      settings = {
+        aliases = {
+          l = ["log" "-r" "(master..@):: | (master..@)-"];
+          sl = ["log" "-l" "20"];
+          al = ["log" "-r" "all()"];
+          mylog = ["log" "-r" "author('peder.galteland@softwarelab.no')"];
+        };
+        ui = {
+          diff-editor = "vimdirdiff";
+          diff.tool = ["difft" "--color=always" "$left" "$right"];
+        };
+        user = {
+          email = "peder.galteland@softwarelab.no";
+          name = "Peder Notto Galteland";
+        };
+        signing = {
+          # sign-all = true;
+          backend = "gpg";
+          key = "4980821A221FE5B1";
+        };
+        git = {
+          push-bookmark-prefix = "pedernot/push-";
+        };
+        fix.tools.ruff-fix = {
+          command = ["ruff" "check" "--fix"];
+          patterns = ["glob:'**/*.py'"];
+        };
+        fix.tools.ruff-format = {
+          command = ["ruff" "format"];
+          patterns = ["glob:'**/*.py'"];
+        };
+      };
+    };
+
     git = {
       enable = true;
       package = pkgs.git;
