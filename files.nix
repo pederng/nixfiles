@@ -12,7 +12,6 @@ home.file = {
     ".config/vim/vimrc_background".source = ./vimrc_background;
     ".config/notmuch/notmuchrc".source = ./notmuchrc;
     ".config/tinted-theming/tinty/config.toml".source = ./tinty.toml;
-    ".config/sway/config".source = ./sway.conf;
 
     ".config/nvim" = {
       source = ./nvim;

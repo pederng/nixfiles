@@ -7,6 +7,7 @@
     ./files.nix
     ./programs.nix
     ./xdg.nix
+    ./sway.nix
   ];
 
   nix = {
