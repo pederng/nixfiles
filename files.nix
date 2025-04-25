@@ -2,42 +2,35 @@
   pkgs,
   ...
 }: {
-home.file = {
-    ".config/dunstrc".source = ./dunstrc;
-    ".config/npm/npmrc".source = ./npmrc;
-    ".config/ctags/excludes.ctags".source = ./excludes.ctags;
-    ".config/fontconfig/fonts.conf".source = ./fonts.conf;
-    ".config/isync/mbsyncrc".source = ./mbsyncrc;
-    ".config/msmtp/config".source = ./msmtp_config;
-    ".config/vim/vimrc_background".source = ./vimrc_background;
-    ".config/notmuch/notmuchrc".source = ./notmuchrc;
-    ".config/tinted-theming/tinty/config.toml".source = ./tinty.toml;
+  xdg.configFile = {
+    "dunstrc".source = ./dunstrc;
+    "npm/npmrc".source = ./npmrc;
+    "ctags/excludes.ctags".source = ./excludes.ctags;
+    "fontconfig/fonts.conf".source = ./fonts.conf;
+    "isync/mbsyncrc".source = ./mbsyncrc;
+    "msmtp/config".source = ./msmtp_config;
+    "vim/vimrc_background".source = ./vimrc_background;
+    "notmuch/notmuchrc".source = ./notmuchrc;
+    "tinted-theming/tinty/config.toml".source = ./tinty.toml;
 
-    ".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-    };
+    "nvim" = { source = ./nvim; recursive = true; };
+    "mutt" = { source = ./mutt; recursive = true; };
+    "systemd/user/" = { source = ./systemd; recursive = true; };
 
-    ".config/mutt" = {
-      source = ./mutt;
-      recursive = true;
-    };
+  };
 
-    ".config/systemd/user/" = {
-      source = ./systemd;
-      recursive = true;
-    };
-
-    ".local/share/gnupg/gpg-agent.conf".text = ''
-      default-cache-ttl 86400
-      max-cache-ttl 86400
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry-qt
-      enable-ssh-support
+  xdg.dataFile = {
+    "gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
+    "gnupg/gpg-agent.conf".text = ''
+        default-cache-ttl 86400
+        max-cache-ttl 86400
+        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry-qt
+        enable-ssh-support
     '';
-    ".local/share/gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
-    ".local/bin" = {
-      source = ./bin;
-      recursive = true;
-    };
+  };
+
+  home.file.".local/bin" = {
+    source = ./bin;
+    recursive = true;
   };
 }

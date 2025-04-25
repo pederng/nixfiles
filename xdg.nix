@@ -1,11 +1,6 @@
 _: {
-  home.sessionVariables = {
-    LD_LIBRARY_PATH = "";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_CACHE_HOME = "$HOME/.cache";
-  };
   xdg = {
+    enable = true;
     userDirs = {
       enable = true;
       desktop = "$HOME";

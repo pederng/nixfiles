@@ -1,5 +1,3 @@
 _: {
-home.file = {
-    ".config/sway/config".source = ./sway.conf;
-  };
+  home.file.".config/sway/config".source = ./sway.conf;
 }
