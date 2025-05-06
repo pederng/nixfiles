@@ -2,14 +2,13 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }: {
-  nixpkgs = {
-    overlays = [
-      inputs.neovim-nightly-overlay.overlays.default
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     inputs.neovim-nightly-overlay.overlays.default
+  #   ];
+  # };
 
   programs = {
     home-manager.enable = true;
@@ -18,6 +17,18 @@
       enable = true;
       dotDir = ".config/zsh";
       profileExtra = lib.strings.fileContents ./zsh/zprofile;
+      plugins = [
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.8.0";
+            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+          };
+        }
+      ];
       syntaxHighlighting.enable = true;
       initContent = builtins.concatStringsSep "\n" [
         ''
@@ -32,9 +43,12 @@
       defaultKeymap = "viins";
     };
 
+    gpg = {
+      enable = true;
+    };
+
     neovim = {
       enable = true;
-      package = pkgs.neovim;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
@@ -50,7 +64,7 @@
         main = {
           dpi-aware = "yes";
           font = "Hack Nerd Font Mono:size=8, Noto Color Emoji:size=8";
-          include = "~/.local/share/tinted-theming/tinty/tinted-foot-colors-file.ini";
+          include = "~/.local/share/tinted-theming/tinty/tinted-terminal-themes-foot-file.ini";
         };
       };
 
@@ -110,6 +124,7 @@
         ui = {
           diff-editor = "vimdirdiff";
           diff.tool = ["difft" "--color=always" "$left" "$right"];
+          pager = ":builtin";
         };
         user = {
           email = "peder.galteland@softwarelab.no";
@@ -186,6 +201,7 @@
         ".codespellrc"
         ".jj"
         ".jjconflict*"
+        "shell.nix"
       ];
       extraConfig = {
         user.signingKey = "4980821A221FE5B1";

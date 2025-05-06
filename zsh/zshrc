@@ -123,6 +123,15 @@ if [ $commands[tinty] ]; then
   }
 fi
 
+if [ $commands[capbak] ]; then
+  capbak() {
+    unfunction "$0"
+    eval "$(capbak completion)"
+    $0 "$@"
+  }
+fi
+
+
 if [ $commands[kubectl] ]; then
   kubectl() {
     unfunction "$0"

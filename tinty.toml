@@ -4,7 +4,7 @@ shell = "zsh -c '{}'"
 default-scheme = "base16-harmonic16-dark"
 
 [[items]]
-path = "https://githubjcom/tinted-theming/tinted-shell"
+path = "https://github.com/tinted-theming/tinted-shell"
 name = "tinted-shell"
 themes-dir = "scripts"
 hook = ". %f"
@@ -23,12 +23,5 @@ name = "tinted-tmux"
 hook = "tmux run 2> /dev/null && tmux source-file %f"
 themes-dir = "colors"
 supported-systems = ["base16", "base24"]
-
-# [[items]]
-# path = "https://github.com/tinted-theming/tinted-xresources"
-# name = "tinted-xresources"
-# themes-dir = "xresources"
-# hook = "cp -f %f ~/.config/X11/theme && xrdb -load -I/home/peder/.config/X11 ~/.config/X11/xresources"
-# supported-systems = ["base16", "base24"]
 
 # hooks = ["tmux source-file /home/peder/.config/tmux/tmux.conf"]

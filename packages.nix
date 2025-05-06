@@ -28,12 +28,15 @@
     difftastic
     dmenu
     dmenu-wayland
+    docker-buildx
     docker-compose-language-service
     dunst
     entr
     fastmod
     fd
+    firefox
     ghc
+    gnumake
     go
     grim
     hadolint
@@ -63,7 +66,9 @@
     noto-fonts
     noto-fonts-emoji
     noto-fonts-extra
+    openssl
     pass
+    pavucontrol
     pinentry-qt
     popeye
     powertop
@@ -87,6 +92,7 @@
     units
     unzip
     urlscan
+    waylock
     wget
     wl-clipboard
     wmenu

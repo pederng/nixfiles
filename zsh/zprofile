@@ -44,6 +44,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export PYTHON_HISTORY="$XDG_CACHE_HOME/python/history"
 
+export COMPOSE_BAKE=true
+
 
 # Set up gpg as ssh-agent
 if [ -z "$SSH_CLIENT" ]; then
@@ -52,4 +54,4 @@ if [ -z "$SSH_CLIENT" ]; then
   gpgconf --launch gpg-agent
 fi
 
-source $XDG_DATA_HOME/cargo/env
+# source $XDG_DATA_HOME/cargo/env

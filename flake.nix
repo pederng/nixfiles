@@ -1,7 +1,8 @@
 {
-  description = "Home Manager Flake";
+  description = "NixOS flake";
 
   inputs = {
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,16 +16,20 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: let
-    inherit (self) outputs;
-  in {
+  }: {
     packages.x86_64-linux = home-manager.packages.x86_64-linux;
 
-    homeConfigurations = {
-      "peder" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [./home.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+    nixosConfigurations = {
+      lapping = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.users.peder = import ./home.nix;
+          }
+        ];
       };
     };
   };
