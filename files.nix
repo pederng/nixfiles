@@ -1,10 +1,5 @@
-{
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile = {
-    "dunstrc".source = ./dunstrc;
-    "npm/npmrc".source = ./npmrc;
     "ctags/excludes.ctags".source = ./excludes.ctags;
     "fontconfig/fonts.conf".source = ./fonts.conf;
     "isync/mbsyncrc".source = ./mbsyncrc;
@@ -24,8 +19,6 @@
     "gnupg/gpg-agent.conf".text = ''
         default-cache-ttl 86400
         max-cache-ttl 86400
-        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry-qt
-        enable-ssh-support
     '';
   };
 

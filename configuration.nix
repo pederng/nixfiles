@@ -19,7 +19,6 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  programs.nix-ld.enable = true;
 
   networking.hostName = "lapping";
   networking.networkmanager.enable = true;
@@ -33,6 +32,19 @@
   };
 
   virtualisation.docker.enable = true;
+
+  programs = {
+    nix-ld.enable = true;
+
+    gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-qt;
+      enableSSHSupport = true;
+    };
+
+    zsh.enable = true;
+  };
+
 
   services = {
     pipewire = {
@@ -51,7 +63,6 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,5 +1,6 @@
 
 {
+  config,
   pkgs,
   lib,
   ...
@@ -43,12 +44,24 @@
       defaultKeymap = "viins";
     };
 
+    password-store = {
+      enable = true;
+      settings = {
+        PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
+      };
+    };
+
     gpg = {
       enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
+      publicKeys = [
+        { source = "${config.xdg.dataHome}/gnupg/peder.galteland.pem"; trust = "ultimate"; }
+      ];
     };
 
     neovim = {
       enable = true;
+      defaultEditor = true;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;

@@ -30,7 +30,6 @@
     dmenu-wayland
     docker-buildx
     docker-compose-language-service
-    dunst
     entr
     fastmod
     fd
@@ -67,7 +66,6 @@
     noto-fonts-emoji
     noto-fonts-extra
     openssl
-    pass
     pavucontrol
     pinentry-qt
     popeye
