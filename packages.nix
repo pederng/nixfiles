@@ -43,7 +43,6 @@
     haskell-language-server
     helmfile
     hledger
-    isync
     jq
     k3s
     k9s
@@ -54,13 +53,10 @@
     lsof
     lynx
     mkcert
-    msmtp
-    neomutt
     nixd
     nodePackages.bash-language-server
     nodePackages.npm
     nodejs
-    notmuch
     openssl
     pavucontrol
     pinentry-qt

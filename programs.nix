@@ -13,6 +13,7 @@
     ./terminal.nix
     ./nvim.nix
     ./gpg.nix
+    ./email.nix
   ];
 
   programs = {
