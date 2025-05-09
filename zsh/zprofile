@@ -1,6 +1,3 @@
-# Path
-export PATH="$HOME/.local/bin:$PATH"
-
 # Overrides for applications not respecting XDG dirs
 export _Z_DATA="$XDG_DATA_HOME/z"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
@@ -31,5 +28,3 @@ if [ -z "$SSH_CLIENT" ]; then
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
 fi
-
-# source $XDG_DATA_HOME/cargo/env

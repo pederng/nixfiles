@@ -14,6 +14,7 @@
     homeDirectory = "/home/peder";
     stateVersion = "24.11";
     preferXdgDirectories = true;
+    sessionPath = [ "$HOME/.local/bin" ];
   };
   manual.manpages.enable = false;
   fonts.fontconfig.enable = true;
