@@ -1,6 +1,0 @@
-#!/bin/bash -e
-
-test -z "$(git --git-dir="$NOTES_DIR"/.git --work-tree="$NOTES_DIR" status --porcelain)" && exit 0
-git --git-dir="$NOTES_DIR"/.git --work-tree="$NOTES_DIR"  add .
-git --git-dir="$NOTES_DIR"/.git --work-tree="$NOTES_DIR"  commit --author="Autocommiter <>" -m "Autocommit"
-git --git-dir="$NOTES_DIR"/.git --work-tree="$NOTES_DIR"  push

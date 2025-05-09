@@ -1,5 +1,0 @@
-#!/bin/sh
-set -euo pipefail
-session=$(bw unlock $(pass bitwarden-tsl) --raw)
-item=$(bw --session $session list items --organizationid null| jq -r '.[].name' | fzfmenu)
-bw --session $session get password "$item" | xclip -selection clipboard

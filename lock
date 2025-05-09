@@ -1,4 +1,0 @@
-#!/bin/sh
-set -eou pipefail
-
-nix flake update nixpkgs home-manager

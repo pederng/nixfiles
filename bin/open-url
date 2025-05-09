@@ -1,3 +1,0 @@
-#!/bin/bash
-
-fzfmenu | xargs -r qutebrowser

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-fzfmenu | tr -d '\n' | xclip -selection clipboard
