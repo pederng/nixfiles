@@ -257,6 +257,7 @@
         ".jj"
         ".jjconflict*"
         "shell.nix"
+        ".direnv"
       ];
       extraConfig = {
         user.signingKey = "4980821A221FE5B1";
