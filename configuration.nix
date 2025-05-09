@@ -45,6 +45,12 @@
     zsh.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+    noto-fonts
+    noto-fonts-emoji
+    noto-fonts-extra
+  ];
 
   services = {
     pipewire = {

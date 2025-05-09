@@ -56,15 +56,11 @@
     mkcert
     msmtp
     neomutt
-    nerd-fonts.hack
     nixd
     nodePackages.bash-language-server
     nodePackages.npm
     nodejs
     notmuch
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-extra
     openssl
     pavucontrol
     pinentry-qt
