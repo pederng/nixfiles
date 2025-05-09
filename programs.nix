@@ -14,6 +14,7 @@
     ./ssh.nix
     ./version_control.nix
     ./terminal.nix
+    ./nvim.nix
   ];
 
   programs = {
@@ -31,18 +32,6 @@
       homedir = "${config.xdg.dataHome}/gnupg";
       publicKeys = [
         { source = "${config.xdg.dataHome}/gnupg/peder.galteland.pem"; trust = "ultimate"; }
-      ];
-    };
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      extraPackages = with pkgs; [
-        tree-sitter
-        lua-language-server
       ];
     };
 
