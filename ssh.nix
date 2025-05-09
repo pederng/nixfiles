@@ -32,6 +32,9 @@ _:{
       "bk-ci**" = {
         proxyCommand = "ssh -q -W %h.dhcp.bk.cptr.no:%p asbest";
       };
+      "client" = {
+        hostname = "login-client.univex.no";
+      };
       "*" = {
         user = "pedernot";
         serverAliveInterval = 60;
