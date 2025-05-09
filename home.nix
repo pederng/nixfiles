@@ -7,6 +7,7 @@
     ./programs.nix
     ./xdg.nix
     ./sway.nix
+    ./services.nix
   ];
 
   home = {
