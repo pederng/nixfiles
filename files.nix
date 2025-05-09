@@ -12,14 +12,6 @@ _: {
 
   };
 
-  xdg.dataFile = {
-    "gnupg/peder.galteland.pem".source = ./peder.galteland.pem;
-    "gnupg/gpg-agent.conf".text = ''
-        default-cache-ttl 86400
-        max-cache-ttl 86400
-    '';
-  };
-
   home.file.".local/bin" = {
     source = ./bin;
     recursive = true;

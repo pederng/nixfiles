@@ -41,13 +41,7 @@
 
   programs = {
     nix-ld.enable = true;
-
-    gnupg.agent = {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-qt;
-      enableSSHSupport = true;
-    };
-
+    gnupg.agent.enable = true;
     zsh.enable = true;
   };
 

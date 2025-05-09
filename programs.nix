@@ -1,7 +1,4 @@
-
 {
-  config,
-  pkgs,
   lib,
   ...
 }: {
@@ -15,25 +12,11 @@
     ./version_control.nix
     ./terminal.nix
     ./nvim.nix
+    ./gpg.nix
   ];
 
   programs = {
     home-manager.enable = true;
-
-    password-store = {
-      enable = true;
-      settings = {
-        PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
-      };
-    };
-
-    gpg = {
-      enable = true;
-      homedir = "${config.xdg.dataHome}/gnupg";
-      publicKeys = [
-        { source = "${config.xdg.dataHome}/gnupg/peder.galteland.pem"; trust = "ultimate"; }
-      ];
-    };
 
     newsboat = {
       enable = true;
