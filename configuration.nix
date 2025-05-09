@@ -13,10 +13,16 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  hardware.enableAllFirmware = true;
-  hardware.graphics.enable = true;
-  nixpkgs.config.allowUnfree = true;
+  hardware = {
+    enableAllFirmware = true;
+    graphics.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -53,7 +59,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    blueman.enable = true;
     hardware.bolt.enable = true;
   };
 
