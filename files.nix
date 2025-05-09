@@ -11,9 +11,4 @@ _: {
     "systemd/user/" = { source = ./systemd; recursive = true; };
 
   };
-
-  home.file.".local/bin" = {
-    source = ./bin;
-    recursive = true;
-  };
 }
