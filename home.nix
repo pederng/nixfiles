@@ -3,7 +3,6 @@
 {
   imports = [
     ./packages.nix
-    ./files.nix
     ./programs.nix
     ./xdg.nix
     ./sway.nix
@@ -31,6 +30,12 @@
   home.file.".local/bin" = {
     source = ./bin;
     recursive = true;
+  };
+
+  xdg.configFile = {
+    "ctags/excludes.ctags".source = ./excludes.ctags;
+    "tinted-theming/tinty/config.toml".source = ./tinty.toml;
+    "systemd/user/" = { source = ./systemd; recursive = true; };
   };
 
 }
