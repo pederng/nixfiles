@@ -1,7 +1,7 @@
 _: {
   xdg.configFile = {
     "ctags/excludes.ctags".source = ./excludes.ctags;
-    "fontconfig/fonts.conf".source = ./fonts.conf;
+    # "fontconfig/fonts.conf".source = ./fonts.conf;
     "isync/mbsyncrc".source = ./mbsyncrc;
     "msmtp/config".source = ./msmtp_config;
     "notmuch/notmuchrc".source = ./notmuchrc;

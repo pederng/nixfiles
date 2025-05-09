@@ -19,7 +19,14 @@
   };
 
   manual.manpages.enable = false;
-  fonts.fontconfig.enable = true;
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      emoji = ["Noto Color Emoji"];
+      monospace = ["Hack Nerd Font Mono"];
+    };
+  };
 
   home.file.".local/bin" = {
     source = ./bin;
