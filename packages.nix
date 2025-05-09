@@ -68,7 +68,6 @@
     openssl
     pavucontrol
     pinentry-qt
-    popeye
     powertop
     ps_mem
     readline
@@ -93,7 +92,6 @@
     waylock
     wget
     wl-clipboard
-    wmenu
     xclip
     xdg-utils
     xh
