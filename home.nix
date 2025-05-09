@@ -8,6 +8,7 @@
     ./xdg.nix
     ./sway.nix
     ./services.nix
+    ./ssh.nix
   ];
 
   home = {
