@@ -1,8 +1,0 @@
-#!/bin/sh
-export PASSWORD_STORE_DIR=/home/peder/.local/share/pass
-export GNUPGHOME=/home/peder/.local/share/gnupg
-export XDG_CACHE_HOME=/home/peder/.cache
-export PATH="$PATH":/home/peder/.local/bin
-gpg --card-status 2>/dev/null >/dev/null || exit 0
-notify-send "Syncing email"
-mbsync -Va -c /home/peder/.config/isync/mbsyncrc
