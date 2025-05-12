@@ -35,7 +35,6 @@
   xdg.configFile = {
     "ctags/excludes.ctags".source = ./excludes.ctags;
     "tinted-theming/tinty/config.toml".source = ./tinty.toml;
-    "systemd/user/" = { source = ./systemd; recursive = true; };
   };
 
 }
