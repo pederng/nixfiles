@@ -3,7 +3,7 @@ _:{
     mako = {
       enable = true;
       settings = {
-        defaultTimeout = 3000;
+        default-timeout = 3000;
       };
     };
   };
