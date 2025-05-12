@@ -3,7 +3,7 @@ IMAPAccount purelymail
 Host imap.purelymail.com
 User peder.notto@galte.land
 PassCmd "pass purelymail"
-SSLType IMAPS
+TLSTYPE IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore purelymail-remote
@@ -51,7 +51,7 @@ Host imap.gmail.com
 User pederng@gmail.com
 # AuthMechs XOAUTH2
 PassCmd "pass gmail-personal-app-pw"
-SSLType IMAPS
+TLSTYPE IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore gmail-personal-remote
@@ -98,7 +98,7 @@ Host imap.gmail.com
 User peder.galteland@softwarelab.no
 # AuthMechs XOAUTH2
 PassCmd "pass gmail-tsl-app-pw"
-SSLType IMAPS
+TLSTYPE IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore gmail-tsl-remote
