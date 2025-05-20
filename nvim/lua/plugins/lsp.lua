@@ -43,7 +43,7 @@ return {
 				hls = {},
 				pyright = {
 					capabilities = {
-						worksapce = {
+						workspace = {
 							didChangeWatchedFiles = {
 								dynamicRegistration = false,
 							},
