@@ -18,7 +18,7 @@ _:{
       };
       "staging" = {
         hostname = "app9";
-        proxyCommand = "ssh -q -W %h:%p bast1";
+        proxyCommand = "ssh -q -W app9:%p bast1";
       };
       "app*" = {
         proxyCommand = "ssh -q -W %h:%p bast1";
