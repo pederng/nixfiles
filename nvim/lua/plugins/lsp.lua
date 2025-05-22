@@ -58,14 +58,15 @@ return {
 					},
 					settings = {
 						pyright = {
+							autoImportCompletions = true,
 							disableOrganizeImports = true, -- Use ruff
 						},
 						python = {
 							analysis = {
 								autoSearchPaths = true,
 								diagnosticMode = "openFilesOnly",
-								useLibraryCodeForTypes = false,
-								autoImportCompletions = true,
+								useLibraryCodeForTypes = true,
+								typeCheckingMode = 'off',
 							},
 						},
 					},
