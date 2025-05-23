@@ -24,7 +24,12 @@ return {
 			local servers = {
 				ansiblels = {},
 				bashls = {},
-				ruff = {},
+				ruff = {
+					settings = {
+						organizeImports = true,
+						fixAll = true
+					}
+				},
 				dockerls = {
 					settings = {
 						docker = {
@@ -42,31 +47,32 @@ return {
 				nixd = {},
 				hls = {},
 				pyright = {
-					capabilities = {
-						workspace = {
-							didChangeWatchedFiles = {
-								dynamicRegistration = false,
-							},
-						},
-						textDocument = {
-							publishDiagnostics = {
-								tagSupport = {
-									valueSet = { 2 },
-								}
-							}
-						},
-					},
+					-- capabilities = {
+					-- 	workspace = {
+					-- 		didChangeWatchedFiles = {
+					-- 			dynamicRegistration = false,
+					-- 		},
+					-- 	},
+					-- textDocument = {
+					-- 	publishDiagnostics = {
+					-- 		tagSupport = {
+					-- 			valueSet = { 2 },
+					-- 		}
+					-- 	}
+					-- },
+					-- },
 					settings = {
 						pyright = {
-							autoImportCompletions = true,
 							disableOrganizeImports = true, -- Use ruff
+							autoImportCompletions = true,
 						},
 						python = {
 							analysis = {
+								autoImportCompletions = true,
 								autoSearchPaths = true,
 								diagnosticMode = "openFilesOnly",
 								useLibraryCodeForTypes = true,
-								typeCheckingMode = 'off',
+								typeCheckingMode = 'strict',
 							},
 						},
 					},
