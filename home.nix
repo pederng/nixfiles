@@ -15,6 +15,9 @@
     stateVersion = "24.11";
     preferXdgDirectories = true;
     sessionPath = [ "$HOME/.local/bin" ];
+    sessionVariables = {
+      KUBECONFIG = "$HOME/.config/kube/config.yaml";
+    };
   };
 
   manual.manpages.enable = false;
