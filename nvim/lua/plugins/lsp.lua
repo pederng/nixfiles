@@ -53,14 +53,13 @@ return {
 					-- 			dynamicRegistration = false,
 					-- 		},
 					-- 	},
-					-- textDocument = {
-					-- 	publishDiagnostics = {
-					-- 		tagSupport = {
-					-- 			valueSet = { 2 },
-					-- 		}
-					-- 	}
-					-- },
-					-- },
+					textDocument = {
+						publishDiagnostics = {
+							tagSupport = {
+								valueSet = { 2 },
+							}
+						}
+					},
 					settings = {
 						pyright = {
 							disableOrganizeImports = true, -- Use ruff
