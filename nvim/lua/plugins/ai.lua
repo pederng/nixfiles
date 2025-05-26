@@ -6,6 +6,24 @@ return {
     end,
   },
   {
+    'johnseth97/codex.nvim',
+    lazy = true,
+    keys = {
+      {
+        '<leader>cc',
+        function() require('codex').toggle() end,
+        desc = 'Toggle Codex popup',
+      },
+    },
+    opts = {
+      keymaps     = {},        -- disable internal mapping
+      border      = 'rounded', -- or 'double'
+      width       = 0.8,
+      height      = 0.8,
+      autoinstall = true,
+    },
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false,

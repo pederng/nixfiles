@@ -23,6 +23,7 @@
     btop
     cabal-install
     codespell
+    codex
     cook-cli
     ctags
     difftastic
