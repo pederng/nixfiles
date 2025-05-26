@@ -1,10 +1,10 @@
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    config = function()
-      require("copilot").setup()
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   config = function()
+  --     require("copilot").setup()
+  --   end,
+  -- },
   -- {
   --   "yetone/avante.nvim",
   --   event = "VeryLazy",
