@@ -47,6 +47,10 @@ _:{
       "client" = {
         hostname = "login-client.univex.no";
       };
+      "34.*" = { # aws
+        user = "ubuntu";
+        identityFile = "/home/peder/.ssh/backend_key.pem";
+      };
       "*" = {
         user = "pedernot";
         serverAliveInterval = 60;
