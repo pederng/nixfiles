@@ -47,18 +47,19 @@ return {
 				nixd = {},
 				hls = {},
 				pyright = {
-					-- capabilities = {
-					-- 	workspace = {
-					-- 		didChangeWatchedFiles = {
-					-- 			dynamicRegistration = false,
-					-- 		},
-					-- 	},
-					textDocument = {
-						publishDiagnostics = {
-							tagSupport = {
-								valueSet = { 2 },
+					capabilities = {
+						-- 	workspace = {
+						-- 		didChangeWatchedFiles = {
+						-- 			dynamicRegistration = false,
+						-- 		},
+						-- 	},
+						textDocument = {
+							publishDiagnostics = {
+								tagSupport = {
+									valueSet = { 2 },
+								}
 							}
-						}
+						},
 					},
 					settings = {
 						pyright = {
