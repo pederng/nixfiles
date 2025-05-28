@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./mipi.nix
+      # ./mipi.nix
     ];
 
   boot = {
