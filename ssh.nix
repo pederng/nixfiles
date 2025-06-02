@@ -1,4 +1,4 @@
-_:{
+{lib, ...} :{
   programs.ssh = {
     enable = true;
     forwardAgent = true;
@@ -47,7 +47,7 @@ _:{
       "client" = {
         hostname = "login-client.univex.no";
       };
-      "34.* 54.*" = { # aws
+      "34.* 54.*" = lib.hm.dag.entryBefore ["*"] { # aws
         user = "ubuntu";
         identityFile = "/home/peder/.ssh/backend_key.pem";
       };
