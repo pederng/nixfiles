@@ -41,13 +41,13 @@ _:{
         proxyCommand = "ssh -q -W bk-ci3.dhcp.bk.cptr.no:%p asbest";
         extraOptions = { SessionType = "none"; };
       };
-      "bk-ci**" = {
+      "bk-ci*" = {
         proxyCommand = "ssh -q -W %h.dhcp.bk.cptr.no:%p asbest";
       };
       "client" = {
         hostname = "login-client.univex.no";
       };
-      "34.*" = { # aws
+      "34.* 54.*" = { # aws
         user = "ubuntu";
         identityFile = "/home/peder/.ssh/backend_key.pem";
       };
