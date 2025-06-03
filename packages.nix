@@ -27,6 +27,7 @@
     cook-cli
     ctags
     difftastic
+    dig
     dmenu
     dmenu-wayland
     docker-buildx
