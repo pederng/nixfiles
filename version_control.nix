@@ -11,7 +11,7 @@
         };
         ui = {
           diff-editor = "vimdirdiff";
-          diff.tool = ["difft" "--color=always" "$left" "$right"];
+          diff-formatter = ["difft" "--color=always" "$left" "$right"];
           pager = ":builtin";
         };
         user = {

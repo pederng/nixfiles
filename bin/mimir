@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$HOME"/workspace/capture-backend/bin/mimir "$@"

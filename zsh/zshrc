@@ -124,6 +124,8 @@ if [ $commands[tinty] ]; then
 fi
 
 eval "$(capbak completion)"
+eval "$(mimir completion)"
+eval "$(search completion)"
 
 if [ $commands[kubectl] ]; then
   kubectl() {
