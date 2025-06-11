@@ -62,6 +62,7 @@
     openssl
     pavucontrol
     pinentry-qt
+    postgresql
     powertop
     ps_mem
     readline
