@@ -35,6 +35,14 @@
         proxyCommand = "ssh -q -W search1:%p bast1";
         extraOptions = { SessionType = "none"; };
       };
+      "mimir-db" = {
+        hostname = "search1";
+        localForwards = [
+          { bind.port = 5432; host.address = "mimir1a.int.no.cptr.no"; host.port = 5432; }
+        ];
+        proxyCommand = "ssh -q -W search1:%p bast1";
+        extraOptions = { SessionType = "none"; };
+      };
       "ci-cluster" = {
         hostname = "bk-ci3";
         dynamicForwards = [ { port = 1080; }];
