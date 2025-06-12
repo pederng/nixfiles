@@ -11,20 +11,18 @@
   };
   home.packages = with pkgs; [
     # kubectl
-    abook
     acpi
     alejandra
     ansible-language-server
+    ansible-lint
     ast-grep
     awscli2
     bat
-    bitwarden-cli
     brightnessctl
     btop
     cabal-install
     codespell
     codex
-    cook-cli
     ctags
     difftastic
     dig
