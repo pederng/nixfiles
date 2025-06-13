@@ -31,6 +31,7 @@
     docker-buildx
     docker-compose-language-service
     entr
+    exiftool
     fastmod
     fd
     firefox
