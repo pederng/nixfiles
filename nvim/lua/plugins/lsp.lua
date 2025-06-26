@@ -18,82 +18,6 @@ return {
 					}, ev.buf)
 				end,
 			})
-
-
-			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			local servers = {
-				ansiblels = {},
-				bashls = {},
-				ruff = {
-					settings = {
-						organizeImports = true,
-						fixAll = true
-					}
-				},
-				dockerls = {
-					settings = {
-						docker = {
-							languageserver = {
-								formatter = {
-									ignoreMultilineInstructions = true,
-								},
-							},
-						}
-					}
-				},
-				docker_compose_language_service = {},
-				terraformls = {},
-				rust_analyzer = {},
-				nixd = {},
-				hls = {},
-				pyright = {
-					capabilities = {
-						-- 	workspace = {
-						-- 		didChangeWatchedFiles = {
-						-- 			dynamicRegistration = false,
-						-- 		},
-						-- 	},
-						textDocument = {
-							publishDiagnostics = {
-								tagSupport = {
-									valueSet = { 2 },
-								}
-							}
-						},
-					},
-					settings = {
-						pyright = {
-							disableOrganizeImports = true, -- Use ruff
-							autoImportCompletions = true,
-						},
-						python = {
-							analysis = {
-								autoImportCompletions = true,
-								autoSearchPaths = true,
-								diagnosticMode = "openFilesOnly",
-								useLibraryCodeForTypes = true,
-								typeCheckingMode = 'strict',
-							},
-						},
-					},
-				},
-				lua_ls = {
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "vim" },
-							},
-						},
-					},
-				},
-			}
-			for lsp, config in pairs(servers) do
-				require("lspconfig")[lsp].setup({
-					capabilities = config.capabilities or capabilities,
-					settings = config.settings,
-					on_attach = require("lsp-format").on_attach,
-				})
-			end
 		end,
 	},
 
@@ -125,7 +49,7 @@ return {
 					-- null_ls.builtins.code_actions.statix,
 					null_ls.builtins.formatting.alejandra,
 					null_ls.builtins.diagnostics.codespell.with({
-						extra_args = { "-L", "nin,bu" }
+						extra_args = { "-L", "nin,bu,tigger" }
 					}),
 				}
 			})

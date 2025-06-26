@@ -30,6 +30,7 @@
     dmenu-wayland
     docker-buildx
     docker-compose-language-service
+    dockerfile-language-server-nodejs
     entr
     exiftool
     fastmod
