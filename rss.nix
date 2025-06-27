@@ -50,6 +50,7 @@ _: {
           (yt   "UC1zIiKvJIi7aYl2N68pWF8g")  # DivKid
           (yt   "UCOq5r8PZawDT9wV1wxzw0VQ")  # Monotrail
           (yt   "UCy1tvekyTbDs35hwcaWHbpg")  # MakeNoise
+          (yt   "UCO6ZpP3Y8jtrH6emtMSBegQ")  # Bries
       ];
     };
 
