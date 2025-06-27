@@ -16,7 +16,6 @@ local function get_tinty_theme()
 	end
 end
 
-
 local function handle_focus_gained()
 	local new_theme_name = get_tinty_theme()
 	local current_theme_name = vim.g.colors_name

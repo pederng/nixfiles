@@ -1,15 +1,16 @@
 return {
-	{ "hrsh7th/cmp-nvim-lsp",  branch = "main" },
-	{ "hrsh7th/cmp-buffer",    branch = "main" },
-	{ "hrsh7th/cmp-path",      branch = "main" },
-	{ "hrsh7th/cmp-cmdline",   branch = "main" },
+	{ "hrsh7th/cmp-nvim-lsp", branch = "main" },
+	{ "hrsh7th/cmp-buffer", branch = "main" },
+	{ "hrsh7th/cmp-path", branch = "main" },
+	{ "hrsh7th/cmp-cmdline", branch = "main" },
 	{
 		"hrsh7th/nvim-cmp",
 		branch = "main",
 		config = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+				return col ~= 0
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 			local cmp = require("cmp")
 

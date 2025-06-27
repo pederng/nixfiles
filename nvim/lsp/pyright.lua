@@ -9,8 +9,8 @@ return {
 			publishDiagnostics = {
 				tagSupport = {
 					valueSet = { 2 },
-				}
-			}
+				},
+			},
 		},
 	},
 	settings = {
@@ -24,7 +24,7 @@ return {
 				autoSearchPaths = true,
 				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
-				typeCheckingMode = 'strict',
+				typeCheckingMode = "strict",
 			},
 		},
 	},

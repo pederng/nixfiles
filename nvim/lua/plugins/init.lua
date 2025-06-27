@@ -10,7 +10,7 @@ return {
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	-- Text objects
-	{ "kana/vim-textobj-entire",         dependencies = { 'kana/vim-textobj-user' } },
+	{ "kana/vim-textobj-entire", dependencies = { "kana/vim-textobj-user" } },
 
 	-- -- File system
 	{ "tpope/vim-vinegar" },
@@ -20,7 +20,7 @@ return {
 	{ "nathangrigg/vim-beancount" },
 	{ "jjo/vim-cue" },
 	{ "luizribeiro/vim-cooklang" },
-	{ "ellisonleao/glow.nvim",           branch = "main" },
+	{ "ellisonleao/glow.nvim", branch = "main" },
 	{ "freitass/todo.txt-vim" },
 
 	-- Visuals
@@ -46,7 +46,7 @@ return {
 	},
 	-- { "romgrk/nvim-treesitter-context" },
 	{ "tinted-theming/tinted-vim" },
-	{ "stevearc/dressing.nvim",        opts = {} },
+	{ "stevearc/dressing.nvim", opts = {} },
 	{ "ntpeters/vim-better-whitespace" },
 	{
 		"oysandvik94/curl.nvim",
@@ -55,7 +55,6 @@ return {
 		},
 		config = function()
 			require("curl").setup({})
-		end
-	}
-
+		end,
+	},
 }

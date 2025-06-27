@@ -1,6 +1,6 @@
 return {
 	settings = {
 		organizeImports = true,
-		fixAll = true
-	}
+		fixAll = true,
+	},
 }
