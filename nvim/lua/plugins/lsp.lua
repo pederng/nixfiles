@@ -21,10 +21,27 @@ return {
 		end,
 	},
 
-	{ "lukas-reineke/lsp-format.nvim" },
+	{
+		'stevearc/conform.nvim',
+		config = function()
+			require('conform').setup({
+				format_on_save = {
+					-- These options will be passed to conform.format()
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+				formatters_by_ft = {
+					lua = { "stylua" },
+					python = { "ruff_format", "ruff_organize_imports" },
+					nix = { "alejandra" },
+				}
+			})
+		end
+	},
+
 	{ "onsails/lspkind.nvim" },
 	{ "ray-x/lsp_signature.nvim" },
-	{ "folke/lsp-colors.nvim",        branch = "main" },
+	{ "folke/lsp-colors.nvim",   branch = "main" },
 	{
 		"lewis6991/hover.nvim",
 		config = function()
@@ -47,7 +64,6 @@ return {
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.statix,
 					-- null_ls.builtins.code_actions.statix,
-					null_ls.builtins.formatting.alejandra,
 					null_ls.builtins.diagnostics.codespell.with({
 						extra_args = { "-L", "nin,bu,tigger" }
 					}),
