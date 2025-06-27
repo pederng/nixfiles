@@ -77,6 +77,7 @@
     statix
     stern
     strace
+    stylua
     swayimg
     tinty
     tokei
