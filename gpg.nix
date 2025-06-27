@@ -15,7 +15,10 @@
       enable = true;
       homedir = "${config.xdg.dataHome}/gnupg";
       publicKeys = [
-        { source = ./peder.galteland.pem; trust = "ultimate"; }
+        {
+          source = ./peder.galteland.pem;
+          trust = "ultimate";
+        }
       ];
     };
   };
@@ -27,5 +30,4 @@
     maxCacheTtl = 86400;
     pinentry.package = pkgs.pinentry-qt;
   };
-
 }

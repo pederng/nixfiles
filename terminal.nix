@@ -1,4 +1,8 @@
-{pkgs, lib, ...}:{
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs = {
     foot = {
       enable = true;
@@ -96,14 +100,22 @@
           disabled = false;
           format = "[$context](blue)[\(:$namespace\)](dimmed green) ";
           contexts = [
-            { context_pattern = "kind-coffer-dev"; context_alias = "dev"; }
-            { context_pattern = "coffer-test-aks"; context_alias = "test"; }
-            { context_pattern = "coffer-prod-dora"; context_alias = "prod"; }
+            {
+              context_pattern = "kind-coffer-dev";
+              context_alias = "dev";
+            }
+            {
+              context_pattern = "coffer-test-aks";
+              context_alias = "test";
+            }
+            {
+              context_pattern = "coffer-prod-dora";
+              context_alias = "prod";
+            }
           ];
         };
         aws = {disabled = true;};
       };
     };
-
   };
 }

@@ -1,6 +1,4 @@
-{ ...  }:
-
-{
+{...}: {
   imports = [
     ./packages.nix
     ./programs.nix
@@ -14,7 +12,7 @@
     homeDirectory = "/home/peder";
     stateVersion = "24.11";
     preferXdgDirectories = true;
-    sessionPath = [ "$HOME/.local/bin" ];
+    sessionPath = ["$HOME/.local/bin"];
     sessionVariables = {
       KUBECONFIG = "$HOME/.config/kube/config.yaml";
     };
@@ -38,5 +36,4 @@
   xdg.configFile = {
     "tinted-theming/tinty/config.toml".source = ./tinty.toml;
   };
-
 }

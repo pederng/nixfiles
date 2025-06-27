@@ -35,22 +35,23 @@ _: {
       '';
 
       urls = let
-        feed = url: tags: { inherit url tags; };
-        yt = channel: (feed "https://youtube.com/feeds/videos.xml?channel_id=${channel}" ["yt"]); in [
-          (feed "https://this-week-in-rust.org/rss.xml" ["rust" "programming"])
-          (feed "https://haskellweekly.news/newsletter.atom" ["haskell" "programming"])
-          (feed "https://without.boats/blog/index.xml" ["rust" "programming"])
-          (feed "https://rachelbythebay.com/w/atom.xml" ["programming"])
-          (feed "http://journal.stuffwithstuff.com/rss.xml" ["programming"])
-          (feed "https://drewdevault.com/feed.xml" ["programming"])
-          (feed "https://www.ufried.com/blog/index.xml" ["programming"])
-          (feed "https://github.blog/feed/" ["programming"])
-          (yt   "UChYp9jNwqfpipGzCdLTxTTQ")  # Anders Boisen
-          (yt   "UCMb0O2CdPBNi-QqPk5T3gsQ")  # James Hoffman
-          (yt   "UC1zIiKvJIi7aYl2N68pWF8g")  # DivKid
-          (yt   "UCOq5r8PZawDT9wV1wxzw0VQ")  # Monotrail
-          (yt   "UCy1tvekyTbDs35hwcaWHbpg")  # MakeNoise
-          (yt   "UCO6ZpP3Y8jtrH6emtMSBegQ")  # Bries
+        feed = url: tags: {inherit url tags;};
+        yt = channel: (feed "https://youtube.com/feeds/videos.xml?channel_id=${channel}" ["yt"]);
+      in [
+        (feed "https://this-week-in-rust.org/rss.xml" ["rust" "programming"])
+        (feed "https://haskellweekly.news/newsletter.atom" ["haskell" "programming"])
+        (feed "https://without.boats/blog/index.xml" ["rust" "programming"])
+        (feed "https://rachelbythebay.com/w/atom.xml" ["programming"])
+        (feed "http://journal.stuffwithstuff.com/rss.xml" ["programming"])
+        (feed "https://drewdevault.com/feed.xml" ["programming"])
+        (feed "https://www.ufried.com/blog/index.xml" ["programming"])
+        (feed "https://github.blog/feed/" ["programming"])
+        (yt "UChYp9jNwqfpipGzCdLTxTTQ") # Anders Boisen
+        (yt "UCMb0O2CdPBNi-QqPk5T3gsQ") # James Hoffman
+        (yt "UC1zIiKvJIi7aYl2N68pWF8g") # DivKid
+        (yt "UCOq5r8PZawDT9wV1wxzw0VQ") # Monotrail
+        (yt "UCy1tvekyTbDs35hwcaWHbpg") # MakeNoise
+        (yt "UCO6ZpP3Y8jtrH6emtMSBegQ") # Bries
       ];
     };
 

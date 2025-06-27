@@ -1,4 +1,4 @@
-{lib, ...} :{
+{lib, ...}: {
   programs.ssh = {
     enable = true;
     forwardAgent = true;
@@ -31,23 +31,27 @@
       };
       "dora-cluster" = {
         hostname = "search1";
-        dynamicForwards = [ { port = 1080; }];
+        dynamicForwards = [{port = 1080;}];
         proxyCommand = "ssh -q -W search1:%p bast1";
-        extraOptions = { SessionType = "none"; };
+        extraOptions = {SessionType = "none";};
       };
       "mimir-db" = {
         hostname = "search1";
         localForwards = [
-          { bind.port = 5432; host.address = "mimir1a.int.no.cptr.no"; host.port = 5432; }
+          {
+            bind.port = 5432;
+            host.address = "mimir1a.int.no.cptr.no";
+            host.port = 5432;
+          }
         ];
         proxyCommand = "ssh -q -W search1:%p bast1";
-        extraOptions = { SessionType = "none"; };
+        extraOptions = {SessionType = "none";};
       };
       "ci-cluster" = {
         hostname = "bk-ci3";
-        dynamicForwards = [ { port = 1080; }];
+        dynamicForwards = [{port = 1080;}];
         proxyCommand = "ssh -q -W bk-ci3.dhcp.bk.cptr.no:%p asbest";
-        extraOptions = { SessionType = "none"; };
+        extraOptions = {SessionType = "none";};
       };
       "bk-ci*" = {
         proxyCommand = "ssh -q -W %h.dhcp.bk.cptr.no:%p asbest";
@@ -55,7 +59,8 @@
       "client" = {
         hostname = "login-client.univex.no";
       };
-      "34.* 54.*" = lib.hm.dag.entryBefore ["*"] { # aws
+      "34.* 54.*" = lib.hm.dag.entryBefore ["*"] {
+        # aws
         user = "ubuntu";
         identityFile = "/home/peder/.ssh/backend_key.pem";
       };

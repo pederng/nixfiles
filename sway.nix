@@ -1,8 +1,15 @@
-{lib, pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 300; command = "${pkgs.waylock}/bin/waylock"; }
+      {
+        timeout = 300;
+        command = "${pkgs.waylock}/bin/waylock";
+      }
     ];
   };
 
@@ -22,14 +29,38 @@
       };
 
       workspaceOutputAssign = [
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "1"; }
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "2"; }
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "3"; }
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "4"; }
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "5"; }
-        { output = "Dell Inc. DELL U2715H GH85D64103KS"; workspace = "6"; }
-        { output = "Dell Inc. DELL U2715H GH85D6410FGS"; workspace = "9"; }
-        { output = "Dell Inc. DELL U2715H GH85D6410FGS"; workspace = "10"; }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "1";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "2";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "3";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "4";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "5";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D64103KS";
+          workspace = "6";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D6410FGS";
+          workspace = "9";
+        }
+        {
+          output = "Dell Inc. DELL U2715H GH85D6410FGS";
+          workspace = "10";
+        }
       ];
 
       bars = [
@@ -49,8 +80,8 @@
       ];
 
       floating.criteria = [
-        { app_id = "fzfmenu"; }
-        { class = "Pavucontrol"; }
+        {app_id = "fzfmenu";}
+        {class = "Pavucontrol";}
       ];
 
       window.titlebar = false;
@@ -67,9 +98,9 @@
         "${modifier}+Shift+s" = "exec waylock";
         "${modifier}+p" = "exec fzflaunch";
         # this seems hacky
-        "--locked XF86AudioMicMute" = "exec sp";  # HHKB eject key
+        "--locked XF86AudioMicMute" = "exec sp"; # HHKB eject key
         "--locked XF86AudioPlay" = "exec sp";
-        "--locked XF86AudioMute"  = "exec wpctl set-mute \@DEFAULT_SINK@ toggle";
+        "--locked XF86AudioMute" = "exec wpctl set-mute \@DEFAULT_SINK@ toggle";
         "--locked XF86AudioLowerVolume" = "exec pactl set-sink-volume \@DEFAULT_SINK@ 5%-";
         "--locked XF86AudioRaiseVolume" = "exec pactl set-sink-volume \@DEFAULT_SINK@ 5%+";
       };
@@ -80,10 +111,10 @@
           tap = "enabled";
           middle_emulation = "enabled";
         };
-        "type:keyboard" =  {
-         xkb_layout  = "us";
-         xkb_variant  = "altgr-intl";
-         xkb_options = "ctrl:nocaps";
+        "type:keyboard" = {
+          xkb_layout = "us";
+          xkb_variant = "altgr-intl";
+          xkb_options = "ctrl:nocaps";
         };
       };
     };

@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -13,8 +12,10 @@
   };
 
   xdg.configFile = {
-    "nvim" = { source = ./nvim; recursive = true; };
+    "nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
     "vim/vimrc_background".source = ./vimrc_background;
   };
-
 }
