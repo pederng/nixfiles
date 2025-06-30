@@ -50,6 +50,15 @@ return {
 					file_types = { "markdown", "Avante" },
 				},
 				ft = { "markdown", "Avante" },
+				config = function()
+					require("render-markdown").setup()
+					vim.api.nvim_create_autocmd("FileType", {
+						pattern = "markdown",
+						callback = function(event)
+							vim.treesitter.start(event.buf, "markdown")
+						end,
+					})
+				end,
 			},
 		},
 	},
