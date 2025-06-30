@@ -53,6 +53,7 @@
     kubernetes-helm
     libnotify
     lsof
+    luarocks
     lynx
     mkcert
     nixd
