@@ -36,6 +36,7 @@
     fastmod
     fd
     firefox
+    gcc
     ghc
     gnumake
     go
@@ -53,6 +54,7 @@
     kubernetes-helm
     libnotify
     lsof
+    lua5_1
     luarocks
     lynx
     mkcert
@@ -86,6 +88,7 @@
     units
     unzip
     urlscan
+    viu
     waylock
     wget
     wl-clipboard
