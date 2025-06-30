@@ -88,7 +88,6 @@
     units
     unzip
     urlscan
-    viu
     waylock
     wget
     wl-clipboard
