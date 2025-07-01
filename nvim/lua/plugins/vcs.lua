@@ -1,7 +1,13 @@
 return {
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
-	{ "will133/vim-dirdiff" },
+	{
+		"julienvincent/hunk.nvim",
+		cmd = { "DiffEditor" },
+		config = function()
+			require("hunk").setup()
+		end,
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		branch = "main",

@@ -10,7 +10,7 @@
           mylog = ["log" "-r" "author('peder.galteland@softwarelab.no')"];
         };
         ui = {
-          diff-editor = "vimdirdiff";
+          diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
           diff-formatter = ["difft" "--color=always" "$left" "$right"];
           pager = ":builtin";
         };
