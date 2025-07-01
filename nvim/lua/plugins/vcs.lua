@@ -9,6 +9,12 @@ return {
 		end,
 	},
 	{
+		"nicolasgb/jj.nvim",
+		config = function()
+			require("jj").setup({})
+		end,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		branch = "main",
 		config = function()
