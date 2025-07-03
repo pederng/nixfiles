@@ -7,6 +7,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"nixd",
 	"pyright",
+	-- "ty",
 	"ruff",
 	"rust_analyzer",
 	"terraformls",
