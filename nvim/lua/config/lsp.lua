@@ -10,5 +10,4 @@ vim.lsp.enable({
 	-- "ty",
 	"ruff",
 	"rust_analyzer",
-	"terraformls",
 })
