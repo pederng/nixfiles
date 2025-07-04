@@ -9,5 +9,5 @@ vim.lsp.enable({
 	"pyright",
 	-- "ty",
 	"ruff",
-	"rust_analyzer",
+	-- "rust_analyzer",
 })
