@@ -24,7 +24,7 @@
           key = "4980821A221FE5B1";
         };
         git = {
-          push-bookmark-prefix = "pedernot/push-";
+          push-bookmark = "'pedernot/push-' ++ change_id.short()";
         };
         fix.tools.ruff-fix = {
           command = ["ruff" "check" "--fix"];
