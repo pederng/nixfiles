@@ -21,11 +21,11 @@
       lapping = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./lapping/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
-            home-manager.users.peder = import ./home.nix;
+            home-manager.users.peder = import ./lapping/home.nix;
           }
         ];
       };
