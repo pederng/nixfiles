@@ -13,9 +13,9 @@
 
   xdg.configFile = {
     "nvim" = {
-      source = ./nvim;
+      source = ../nvim;
       recursive = true;
     };
-    "vim/vimrc_background".source = ./vimrc_background;
+    "vim/vimrc_background".source = ../vimrc_background;
   };
 }

@@ -29,11 +29,11 @@
   };
 
   home.file.".local/bin" = {
-    source = ./bin;
+    source = ../bin;
     recursive = true;
   };
 
   xdg.configFile = {
-    "tinted-theming/tinty/config.toml".source = ./tinty.toml;
+    "tinted-theming/tinty/config.toml".source = ../tinty.toml;
   };
 }

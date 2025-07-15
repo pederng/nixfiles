@@ -18,7 +18,7 @@
     zsh = {
       enable = true;
       dotDir = ".config/zsh";
-      profileExtra = lib.strings.fileContents ./zsh/zprofile;
+      profileExtra = lib.strings.fileContents ../zsh/zprofile;
       plugins = [
         {
           name = "zsh-nix-shell";
@@ -34,9 +34,9 @@
       syntaxHighlighting.enable = true;
       initContent = builtins.concatStringsSep "\n" [
         ''
-          ${lib.strings.fileContents ./zsh/zshrc}
-          ${lib.strings.fileContents ./zsh/aliases.zsh}
-          ${lib.strings.fileContents ./zsh/functions.zsh}
+          ${lib.strings.fileContents ../zsh/zshrc}
+          ${lib.strings.fileContents ../zsh/aliases.zsh}
+          ${lib.strings.fileContents ../zsh/functions.zsh}
         ''
       ];
       history = {
@@ -49,7 +49,7 @@
       enable = true;
       package = pkgs.tmux;
       extraConfig = builtins.concatStringsSep "\n" [
-        (lib.strings.fileContents ./tmux.conf)
+        (lib.strings.fileContents ../tmux.conf)
       ];
       plugins = with pkgs; [
         {

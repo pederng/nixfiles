@@ -36,7 +36,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
-            home-manager.users.peder = import ./home.nix;
+            home-manager.users.peder = import ./nixos/home.nix;
           }
         ];
       };
