@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   programs = {
@@ -40,7 +41,7 @@
         ''
       ];
       history = {
-        path = "$ZDOTDIR/zsh/histfile";
+        path = "${config.programs.zsh.dotDir}/histfile";
       };
       defaultKeymap = "viins";
     };
