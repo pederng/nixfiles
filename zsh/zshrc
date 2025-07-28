@@ -51,10 +51,6 @@ export KEYTIMEOUT=10
 bindkey -M viins 'jk' vi-cmd-mode
 
 
-# Notes
-export NOTES_DIR=$XDG_DATA_HOME/notes
-export ZETTEL_DIR=$NOTES_DIR/zettelkasten
-
 # pipenv
 export PIPENV_VENV_IN_PROJECT=1
 
