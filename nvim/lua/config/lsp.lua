@@ -1,13 +1,11 @@
-vim.lsp.enable({
-	"ansiblels",
-	"bashls",
-	"docker_compose_language_service",
-	"dockerls",
-	"hls",
-	"lua_ls",
-	"nixd",
-	"pyright",
-	-- "ty",
-	"ruff",
-	-- "rust_analyzer",
-})
+vim.lsp.enable("ansiblels")
+vim.lsp.enable("bashls")
+vim.lsp.enable("docker_compose_language_service")
+vim.lsp.enable("dockerls")
+vim.lsp.enable("hls")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("nixd")
+vim.lsp.enable("pyright")
+-- vim.lsp.enable("ty")
+vim.lsp.enable("ruff")
+vim.lsp.enable("rust_analyzer")
