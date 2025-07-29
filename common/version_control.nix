@@ -13,6 +13,7 @@
           diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
           diff-formatter = ["difft" "--color=always" "$left" "$right"];
           pager = ":builtin";
+          default-command = "log";
         };
         user = {
           email = "peder.galteland@softwarelab.no";
