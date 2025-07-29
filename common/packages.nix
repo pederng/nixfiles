@@ -60,7 +60,6 @@
     mkcert
     nixd
     nodePackages.bash-language-server
-    nodePackages.npm
     nodejs
     openssl
     pavucontrol
