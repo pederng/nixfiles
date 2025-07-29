@@ -16,6 +16,5 @@
       source = ./nvim;
       recursive = true;
     };
-    "vim/vimrc_background".source = ./vimrc_background;
   };
 }
