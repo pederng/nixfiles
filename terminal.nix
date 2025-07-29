@@ -18,7 +18,7 @@
 
     zsh = {
       enable = true;
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       profileExtra = lib.strings.fileContents ./zsh/zprofile;
       plugins = [
         {
