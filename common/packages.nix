@@ -84,6 +84,8 @@
     tinty
     tokei
     tree
+    typos
+    typos-lsp
     units
     unzip
     urlscan
