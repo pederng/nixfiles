@@ -21,7 +21,6 @@
     brightnessctl
     btop
     cabal-install
-    codespell
     codex
     ctags
     difftastic
