@@ -43,7 +43,7 @@ _: {
         (feed "https://without.boats/blog/index.xml" ["rust" "programming"])
         (feed "https://rachelbythebay.com/w/atom.xml" ["programming"])
         (feed "http://journal.stuffwithstuff.com/rss.xml" ["programming"])
-        (feed "https://drewdevault.com/feed.xml" ["programming"])
+        (feed "https://drewdevault.com/blog/index.xml" ["programming"])
         (feed "https://www.ufried.com/blog/index.xml" ["programming"])
         (feed "https://github.blog/feed/" ["programming"])
         (yt "UChYp9jNwqfpipGzCdLTxTTQ") # Anders Boisen
