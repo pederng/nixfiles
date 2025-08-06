@@ -1,12 +1,20 @@
 {
   pkgs,
-  lib,
+  pkgs-stable,
+  config,
+  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     # ./mipi.nix
   ];
+
+  # Allow pkgs-stable to be accessed, and point to nixpkgs-stable from flake.nix
+  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -57,6 +65,7 @@
   services = {
     pipewire = {
       enable = true;
+      package = pkgs-stable.pipewire;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;

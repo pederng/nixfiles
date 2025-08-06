@@ -2,6 +2,7 @@
   description = "NixOS flake";
 
   inputs = {
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,11 +15,12 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
+  } @ inputs: {
     packages.x86_64-linux = home-manager.packages.x86_64-linux;
 
     nixosConfigurations = {
       lapping = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
           ./lapping/configuration.nix
