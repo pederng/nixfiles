@@ -61,7 +61,7 @@
     nodePackages.bash-language-server
     nodejs
     openssl
-    pavucontrol
+    pwvucontrol
     pinentry-qt
     postgresql
     powertop
