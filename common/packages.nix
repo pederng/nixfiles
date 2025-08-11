@@ -13,6 +13,7 @@
     # kubectl
     acpi
     alejandra
+    alsa-utils
     ansible-language-server
     ansible-lint
     ast-grep
@@ -61,11 +62,11 @@
     nodePackages.bash-language-server
     nodejs
     openssl
-    pwvucontrol
     pinentry-qt
     postgresql
     powertop
     ps_mem
+    pwvucontrol
     readline
     ripgrep
     rsync
