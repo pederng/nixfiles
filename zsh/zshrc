@@ -119,12 +119,9 @@ if [ $commands[tinty] ]; then
   }
 fi
 
-# If I have capbak I probably have the rest (or I want to have it)
-if [ $commands[capbak] ]; then
-  eval "$(capbak completion)"
-  eval "$(mimir completion)"
-  eval "$(search completion)"
-fi
+eval "$(capbak completion)"
+eval "$(mimir completion)"
+eval "$(search completion)"
 
 if [ $commands[kubectl] ]; then
   kubectl() {
