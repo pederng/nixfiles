@@ -38,14 +38,10 @@ _: {
         feed = url: tags: {inherit url tags;};
         yt = channel: (feed "https://youtube.com/feeds/videos.xml?channel_id=${channel}" ["yt"]);
       in [
-        (feed "https://this-week-in-rust.org/rss.xml" ["rust" "programming"])
-        (feed "https://haskellweekly.news/newsletter.atom" ["haskell" "programming"])
-        (feed "https://without.boats/blog/index.xml" ["rust" "programming"])
-        (feed "https://rachelbythebay.com/w/atom.xml" ["programming"])
-        (feed "http://journal.stuffwithstuff.com/rss.xml" ["programming"])
-        (feed "https://drewdevault.com/blog/index.xml" ["programming"])
-        (feed "https://www.ufried.com/blog/index.xml" ["programming"])
-        (feed "https://github.blog/feed/" ["programming"])
+        # (feed "https://without.boats/blog/index.xml" ["rust" "programming"])
+        # (feed "https://rachelbythebay.com/w/atom.xml" ["programming"])
+        # (feed "http://journal.stuffwithstuff.com/rss.xml" ["programming"])
+        # (feed "https://drewdevault.com/blog/index.xml" ["programming"])
         (yt "UChYp9jNwqfpipGzCdLTxTTQ") # Anders Boisen
         (yt "UCMb0O2CdPBNi-QqPk5T3gsQ") # James Hoffman
         (yt "UC1zIiKvJIi7aYl2N68pWF8g") # DivKid
