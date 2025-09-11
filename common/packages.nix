@@ -49,6 +49,7 @@
     jq
     k3s
     k9s
+    kafkactl
     kubectx
     kubelogin
     kubernetes-helm
