@@ -59,6 +59,8 @@
       wireplumber.enable = true;
     };
     hardware.bolt.enable = true;
+    tailscale.enable = true;
+    resolved.enable = true;
   };
 
   users.users.peder = {

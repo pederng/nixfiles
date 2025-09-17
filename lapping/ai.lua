@@ -30,7 +30,7 @@ return {
 		event = "VeryLazy",
 		version = false,
 		opts = {
-			provider = "codex",
+			provider = "openai",
 		},
 		build = "make",
 		dependencies = {
