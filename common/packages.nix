@@ -30,7 +30,7 @@
     dmenu-wayland
     docker-buildx
     docker-compose-language-service
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     entr
     exiftool
     fastmod
@@ -52,6 +52,7 @@
     kafkactl
     kubectx
     kubelogin
+    kubelogin-oidc
     kubernetes-helm
     libnotify
     lsof
