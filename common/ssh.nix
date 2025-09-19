@@ -1,7 +1,7 @@
 {lib, ...}: {
   programs.ssh = {
     enable = true;
-    forwardAgent = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "asbest" = {
         hostname = "bk.cptr.no";
@@ -68,6 +68,7 @@
         user = "pedernot";
         serverAliveInterval = 60;
         forwardX11 = false;
+        forwardAgent = true;
       };
     };
   };
