@@ -14,7 +14,7 @@
     acpi
     alejandra
     alsa-utils
-    ansible-language-server
+    # ansible-language-server
     ansible-lint
     ast-grep
     awscli2
