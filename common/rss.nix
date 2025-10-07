@@ -49,6 +49,7 @@ _: {
         (yt "UCy1tvekyTbDs35hwcaWHbpg") # MakeNoise
         (yt "UCO6ZpP3Y8jtrH6emtMSBegQ") # Bries
         (yt "UCCyw4GaWJHezSUowFJ_uH0A") # Tim Wendelboe
+        (yt "UCkamwny0IKatfz82LXcLTHQ") # Swedwoods
       ];
     };
 
