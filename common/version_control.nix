@@ -62,8 +62,10 @@
       };
       difftastic = {
         enable = true;
-        background = "dark";
-        color = "always";
+        options = {
+          background = "dark";
+          color = "always";
+        };
       };
       ignores = [
         "tags"
