@@ -17,7 +17,7 @@
     # ansible-language-server
     ansible-lint
     ast-grep
-    # awscli2
+    awscli2
     bat
     brightnessctl
     btop
