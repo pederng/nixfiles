@@ -53,6 +53,16 @@ return {
 				end,
 				preview_opts = { border = nil },
 				title = true,
+				providers = {
+					{
+						module = "hover.providers.lsp",
+						priority = 1001,
+					},
+					{
+						module = "hover.providers.diagnostic",
+						priority = 1000,
+					},
+				},
 			})
 		end,
 	},
