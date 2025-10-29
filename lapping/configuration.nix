@@ -51,8 +51,8 @@
   fonts.packages = with pkgs; [
     nerd-fonts.hack
     noto-fonts
-    noto-fonts-emoji
-    noto-fonts-extra
+    noto-fonts-color-emoji
+    noto-fonts
   ];
 
   services = {
