@@ -3,6 +3,7 @@ return {
 		ty = {
 			experimental = {
 				autoImport = true,
+				rename = true,
 			},
 		},
 	},
