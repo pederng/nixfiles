@@ -103,7 +103,6 @@ vim.lsp.config("pyright", {
 })
 -- vim.lsp.enable("pyright")
 
-vim.lsp.enable("ansiblels")
 vim.lsp.enable("bashls")
 vim.lsp.enable("docker_compose_language_service")
 vim.lsp.enable("hls")
