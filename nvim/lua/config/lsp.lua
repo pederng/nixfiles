@@ -102,6 +102,10 @@ vim.lsp.config("pyright", {
 	},
 })
 -- vim.lsp.enable("pyright")
+vim.lsp.config("hls", {
+	filetypes = { "haskell", "lhaskell", "cabal" },
+})
+vim.lsp.enable("hls")
 
 vim.lsp.enable("bashls")
 vim.lsp.enable("docker_compose_language_service")

@@ -14,7 +14,6 @@
     acpi
     alejandra
     alsa-utils
-    # ansible-language-server
     ansible-lint
     ast-grep
     awscli2
@@ -64,6 +63,7 @@
     nodePackages.bash-language-server
     nodejs
     openssl
+    ormolu
     pinentry-qt
     postgresql
     powertop
