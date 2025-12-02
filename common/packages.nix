@@ -20,7 +20,6 @@
     bat
     brightnessctl
     btop
-    cabal-install
     codex
     ctags
     difftastic
@@ -36,13 +35,11 @@
     fd
     firefox
     gcc
-    ghc
     gnumake
     go
     grim
     hadolint
     handlr
-    haskell-language-server
     helmfile
     hledger
     jq
@@ -77,7 +74,6 @@
     slurp
     sops
     spotify
-    stack
     statix
     stern
     strace
