@@ -104,6 +104,18 @@ vim.lsp.config("pyright", {
 -- vim.lsp.enable("pyright")
 vim.lsp.config("hls", {
 	filetypes = { "haskell", "lhaskell", "cabal" },
+	settings = {
+		haskell = {
+			cabalFormattingProvider = "cabal-fmt",
+			formattingProvider = "ormolu",
+			plugin = {
+				hlint = {
+
+					diagnosticsOn = false,
+				},
+			},
+		},
+	},
 })
 vim.lsp.enable("hls")
 
