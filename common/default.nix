@@ -15,6 +15,7 @@
     sessionPath = ["$HOME/.local/bin"];
     sessionVariables = {
       KUBECONFIG = "$HOME/.config/kube/config.yaml";
+      MOZ_ENABLE_WAYLAND = "1";
     };
   };
 

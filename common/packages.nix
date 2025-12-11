@@ -12,6 +12,8 @@
   home.packages = with pkgs; [
     # kubectl
     acpi
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal
     alejandra
     alsa-utils
     ansible-lint
