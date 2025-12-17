@@ -120,7 +120,6 @@ vim.lsp.config("hls", {
 vim.lsp.enable("hls")
 
 vim.lsp.enable("bashls")
-vim.lsp.enable("docker_compose_language_service")
 vim.lsp.enable("hls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("rust_analyzer")

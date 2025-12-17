@@ -28,7 +28,6 @@
     dig
     dmenu
     dmenu-wayland
-    docker-compose-language-service
     dockerfile-language-server
     entr
     exiftool
