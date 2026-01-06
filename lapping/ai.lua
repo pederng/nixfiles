@@ -30,7 +30,17 @@ return {
 		event = "VeryLazy",
 		version = false,
 		opts = {
-			provider = "openai",
+			provider = "codex",
+			acp_providers = {
+				["codex"] = {
+					command = "npx",
+					args = { "@zed-industries/codex-acp" },
+					env = {
+						NODE_NO_WARNINGS = "1",
+						OPENAI_API_KEY = os.getenv("OPENAI_API_KEY"),
+					},
+				},
+			},
 		},
 		build = "make",
 		dependencies = {
