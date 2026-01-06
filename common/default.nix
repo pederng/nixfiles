@@ -14,6 +14,7 @@
     preferXdgDirectories = true;
     sessionPath = ["$HOME/.local/bin"];
     sessionVariables = {
+      COMPOSE_BAKE = "true";
       KUBECONFIG = "$HOME/.config/kube/config.yaml";
       MOZ_ENABLE_WAYLAND = "1";
     };
