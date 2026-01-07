@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         aliases = {
-          l = ["log" "-r" "(master..@):: | (master..@)-"];
+          l = ["log" "-r" "(trunk()..@):: | (trunk()..@)-"];
           sl = ["log" "-l" "20"];
           al = ["log" "-r" "all()"];
           mylog = ["log" "-r" "author('peder.galteland@softwarelab.no')"];
